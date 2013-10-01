@@ -134,7 +134,9 @@ void manutencao(int i) {
 
 		switch (crud) {
 		case 1:
-			criar(i);
+			if(criar(i)){
+				cout<<entidade<<" criado(a) com sucesso."<<endl;
+			}
 			break;
 		case 2:
 			ler(i);
@@ -196,7 +198,6 @@ bool criar(int i) {
 		//e necessario mudar o true
 		Professor professor(nome, idDisciplina, profTurmas, true);
 		professores.push_back(professor);
-		cout << "Professor criado com sucesso" << endl;
 	} else if (i == 3) {
 		cout << "?!TURMA!?" << endl;
 		cout << "Numero da turma:" << endl;
@@ -206,10 +207,17 @@ bool criar(int i) {
 
 		Turma turma(idTurma, anoEscolar);
 		turmas.push_back(turma);
-		cout << "Turma criada com sucesso" << endl;
 	} else {
+		cout << "?!DISCIPLINA!?" << endl;
+		cout << "Nome:" << endl;
+		cin >> nome;
+		cout <<"Numero:"<<endl;
+		cin>>idDisciplina;
 
-	}
+		Disciplina disc(nome, idDisciplina);
+		disciplinas.push_back(disc);
+	}//tambem devera ter horario
+	return true;
 }
 
 bool ler(int i) {
