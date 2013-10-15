@@ -224,6 +224,7 @@ bool ler(int i) {
 	if(i==1){
 		if(alunos.empty()){
 			cout<<"Nao existem alunos para ler"<<endl;
+			return false;
 		}else{
 			for(unsigned int i=0;i<alunos.size();i++){
 				cout<<"Nome: "<<alunos[i].getNome()<<" - Numero: "<<alunos[i].getNumero()<<" - Turma: "<<alunos[i].getIDturma()<<endl;
@@ -232,22 +233,26 @@ bool ler(int i) {
 	}else if(i==2){
 		if(professores.empty()){
 			cout<<"Nao existem professores para ler"<<endl;
+			return false;
 		}
 	}else if(i==3){
 		if(turmas.empty()){
 			cout<<"Nao existem turmas para ler"<<endl;
+			return false;
 		}
 	}else{
 		if(disciplinas.empty()){
 			cout<<"Nao existem disciplinas para ler"<<endl;
+			return false;
 		}
 	}
+	return true;
 }
 
 bool actualizar(int i) {
-
+	return 0;
 }
 
 bool eliminar(int i) {
-
+	return 0;
 }
