@@ -13,7 +13,7 @@ using namespace std;
 
 ////Manutencao
 void menuManutencao(Escola * escola);
-void manutencao(int i);
+void manutencao(int i, Escola * escola);
 
 //Associacao
 void menuAssociacoes();
@@ -22,7 +22,7 @@ void menuAssociacoes();
 void menuListagens();
 
 ////CRUD
-//bool criar(int i);
+//bool criar(int i, Escola * escola);
 //bool ler(int i);
 //bool actualizar(int i);
 //bool eliminar(int i);
@@ -82,16 +82,16 @@ void menuManutencao(Escola * escola) {
 
 		switch (mmo) {
 		case 1:
-			manutencao(1);
+			manutencao(1, escola);
 			break;
 		case 2:
-			manutencao(2);
+			manutencao(2, escola);
 			break;
 		case 3:
-			manutencao(3);
+			manutencao(3, escola);
 			break;
 		case 4:
-			manutencao(4);
+			manutencao(4, escola);
 			break;
 		case 5:
 			break;
@@ -102,7 +102,7 @@ void menuManutencao(Escola * escola) {
 	} while (mmo != 5);
 }
 
-void manutencao(int i) {
+void manutencao(int i, Escola * escola) {
 	int crud;
 	string entidade;
 
@@ -130,7 +130,7 @@ void manutencao(int i) {
 
 		switch (crud) {
 		case 1:
-			//criar(i);
+			criar(i, escola);
 			break;
 		case 2:
 			//ler(i);
@@ -158,61 +158,66 @@ void menuListagens() {
 
 }
 
-//bool criar(int i) {
-//	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
-//	string nome = "";
-//	vector<int> profTurmas;
-//
-//	if (i == 1) {
-//		cout << "?!ALUNO!?" << endl;
-//		cout << "Nome:" << endl;
-//		cin >> nome;
-//		cout << "Numero:" << endl;
-//		cin >> numero;
-//		cout << "Numero da turma:" << endl;
-//		cin >> idTurma;
-//
-//		Aluno * aluno = new Aluno(idTurma, nome, numero);
-//		alunos.push_back(aluno);
-//		cout << "Aluno criado com sucesso" << endl;
-//	} else if (i == 2) {
-//		cout << "?!PROFESSOR!?" << endl;
-//		cout << "Nome:" << endl;
-//		cin >> nome;
-//		cout << "Identificacao da disciplina:" << endl;
-//		cin >> idDisciplina;
-//		cout << "Numero de turmas em que da aulas:" << endl;
-//		cin >> qtdTurmas;
-//		for (int i = 0; i < qtdTurmas; i++) {
-//			cout << "Numero da " << (i + 1) << "º turma:" << endl;
-//			cin >> idTurma;
-//			profTurmas.push_back(idTurma);
-//		}
-//		//director de turma
-//		//e necessario mudar o true
-//		Professor professor(nome, idDisciplina, profTurmas, true);
-//		professores.push_back(professor);
-//	} else if (i == 3) {
-//		cout << "?!TURMA!?" << endl;
-//		cout << "Numero da turma:" << endl;
-//		cin >> idTurma;
-//		cout << "Ano Escolar:" << endl;
-//		cin >> anoEscolar;
-//
-//		Turma turma(idTurma, anoEscolar);
-//		turmas.push_back(turma);
-//	} else {
-//		cout << "?!DISCIPLINA!?" << endl;
-//		cout << "Nome:" << endl;
-//		cin >> nome;
-//		cout << "Numero:" << endl;
-//		cin >> idDisciplina;
-//
-//		Disciplina disc(nome, idDisciplina);
-//		disciplinas.push_back(disc);
-//	}		//tambem devera ter horario
-//	return true;
-//}
+bool criar(int i, Escola * escola) {
+	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
+	string nome = "";
+	vector<int> profTurmas;
+
+	if (i == 1) {
+		if(!escola->getTurmas().size()){
+			cout << "?!ALUNO!?" << endl;
+			cout << "Nome:" << endl;
+			cin >> nome;
+			cout << "Numero:" << endl;
+			cin >> numero;
+			cout << "Numero da turma:" << endl;
+			cin >> idTurma;
+		} else {
+			cout << "Nao e possivel adicionar Alunos sem antes haver Turmas!" << endl;
+			return false;
+		}
+
+		Aluno * aluno = new Aluno(idTurma, nome, numero);
+		alunos.push_back(aluno);
+		cout << "Aluno criado com sucesso" << endl;
+	} else if (i == 2) {
+		cout << "?!PROFESSOR!?" << endl;
+		cout << "Nome:" << endl;
+		cin >> nome;
+		cout << "Identificacao da disciplina:" << endl;
+		cin >> idDisciplina;
+		cout << "Numero de turmas em que da aulas:" << endl;
+		cin >> qtdTurmas;
+		for (int i = 0; i < qtdTurmas; i++) {
+			cout << "Numero da " << (i + 1) << "º turma:" << endl;
+			cin >> idTurma;
+			profTurmas.push_back(idTurma);
+		}
+		//director de turma
+		//e necessario mudar o true
+		Professor professor(nome, idDisciplina, profTurmas, true);
+		professores.push_back(professor);
+	} else if (i == 3) {
+		cout << "?!TURMA!?" << endl;
+		cout << "Numero da turma:" << endl;
+		cin >> idTurma;
+		cout << "Ano Escolar:" << endl;
+		cin >> anoEscolar;
+
+		Turma turma(idTurma, anoEscolar);
+		turmas.push_back(turma);
+	} else {
+		cout << "?!DISCIPLINA!?" << endl;
+		cout << "Nome:" << endl;
+		cin >> nome;
+		cout << "Numero:" << endl;
+		cin >> idDisciplina;
+
+		Disciplina disc(nome, idDisciplina);
+		disciplinas.push_back(disc);
+	}		//tambem devera ter horario
+	return true;
+}
 //
 //bool ler(int i) {
 //	if (i == 1) {
