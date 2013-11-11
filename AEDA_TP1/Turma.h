@@ -6,6 +6,8 @@
 using namespace std;
 
 class Turma {
+
+private:
 	int id, anoEscolar;
 	Horario* horario;
 
