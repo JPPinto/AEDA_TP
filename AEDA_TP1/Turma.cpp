@@ -14,9 +14,7 @@ Turma::Turma(int id) {
 	this->anoEscolar = 0;
 }
 
-Turma::~Turma() {
-	// TODO Auto-generated destructor stub
-}
+Turma::~Turma() {}
 
 int Turma::getID(){
 	return id;

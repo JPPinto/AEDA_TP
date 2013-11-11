@@ -14,7 +14,7 @@ class Aluno {
 	int _numero;
 	Turma * _turma;
 public:
-	Aluno(string nome, int numero, int id);
+	Aluno(string nome, int numero,Turma * t);
 
 	string getNome();
 	int getNumero();
@@ -22,7 +22,7 @@ public:
 
 	void setNome(string nome);
 	void setNumero(int numero);
-	void setTurma(int id);
+	void setTurma(Turma * t);
 	bool operator==(Aluno * a2);
 };
 #endif /* ALUNO_H_ */

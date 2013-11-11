@@ -5,19 +5,19 @@ vector<Aluno *> Escola::getAlunos() {
 	return _alunos;
 }
 
-Aluno * Escola::getAlunoByNome(const string n) {
+Aluno * Escola::getAlunoByNome(string n) {
 	vector<Aluno*>::iterator it = _alunos.begin();
 	for (; it < _alunos.end(); it++) {
 		if ((*it)->getNome() == n) {
 			return (*it);
 		}
 	}
-	Aluno * a = new Aluno(n, 1, 1);
+	Aluno * a = new Aluno(n, 1, (new Turma()));
 	throw new AlunoNaoExistente(a);
 }
 
-bool Escola::addAlunos(string nome, int numero, int turma) {
-	Aluno * a2 = new Aluno(nome, numero, turma);
+bool Escola::addAluno(string nome, int numero, Turma * t) {
+	Aluno * a2 = new Aluno(nome, numero, t);
 	_alunos.push_back(a2);
 	return true;
 }
