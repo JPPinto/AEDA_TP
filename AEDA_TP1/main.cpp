@@ -285,12 +285,18 @@ bool criar(int i, Escola * escola) {
 }
 
 bool ler(int i, Escola * escola) {
+	int num;
+	string nome;
 	if (i == 1) {
 		if (escola->getAlunos().empty()) {
 			cout << "Nao existem alunos para ler" << endl;
 		} else {
-			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
-				cout << escola->showAluno(escola->getAlunos()[j]) << endl;
+			cout << "Qual o nome do aluno que pretende ver?" << endl;
+			getline(cin, nome);
+			try{
+				cout << escola->showAluno(escola->getAlunoByNome(nome)) << endl;
+			}catch(AlunoNaoExistente a){
+				cout<<a.getErro()<<endl;
 			}
 		}
 		return true;
@@ -298,8 +304,12 @@ bool ler(int i, Escola * escola) {
 		if (escola->getProfessores().empty()) {
 			cout << "Nao existem professores para ler" << endl;
 		} else {
-			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
-				cout << escola->showProfessor(escola->getProfessores()[j]) << endl;
+			cout << "Qual o nome do professor que pretende ver?" << endl;
+			getline(cin, nome);
+			try{
+				cout << escola->showProfessor(escola->getProfessorByNome(nome)) << endl;
+			}catch(ProfessorNaoExistente p){
+				cout<<p.getErro()<<endl;
 			}
 		}
 		return true;
@@ -307,8 +317,12 @@ bool ler(int i, Escola * escola) {
 		if (escola->getTurmas().empty()) {
 			cout << "Nao existem turmas para ler" << endl;
 		} else {
-			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
-				cout << escola->showTurma(escola->getTurmas()[j]) << endl;
+			cout <<"Qual o numero da turma que pretende ver?"<<endl;
+			cin >> num;
+			try{
+				cout << escola->showTurma(escola->getTurmaById(num)) << endl;
+			}catch(TurmaNaoExistente t){
+				cout<<t.getErro()<<endl;
 			}
 		}
 		return true;
@@ -316,8 +330,12 @@ bool ler(int i, Escola * escola) {
 		if (escola->getDiscipinas().empty()) {
 			cout << "Nao existem disciplinas para ler" << endl;
 		} else {
-			for (unsigned int j = 0; j < escola->getDiscipinas().size(); j++) {
-				cout << escola->showDisciplina(escola->getDiscipinas()[j]) << endl;
+			cout <<"Qual o nome da disciplina que pretende ver?"<<endl;
+			getline(cin, nome);
+			try{
+				cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
+			}catch(DisciplinaNaoExistente d){
+				cout<<d.getErro()<<endl;
 			}
 		}
 		return true;
