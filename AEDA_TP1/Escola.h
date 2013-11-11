@@ -57,9 +57,9 @@ public:
 
 
 	//Disciplina
-	vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
-	void setDisciplina(Disciplina* d);				///< Acrescenta disciplinas ao vector _disciplinas
-	Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
+	vector<Disciplina *> getDiscipinas();					///< Devolve todas as Disciplinas que sao leccionadas na Escola
+	void setDisciplina(Disciplina* d);						///< Acrescenta disciplinas ao vector _disciplinas
+	Disciplina * getDisciplinaByNome(const string n);		///< Devolve a Disciplina com o nome igual a n
 
 	bool addDisciplina(string nome, int d, int h);						///< Adiciona uma Disciplina a Escola
 	string showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra
