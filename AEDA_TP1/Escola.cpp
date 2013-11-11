@@ -143,13 +143,73 @@ bool Escola::removeProfessor(const string n){
 }
 
 //Turma
-vector<Turma *> getTurmas() ;
-Turma * getTurmaById(const int id);
+vector<Turma *> Escola::getTurmas(){
+	return _turmas;
+}
 
-bool addTurma(Turma * t);
-bool showTurma();
-bool updateTurma(Turma * t);
-bool removeTurma(const int id);
+Turma * Escola::getTurmaById(const int id){
+	vector<Turma*>::iterator it=_turmas.begin();
+	for(; it!=_turmas.end();it++){
+		if((*it)->getID()==id){
+			return (*it);
+		}
+	}
+	throw new TurmaNaoExistente((*it));
+}
+
+bool Escola::addTurma(int id, int anoEscolar){
+	Turma * t2 = new Turma(id, anoEscolar);
+	_turmas.push_back(t2);
+	return true;
+}
+
+string Escola::showTurma(Turma * t){
+	vector<Turma*>::iterator it = _turmas.begin();
+	stringstream s;
+	for (; it < _turmas.end(); it++) {
+		if ((*it) == t) {
+			s << "Turma: " << t->getID() << " - Ano: " << t->getAnoEscolar() << endl;
+			return s.str();
+		}
+	}
+
+	throw new TurmaNaoExistente(t);
+}
+
+bool Escola::updateTurma(Turma * t){
+	bool b = false;
+
+	vector<Turma*>::iterator it = _turmas.begin();
+
+	for (; it < _turmas.end(); it++) {
+		if ((*it) == t) {
+			b = true;
+			break;
+		}
+	}
+	if(b){
+		(*it) = t;
+		return true;
+	}
+	throw TurmaNaoExistente(t);
+}
+
+bool Escola::removeTurma(const int id){
+	bool b = false;
+
+	vector<Turma*>::iterator it = _turmas.begin();
+
+	for (; it < _turmas.end(); it++) {
+		if ((*it) == getTurmaById(id)) {
+			b = true;
+			break;
+		}
+	}
+	if(b){
+		_turmas.erase(it);
+	}
+	throw TurmaNaoExistente((*it));
+}
 
 //Disciplina
 vector<Disciplina *> getDiscipinas() ;

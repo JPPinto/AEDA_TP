@@ -47,8 +47,8 @@ public:
 	vector<Turma *> getTurmas();						///< Devolve todas as turmas existentes na Escola
 	Turma * getTurmaById(int id);						///< Devolve a Turma com o id igual a id
 
-	bool addTurma(Turma * t);								///< Adiciona uma Turma a Escola
-	bool showTurma(Turma * t);								///< Mostra a Turma no ecra
+	bool addTurma(int id, int anoEscolar);								///< Adiciona uma Turma a Escola
+	string showTurma(Turma * t);								///< Mostra a Turma no ecra
 	bool updateTurma(Turma * t);							///< Altera a informacao da Turma
 	bool removeTurma(const int id);							///< Remove uma Turma da Escola
 
