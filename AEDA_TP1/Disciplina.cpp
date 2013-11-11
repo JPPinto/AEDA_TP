@@ -8,9 +8,6 @@ Disciplina::Disciplina(string nome, int d, int h) {
 	setDuracao(d);
 }
 
-Disciplina::~Disciplina() {
-	// TODO Auto-generated destructor stub
-}
 
 string Disciplina::getNome() const{
 	return _nome;

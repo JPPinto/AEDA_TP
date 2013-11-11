@@ -54,7 +54,20 @@ bool Escola::updateAluno(Aluno * a) {
 }
 
 bool Escola::removeAluno(Aluno * a) {
+	bool b = false;
 
+	vector<Aluno*>::iterator it = _alunos.begin();
+
+	for (; it < _alunos.end(); it++) {
+		if ((*it) == a) {
+			b = true;
+			break;
+		}
+	}
+	if(b)
+		_alunos.erase(it);
+	else
+		throw AlunoNaoExistente(a);
 
 }
 

@@ -88,6 +88,6 @@ public:
 		s << "A duracao, " << _duracao << ", excedeu os limites estabelecidos!(0 - 90)" << endl;
 		return s.str();
 	}
-}
+};
 
 #endif

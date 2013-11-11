@@ -13,9 +13,8 @@ private:
 	int _duracao;					///< Duracao de uma aula da Disciplina em minutos
 	int _hora_inicio;				///< Hora de inicio da aula
 public:
-	Disciplina();
-	Disciplina(string _nome, int d, int h);
 
+	Disciplina(string _nome, int d, int h);
 	string getNome() const;
 	void setNome(string _nome);
 	int getDuracao() const;
@@ -24,6 +23,6 @@ public:
 	void setHoraInicio(int h);
 	int getHoraFim() const;
 
-	virtual ~Disciplina();
+	virtual ~Disciplina(){}
 };
 #endif /* DISCIPLINA_H_ */
