@@ -47,10 +47,11 @@ bool Escola::updateAluno(Aluno * a) {
 			break;
 		}
 	}
-	if(b)
+	if(b){
 		(*it) = a;
-	else
-		throw AlunoNaoExistente(a);
+		return true;
+	}
+	throw AlunoNaoExistente(a);
 }
 
 bool Escola::removeAluno(Aluno * a) {
@@ -64,38 +65,47 @@ bool Escola::removeAluno(Aluno * a) {
 			break;
 		}
 	}
-	if(b)
+	if(b){
 		_alunos.erase(it);
-	else
-		throw AlunoNaoExistente(a);
-
+	}
+	throw AlunoNaoExistente(a);
 }
 
 //Professor
-vector<Professor *> getProfessores(); ///< Devolve todos os professores existentes na Escola
-Professor * getProfessorByNome(const string n) ; ///< Devolve o Professor com o nome igual a n
+vector<Professor *> Escola::getProfessores(){
+	return _professores;
+}
 
-bool addProfessor(Professor * p);			///< Adiciona um Professor a Escola
-bool showProfessor();							///< Mostra o Professor no ecra
-bool updateProfessor(Professor * p);	///< Altera a informacao do Professor
-bool removeProfessor(const string n);		///< Remove um Professor da Escola
+Professor * Escola::getProfessorByNome(const string n){
+	for(int i=0;i < _professores.size();i++){
+		if(_professores[i]->getNome()==n){
+			return _professores[i];
+		}
+	}
+	//throw
+}
+
+bool Escola::addProfessor(Professor * p);
+bool Escola::showProfessor();
+bool Escola::updateProfessor(Professor * p);
+bool Escola::removeProfessor(const string n);
 
 //Turma
-vector<Turma *> getTurmas() ;///< Devolve todas as turmas existentes na Escola
-Turma * getTurmaById(const int id);		///< Devolve a Turma com o id igual a id
+vector<Turma *> getTurmas() ;
+Turma * getTurmaById(const int id);
 
-bool addTurma(Turma * t);						///< Adiciona uma Turma a Escola
-bool showTurma();									///< Mostra a Turma no ecra
-bool updateTurma(Turma * t);				///< Altera a informacao da Turma
-bool removeTurma(const int id);					///< Remove uma Turma da Escola
+bool addTurma(Turma * t);
+bool showTurma();
+bool updateTurma(Turma * t);
+bool removeTurma(const int id);
 
 //Disciplina
-vector<Disciplina *> getDiscipinas() ;	///< Devolve todas as Disciplinas que sao leccionadas na Escola
-Disciplina * getDisciplinaByNome(const string n);	///< Devolve a Disciplina com o nome igual a n
+vector<Disciplina *> getDiscipinas() ;
+Disciplina * getDisciplinaByNome(const string n);
 
-bool addDisciplina(Disciplina * d);		///< Adiciona uma Disciplina a Escola
-bool showDisciplina();							///< Mostra a Disciplina no ecra
-bool updateDisciplina(Disciplina * d);	///< Altera a informacao da Disciplina
+bool addDisciplina(Disciplina * d);
+bool showDisciplina();
+bool updateDisciplina(Disciplina * d);
 bool removeDisciplina(const string n);
 
 Escola::Escola() {
