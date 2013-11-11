@@ -16,6 +16,11 @@ Turma::Turma(int id, int anoEscolar) {
 	this->anoEscolar=anoEscolar;
 }
 
+Turma::Turma(int id) {
+	this->id=id;
+	this->anoEscolar = 0;
+}
+
 Turma::~Turma() {
 	// TODO Auto-generated destructor stub
 }

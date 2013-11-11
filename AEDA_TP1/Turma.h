@@ -19,6 +19,7 @@ class Turma {
 public:
 	Turma();
 	Turma(int id, int anoEscolar);
+	Turma(int id);
 	virtual ~Turma();
 	int getID();
 	void setID(int i);
