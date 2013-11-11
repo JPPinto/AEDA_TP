@@ -37,3 +37,7 @@ int Disciplina::getHoraInicio() const{
 void Disciplina::setHoraInicio(int h){
 	_hora_inicio = h;
 }
+
+int Disciplina::getHoraFim() const{
+	return _hora_inicio+_duracao;
+}

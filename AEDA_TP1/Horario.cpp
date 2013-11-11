@@ -8,10 +8,33 @@
 #include "Horario.h"
 
 Horario::Horario() {
-	// TODO Auto-generated constructor stub
 
 }
 
 Horario::~Horario() {
-	// TODO Auto-generated destructor stub
+
+}
+
+vector<Disciplina*> Horario::getDisciplinas()const{
+	return disciplinas;
+}
+
+
+bool Horario::addDisciplina(Disciplina* d){
+	bool b=false;
+
+	vector<Disciplina*>::iterator it=disciplinas.begin();
+	for(;it!=disciplinas.end();it++){
+		if((*it)->getHoraInicio()==d->getHoraInicio() || (*it)->getHoraFim()==d->getHoraFim()){
+			b=false;
+		}else{
+			b=true;
+			break;
+		}
+	}
+	if(b){
+		disciplinas.push_back(d);
+		return true;
+	}
+	return false;
 }
