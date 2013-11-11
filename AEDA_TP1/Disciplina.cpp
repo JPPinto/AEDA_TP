@@ -1,21 +1,11 @@
-/*
- * Disciplina.cpp
- *
- *  Created on: 30/09/2013
- *      Author: João
- */
-
 #include "Disciplina.h"
 
 Disciplina::Disciplina(){
 
 }
 
-Disciplina::Disciplina(string nome, int id) {
-	this->nome=nome;
-	this->id=id;
-	//iniciar vector
-
+Disciplina::Disciplina(string nome) {
+	this->_nome=nome;
 }
 
 Disciplina::~Disciplina() {
@@ -23,17 +13,9 @@ Disciplina::~Disciplina() {
 }
 
 string Disciplina::getNome(){
-	return nome;
+	return _nome;
 }
 
 void Disciplina::setNome(string nome){
-	this->nome=nome;
-}
-
-int Disciplina::getID(){
-	return id;
-}
-
-void Disciplina::setID(int id){
-	this->id=id;
+	this->_nome=nome;
 }

@@ -1,10 +1,3 @@
-/*
- * Disciplina.h
- *
- *  Created on: 30/09/2013
- *      Author: João
- */
-
 #ifndef DISCIPLINA_H_
 #define DISCIPLINA_H_
 
@@ -14,16 +7,14 @@
 using namespace std;
 
 class Disciplina {
-	string nome;
-	int id;
-
+private:
+	string _nome;
 public:
 	Disciplina();
-	Disciplina(string nome, int id);
+	Disciplina(string _nome);
 	virtual ~Disciplina();
 	string getNome();
-	void setNome(string nome);
-	int getID();
-	void setID(int id);
+	void setNome(string _nome);
+
 };
 #endif /* DISCIPLINA_H_ */
