@@ -29,24 +29,4 @@ vector<Disciplina *> Escola::getDiscipinas()const{
 }
 
 Escola::Escola(){
-	
-	for (int i = 0; i < _alunos.size(); i++)
-	{
-		delete(_alunos[i]);
-	}
-
-	for (int i = 0; i < _professores.size(); i++)
-	{
-		delete(_professores[i]);
-	}
-
-	for (int i = 0; i < _turmas.size(); i++)
-	{
-		delete(_turmas[i]);
-	}
-
-	for (int i = 0; i < _disciplinas.size(); i++)
-	{
-		delete(_disciplinas[i]);
-	}
 }

@@ -41,11 +41,7 @@ bool Professor::removeTurma(const int id){
 Professor::~Professor() {
 
 	delete(_disciplina);
-
-	for (int i = 0; i < _turmas.size(); i++)
-	{
-		delete(_turmas[i]);
-	}
+	_turmas.clear();
 }
 
 DirectorTurma::DirectorTurma(string n, Disciplina * d,Turma* t, Turma * t_responsavel):Professor(n,d,t){

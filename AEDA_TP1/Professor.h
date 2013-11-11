@@ -18,6 +18,7 @@
 
 using namespace std;
 
+/// Professor de uma Escola (class Base), podendo ou nao ser Director de Turma
 class Professor {
 
 private:
@@ -27,11 +28,11 @@ private:
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
 
 public:
-	Professor(string n, Disciplina * d,Turma* t);
+	Professor(string n, Disciplina * d,Turma* t);			///< Construtor de Professor inicializando com o minimo de uma turma
 
-	bool addTurma(Turma * t);
-	bool removeTurma(const int id);
-
+	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
+	bool removeTurma(const int id);							///< Remove uma Turma das do Professor
+	
 	void setNome(const string n){_nome = n;}
 	string getNome()const{return _nome;}
 	void setDisciplina(Disciplina * d){_disciplina = d;}
@@ -42,6 +43,7 @@ public:
 
 };
 
+/// Classe derivado de Professor tendo a mais um vector com as turmas de que e responsavel
 class DirectorTurma: public Professor{
 
 private:
