@@ -127,7 +127,7 @@ void manutencao(int i, Escola * escola) {
 		cout << "5. Voltar" << endl;
 
 		cin >> crud;
-
+		cin.clear(); cin.ignore(INT_MAX,'\n'); 
 		switch (crud) {
 		case 1:
 			criar(i, escola);
