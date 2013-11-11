@@ -8,7 +8,7 @@
 #include "Disciplina.h"
 
 using namespace std;
-
+/// Classe Base para Professor e Aluno
 class Pessoa {
 
 private:

@@ -9,16 +9,18 @@
 #define MAX_ALUNOS 30
 
 using namespace std;
-
+/// Aluno de uma escola
 class Aluno : public Pessoa{
 
 	int _numero;
 	Turma * _turma;
 public:
+
 	Aluno(string n, int numero,Turma * t);
 
 
 	int getNumero();
+
 	Turma * getTurma();
 
 	void setNumero(int numero);

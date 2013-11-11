@@ -35,7 +35,11 @@ public:
 	TurmaNaoExistente(Turma * t){
 		turma = t;
 	}
-	string getErro(){				///< Mensagem de erro lancada pela excepcao
+	/**
+	 * @brief Mensagem de erro lancada pela excepcao
+	 * @return
+	 */
+	string getErro(){
 		stringstream s;
 		s << "Turma " << turma->getID() << " nao existe!" << endl;
 		return s.str();

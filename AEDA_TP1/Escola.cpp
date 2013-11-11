@@ -1,6 +1,10 @@
 #include "Escola.h"
 
 //Aluno
+/**
+ *
+ * @return int _alunos
+ */
 vector<Aluno *> Escola::getAlunos() {
 	return _alunos;
 }
@@ -8,7 +12,11 @@ vector<Aluno *> Escola::getAlunos() {
 void Escola::setAluno(Aluno* a){
 	_alunos.push_back(a);
 }
-
+/**
+ *
+ * @param n
+ * @return
+ */
 Aluno * Escola::getAlunoByNome(string n) {
 	vector<Aluno*>::iterator it = _alunos.begin();
 	for (; it < _alunos.end(); it++) {
@@ -20,12 +28,24 @@ Aluno * Escola::getAlunoByNome(string n) {
 	throw new AlunoNaoExistente(a);
 }
 
+/**
+ *
+ * @param nome
+ * @param numero
+ * @param t
+ * @return
+ */
 bool Escola::addAluno(string nome, int numero, Turma * t) {
 	Aluno * a2 = new Aluno(nome, numero, t);
 	_alunos.push_back(a2);
 	return true;
 }
 
+/**
+ *
+ * @param a
+ * @return
+ */
 string Escola::showAluno(Aluno * a) {
 	vector<Aluno*>::iterator it = _alunos.begin();
 	stringstream s;
@@ -40,6 +60,11 @@ string Escola::showAluno(Aluno * a) {
 	throw new AlunoNaoExistente(a);
 }
 
+/**
+ *
+ * @param a
+ * @return
+ */
 bool Escola::updateAluno(Aluno * a) {
 	bool b = false;
 
@@ -58,6 +83,11 @@ bool Escola::updateAluno(Aluno * a) {
 	throw AlunoNaoExistente(a);
 }
 
+/**
+ *
+ * @param a
+ * @return boolean
+ */
 bool Escola::removeAluno(Aluno * a) {
 	bool b = false;
 
@@ -75,15 +105,28 @@ bool Escola::removeAluno(Aluno * a) {
 	throw AlunoNaoExistente(a);
 }
 
+/**
+ * @brief Devolve todos os professores existentes na Escola
+ * @return Professor * _professores
+ */
 //Professor
 vector<Professor *> Escola::getProfessores(){
 	return _professores;
 }
-	
+
+/**
+ * @brief Set method Professor* into Professores array
+ * @param p
+ */
 void Escola::setProfessor(Professor* p){
 	_professores.push_back(p);
 }
 
+/**
+ *
+ * @param n
+ * @return
+ */
 Professor * Escola::getProfessorByNome(const string n){
 	for(unsigned int i=0;i < _professores.size();i++){
 		if(_professores[i]->getNome()==n){
@@ -93,13 +136,23 @@ Professor * Escola::getProfessorByNome(const string n){
 	Professor* p=new Professor(n, NULL, NULL);
 	throw new ProfessorNaoExistente(p);
 }
-
+/**
+ *
+ * @param n
+ * @param d
+ * @param t
+ * @return
+ */
 bool Escola::addProfessor(string n, string  d, int t){
 	Professor * p2 = new Professor(n, getDisciplinaByNome(d), getTurmaById(t));
 	_professores.push_back(p2);
 	return true;
 }
-
+/**
+ *
+ * @param p
+ * @return
+ */
 string Escola::showProfessor(Professor * p){
 	vector<Professor*>::iterator it = _professores.begin();
 	stringstream s;
@@ -114,7 +167,11 @@ string Escola::showProfessor(Professor * p){
 	}
 	throw new ProfessorNaoExistente(p);
 }
-
+/**
+ *
+ * @param p
+ * @return
+ */
 bool Escola::updateProfessor(Professor * p){
 	bool b = false;
 
@@ -132,7 +189,11 @@ bool Escola::updateProfessor(Professor * p){
 	}
 	throw new ProfessorNaoExistente(p);
 }
-
+/**
+ *
+ * @param n
+ * @return
+ */
 bool Escola::removeProfessor(const string n){
 	bool b = false;
 
@@ -151,14 +212,25 @@ bool Escola::removeProfessor(const string n){
 }
 
 //Turma
+/**
+ *
+ * @return
+ */
 vector<Turma *> Escola::getTurmas(){
 	return _turmas;
 }
-
+/**
+ *
+ * @param t
+ */
 void Escola::setTurma(Turma* t){
 	_turmas.push_back(t);
 }
-
+/**
+ *
+ * @param id
+ * @return
+ */
 Turma * Escola::getTurmaById(const int id){
 	vector<Turma*>::iterator it=_turmas.begin();
 	for(; it!=_turmas.end();it++){
@@ -168,13 +240,22 @@ Turma * Escola::getTurmaById(const int id){
 	}
 	throw new TurmaNaoExistente((*it));
 }
-
+/**
+ *
+ * @param id
+ * @param anoEscolar
+ * @return
+ */
 bool Escola::addTurma(int id, int anoEscolar){
 	Turma * t2 = new Turma(id, anoEscolar);
 	_turmas.push_back(t2);
 	return true;
 }
-
+/**
+ *
+ * @param t
+ * @return
+ */
 string Escola::showTurma(Turma * t){
 	vector<Turma*>::iterator it = _turmas.begin();
 	stringstream s;
@@ -187,7 +268,11 @@ string Escola::showTurma(Turma * t){
 
 	throw new TurmaNaoExistente(t);
 }
-
+/**
+ *
+ * @param t
+ * @return
+ */
 bool Escola::updateTurma(Turma * t){
 	bool b = false;
 
@@ -205,7 +290,11 @@ bool Escola::updateTurma(Turma * t){
 	}
 	throw TurmaNaoExistente(t);
 }
-
+/**
+ *
+ * @param id
+ * @return
+ */
 bool Escola::removeTurma(const int id){
 	bool b = false;
 
@@ -222,16 +311,27 @@ bool Escola::removeTurma(const int id){
 	}
 	throw TurmaNaoExistente((*it));
 }
-
+/** */
 //Disciplina
+/**
+ *
+ * @return Disiciplina _disciplinas
+ */
 vector<Disciplina *> Escola::getDiscipinas() {
 	return _disciplinas;
 }
-	
+/**
+ *
+ * @param d
+ */
 void Escola::setDisciplina(Disciplina* d){
 	_disciplinas.push_back(d);
 }
-
+/**
+ *
+ * @param n
+ * @return
+ */
 Disciplina * Escola::getDisciplinaByNome(const string n){
 	vector<Disciplina*>::iterator it=_disciplinas.begin();
 	for(;it!=_disciplinas.end();it++){
@@ -241,13 +341,23 @@ Disciplina * Escola::getDisciplinaByNome(const string n){
 	}
 	throw new DisciplinaNaoExistente((*it));
 }
-
+/**
+ *
+ * @param nome
+ * @param d
+ * @param h
+ * @return
+ */
 bool Escola::addDisciplina(string nome, int d, int h){
 	Disciplina * d2 = new Disciplina(nome, d, h);
 	_disciplinas.push_back(d2);
 	return true;
 }
-
+/**
+ *
+ * @param d
+ * @return
+ */
 string Escola::showDisciplina(Disciplina * d){
 	vector<Disciplina*>::iterator it = _disciplinas.begin();
 	stringstream s;
@@ -260,7 +370,11 @@ string Escola::showDisciplina(Disciplina * d){
 	}
 	throw DisciplinaNaoExistente(d);
 }
-
+/**
+ *
+ * @param d
+ * @return
+ */
 bool Escola::updateDisciplina(Disciplina * d){
 	bool b = false;
 
@@ -278,7 +392,11 @@ bool Escola::updateDisciplina(Disciplina * d){
 	}
 	throw DisciplinaNaoExistente(d);
 }
-
+/**
+ *
+ * @param n
+ * @return
+ */
 bool Escola::removeDisciplina(const string n){
 	bool b = false;
 
