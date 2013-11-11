@@ -93,15 +93,15 @@ bool Escola::addProfessor(string n, string  d, int t){
 }
 
 bool Escola::showProfessor(Professor * p){
-
+	return true;
 }
 
 bool Escola::updateProfessor(Professor * p){
-
+	return true;
 }
 
 bool Escola::removeProfessor(const string n){
-
+	return true;
 }
 
 //Turma

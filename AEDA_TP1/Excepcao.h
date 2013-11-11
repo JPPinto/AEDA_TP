@@ -6,6 +6,7 @@
 #include "Disciplina.h"
 #include "Horario.h"
 #include "Aluno.h"
+#include "Professor.h"
 
 using namespace std;
 
@@ -78,8 +79,8 @@ public:
 class ProfessorNaoExistente
 {
 public:
-	Professor * professor;					///< Aluno inesxistente
-	ProfessorNaoExistente(Professor * p){
+	Professor* professor;					///< Aluno inesxistente
+	ProfessorNaoExistente(Professor* p){
 		professor = p;
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
