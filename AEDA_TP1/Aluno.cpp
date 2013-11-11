@@ -10,14 +10,9 @@
 #include "Escola.h"
 
 
-Aluno::Aluno(string nome, int numero,Turma * t){
-	this->_nome=nome;
+Aluno::Aluno(string n, int numero,Turma * t):Pessoa(n){
 	this->_numero=numero;
 	setTurma(t);
-}
-
-string Aluno::getNome(){
-	return _nome;
 }
 
 int Aluno::getNumero(){
@@ -26,10 +21,6 @@ int Aluno::getNumero(){
 
 Turma * Aluno::getTurma(){
 	return _turma;
-}
-
-void Aluno::setNome(string nome){
-	this->_nome=nome;
 }
 
 void Aluno::setNumero(int numero){
@@ -46,4 +37,11 @@ void Aluno::setTurma(Turma * t){
 
 bool Aluno::operator==(Aluno * a2){
 	return (getNome() == a2->getNome()) && (this->getNumero() == a2->getNumero());
+}
+
+string Aluno::print(){
+	stringstream s;
+			s << "Nome: " << getNome() << " - Numero: " << getNumero()
+					<< " - Turma: " << getNumero() << endl;
+			return s.str();
 }

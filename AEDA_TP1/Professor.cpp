@@ -3,8 +3,7 @@
 #include "Professor.h"
 
 
-Professor::Professor(string n, Disciplina * d,Turma * t) {
-	_nome = n;
+Professor::Professor(string n, Disciplina * d,Turma * t):Pessoa(n) {
 	_disciplina = d;
 	bool x = addTurma(t);
 }
@@ -87,6 +86,14 @@ DirectorTurma::~DirectorTurma(){
 }
 
 bool Professor::operator==(Professor * a2){
-	return (_nome == a2->getNome()) && (_disciplina == a2->getDiscipina());
+	return (getNome() == a2->getNome()) && (_disciplina == a2->getDiscipina());
 }
 
+string Professor::print(){
+	stringstream s;
+	s << "Nome: " << getNome() << " - Disciplina: " << getDiscipina()->getNome() << endl;
+	for(unsigned int i=0;i< getTurmas().size();i++){
+		s<< " - Turma: " << getTurmas()[i]->getID() << " - Ano: " << getTurmas()[i]->getAnoEscolar() << endl;
+	}
+	return s.str();
+}

@@ -9,11 +9,23 @@
 
 using namespace std;
 
-/// Professor de uma Escola (class Base), podendo ou nao ser Director de Turma
-class Professor {
+class Pessoa {
 
 private:
-	string _nome;					///< Nome do Professor
+	string _nome;
+
+public:
+	Pessoa(string n){_nome = n;}
+	void setNome(const string n){_nome = n;}
+	string getNome()const{return _nome;}
+	virtual string print(){return "";}
+
+};
+
+/// Professor de uma Escola (class Base), podendo ou nao ser Director de Turma
+class Professor : public Pessoa{
+
+	///< Nome do Professor
 	Disciplina * _disciplina;		///< Disciplina que o Professor lecciona
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
@@ -22,9 +34,8 @@ public:
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
 	bool removeTurma(const int id);							///< Remove uma Turma das do Professor
-	
-	void setNome(const string n){_nome = n;}
-	string getNome()const{return _nome;}
+
+	string print();
 	void setDisciplina(Disciplina * d){_disciplina = d;}
 	Disciplina * getDiscipina()const{return _disciplina;}
 	vector<Turma *> getTurmas()const{return _turmas;}
