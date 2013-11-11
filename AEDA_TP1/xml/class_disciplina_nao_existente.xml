@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_disciplina_nao_existente" kind="class" prot="public">
+    <compoundname>DisciplinaNaoExistente</compoundname>
+    <includes refid="_excepcao_8h" local="no">Excepcao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_disciplina_nao_existente_1ad681e3d7b6ba5c6120b23084bf4ae657" prot="public" static="no" mutable="no">
+        <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+        <definition>Disciplina* DisciplinaNaoExistente::disciplina</definition>
+        <argsstring></argsstring>
+        <name>disciplina</name>
+        <briefdescription>
+<para><ref refid="class_aluno" kindref="compound">Aluno</ref> inesxistente. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="102" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_disciplina_nao_existente_1a6a31b19d16df94d71d2ee360600d5150" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DisciplinaNaoExistente::DisciplinaNaoExistente</definition>
+        <argsstring>(Disciplina *d)</argsstring>
+        <name>DisciplinaNaoExistente</name>
+        <param>
+          <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="103" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disciplina_nao_existente_1a6a201b94440edd339ec05d1e9db8319b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string DisciplinaNaoExistente::getErro</definition>
+        <argsstring>()</argsstring>
+        <name>getErro</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Mensagem de erro lancada pela excepcao </para>        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="106" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_disciplina_nao_existente_1a4c0655a54da71a17d8f0fba702cf374d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual DisciplinaNaoExistente::~DisciplinaNaoExistente</definition>
+        <argsstring>()</argsstring>
+        <name>~DisciplinaNaoExistente</name>
+        <briefdescription>
+<para>Destrutor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="111" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Excepcao lancada quando o <ref refid="class_professor" kindref="compound">Professor</ref> a ser acedido nao existe. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="21">
+        <label>DisciplinaNaoExistente</label>
+        <link refid="class_disciplina_nao_existente"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>disciplina</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Disciplina</label>
+        <link refid="class_disciplina"/>
+      </node>
+    </collaborationgraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="100" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="99" bodyend="112"/>
+    <listofallmembers>
+      <member refid="class_disciplina_nao_existente_1ad681e3d7b6ba5c6120b23084bf4ae657" prot="public" virt="non-virtual"><scope>DisciplinaNaoExistente</scope><name>disciplina</name></member>
+      <member refid="class_disciplina_nao_existente_1a6a31b19d16df94d71d2ee360600d5150" prot="public" virt="non-virtual"><scope>DisciplinaNaoExistente</scope><name>DisciplinaNaoExistente</name></member>
+      <member refid="class_disciplina_nao_existente_1a6a201b94440edd339ec05d1e9db8319b" prot="public" virt="non-virtual"><scope>DisciplinaNaoExistente</scope><name>getErro</name></member>
+      <member refid="class_disciplina_nao_existente_1a4c0655a54da71a17d8f0fba702cf374d" prot="public" virt="virtual"><scope>DisciplinaNaoExistente</scope><name>~DisciplinaNaoExistente</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_turma_nao_existente" kind="class" prot="public">
+    <compoundname>TurmaNaoExistente</compoundname>
+    <includes refid="_excepcao_8h" local="no">Excepcao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_turma_nao_existente_1ab14dc459c3d9bd70bea8e583b2ce072e" prot="public" static="no" mutable="no">
+        <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+        <definition>Turma* TurmaNaoExistente::turma</definition>
+        <argsstring></argsstring>
+        <name>turma</name>
+        <briefdescription>
+<para><ref refid="class_turma" kindref="compound">Turma</ref> inesxistente. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="34" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_turma_nao_existente_1a9c2b3b2ad6de696dd3432951b278c975" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TurmaNaoExistente::TurmaNaoExistente</definition>
+        <argsstring>(Turma *t)</argsstring>
+        <name>TurmaNaoExistente</name>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="35" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_turma_nao_existente_1a5672fe80509c285ce4468137c3574351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string TurmaNaoExistente::getErro</definition>
+        <argsstring>()</argsstring>
+        <name>getErro</name>
+        <briefdescription>
+<para>Mensagem de erro lancada pela excepcao. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="42" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_turma_nao_existente_1a89025d5c39ff6a1590e2e7bb010fa3b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual TurmaNaoExistente::~TurmaNaoExistente</definition>
+        <argsstring>()</argsstring>
+        <name>~TurmaNaoExistente</name>
+        <briefdescription>
+<para>Destrutor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="47" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Excepcao lancada quando a <ref refid="class_turma" kindref="compound">Turma</ref> a ser acedida nao existe. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="50">
+        <label>Turma</label>
+        <link refid="class_turma"/>
+      </node>
+      <node id="49">
+        <label>TurmaNaoExistente</label>
+        <link refid="class_turma_nao_existente"/>
+        <childnode refid="50" relation="usage">
+          <edgelabel>turma</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="32" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="31" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_turma_nao_existente_1a5672fe80509c285ce4468137c3574351" prot="public" virt="non-virtual"><scope>TurmaNaoExistente</scope><name>getErro</name></member>
+      <member refid="class_turma_nao_existente_1ab14dc459c3d9bd70bea8e583b2ce072e" prot="public" virt="non-virtual"><scope>TurmaNaoExistente</scope><name>turma</name></member>
+      <member refid="class_turma_nao_existente_1a9c2b3b2ad6de696dd3432951b278c975" prot="public" virt="non-virtual"><scope>TurmaNaoExistente</scope><name>TurmaNaoExistente</name></member>
+      <member refid="class_turma_nao_existente_1a89025d5c39ff6a1590e2e7bb010fa3b7" prot="public" virt="virtual"><scope>TurmaNaoExistente</scope><name>~TurmaNaoExistente</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

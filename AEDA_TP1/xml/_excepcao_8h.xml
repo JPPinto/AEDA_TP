@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="_excepcao_8h" kind="file">
+    <compoundname>Excepcao.h</compoundname>
+    <includes local="no">sstream</includes>
+    <includes refid="_turma_8h" local="yes">Turma.h</includes>
+    <includes refid="_disciplina_8h" local="yes">Disciplina.h</includes>
+    <includes refid="_horario_8h" local="yes">Horario.h</includes>
+    <includes refid="_aluno_8h" local="yes">Aluno.h</includes>
+    <includes refid="_professor_8h" local="yes">Professor.h</includes>
+    <includedby refid="_aluno_8cpp" local="yes">Aluno.cpp</includedby>
+    <includedby refid="_escola_8h" local="yes">Escola.h</includedby>
+    <includedby refid="_disciplina_8cpp" local="yes">Disciplina.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <includedby refid="_professor_8cpp" local="yes">Professor.cpp</includedby>
+    <incdepgraph>
+      <node id="75">
+        <label>Professor.h</label>
+        <link refid="_professor_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>Aluno.h</label>
+        <link refid="_aluno_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>string</label>
+      </node>
+      <node id="69">
+        <label>Turma.h</label>
+        <link refid="_turma_8h_source"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>vector</label>
+      </node>
+      <node id="68">
+        <label>sstream</label>
+      </node>
+      <node id="72">
+        <label>Disciplina.h</label>
+        <link refid="_disciplina_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>Horario.h</label>
+        <link refid="_horario_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>Excepcao.h</label>
+        <link refid="Excepcao.h"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="77">
+        <label>Escola.h</label>
+        <link refid="_escola_8h_source"/>
+      </node>
+      <node id="76">
+        <label>Excepcao.h</label>
+        <link refid="Excepcao.h"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_turma_existente" prot="public">TurmaExistente</innerclass>
+    <innerclass refid="class_turma_nao_existente" prot="public">TurmaNaoExistente</innerclass>
+    <innerclass refid="class_alunos_por_turma_excedido" prot="public">AlunosPorTurmaExcedido</innerclass>
+    <innerclass refid="class_aluno_nao_existente" prot="public">AlunoNaoExistente</innerclass>
+    <innerclass refid="class_professor_nao_existente" prot="public">ProfessorNaoExistente</innerclass>
+    <innerclass refid="class_disciplina_nao_existente" prot="public">DisciplinaNaoExistente</innerclass>
+    <innerclass refid="class_duracao_excedida" prot="public">DuracaoExcedida</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>EXCEPCAO_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>EXCEPCAO_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Turma.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Disciplina.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Horario.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Aluno.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Professor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_turma_existente" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_turma_existente" kindref="compound" tooltip="Excepcao lancada quando uma Turma a ser adicionada ao vector de Turmas de uma Professor que ja contem...">TurmaExistente</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18" refid="class_turma_existente_1a7af4e8a63dd324498ebd01cee1a956f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/><ref refid="class_turma_existente_1a7af4e8a63dd324498ebd01cee1a956f3" kindref="member" tooltip="Turma ja existente.">turma</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_turma_existente" kindref="compound" tooltip="Excepcao lancada quando uma Turma a ser adicionada ao vector de Turmas de uma Professor que ja contem...">TurmaExistente</ref>(<ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t){<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>turma<sp/>=<sp/>t;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22" refid="class_turma_existente_1a96340570dfd3b2a4122c8ba8820dac4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_turma_existente_1a96340570dfd3b2a4122c8ba8820dac4a" kindref="member">getErro</ref>(){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Turma<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>turma-&gt;getID()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ja<sp/>e<sp/>leccionada<sp/>por<sp/>este<sp/>professor!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27" refid="class_turma_existente_1a6b3ec0715645fd0ea2589dace1ccd0bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_turma_existente_1a6b3ec0715645fd0ea2589dace1ccd0bf" kindref="member" tooltip="Destrutor.">~TurmaExistente</ref>(){}<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_turma_nao_existente" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_turma_nao_existente" kindref="compound" tooltip="Excepcao lancada quando a Turma a ser acedida nao existe.">TurmaNaoExistente</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34" refid="class_turma_nao_existente_1ab14dc459c3d9bd70bea8e583b2ce072e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/><ref refid="class_turma_nao_existente_1ab14dc459c3d9bd70bea8e583b2ce072e" kindref="member" tooltip="Turma inesxistente.">turma</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_turma_nao_existente" kindref="compound" tooltip="Excepcao lancada quando a Turma a ser acedida nao existe.">TurmaNaoExistente</ref>(<ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t){</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>turma<sp/>=<sp/>t;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42" refid="class_turma_nao_existente_1a5672fe80509c285ce4468137c3574351" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_turma_nao_existente_1a5672fe80509c285ce4468137c3574351" kindref="member" tooltip="Mensagem de erro lancada pela excepcao.">getErro</ref>(){</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Turma<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>turma-&gt;getID()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>nao<sp/>existe!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47" refid="class_turma_nao_existente_1a89025d5c39ff6a1590e2e7bb010fa3b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_turma_nao_existente_1a89025d5c39ff6a1590e2e7bb010fa3b7" kindref="member" tooltip="Destrutor.">~TurmaNaoExistente</ref>(){}<sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_alunos_por_turma_excedido" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_alunos_por_turma_excedido" kindref="compound" tooltip="Excepçao lancada quando o numero de alunos por turma é excedido.">AlunosPorTurmaExcedido</ref></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54" refid="class_alunos_por_turma_excedido_1ad3b26da7b4a81b52cd2e1cf969cbae2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_aluno" kindref="compound" tooltip="Aluno de uma escola.">Aluno</ref><sp/>*<sp/><ref refid="class_alunos_por_turma_excedido_1ad3b26da7b4a81b52cd2e1cf969cbae2e" kindref="member" tooltip="Aluno que excede o limite da turma.">aluno</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_alunos_por_turma_excedido" kindref="compound" tooltip="Excepçao lancada quando o numero de alunos por turma é excedido.">AlunosPorTurmaExcedido</ref>(<ref refid="class_aluno" kindref="compound" tooltip="Aluno de uma escola.">Aluno</ref><sp/>*<sp/>a){</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aluno=a;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58" refid="class_alunos_por_turma_excedido_1a5c9495949ceaf62e87e6ee03cf596b9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_alunos_por_turma_excedido_1a5c9495949ceaf62e87e6ee03cf596b9e" kindref="member">getErro</ref>(){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Aluno<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aluno-&gt;getNome()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>excede<sp/>o<sp/>limite<sp/>da<sp/>turma!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63" refid="class_alunos_por_turma_excedido_1a018e25ae5eb0bfc4f704561c9f951c11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_alunos_por_turma_excedido_1a018e25ae5eb0bfc4f704561c9f951c11" kindref="member" tooltip="Destrutor.">~AlunosPorTurmaExcedido</ref>(){}<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="class_aluno_nao_existente" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_aluno_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Aluno a ser acedido nao existe.">AlunoNaoExistente</ref></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70" refid="class_aluno_nao_existente_1a094d853c6593f3b82363171adbcd2158" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_aluno" kindref="compound" tooltip="Aluno de uma escola.">Aluno</ref><sp/>*<sp/><ref refid="class_aluno_nao_existente_1a094d853c6593f3b82363171adbcd2158" kindref="member" tooltip="Aluno inesxistente.">aluno</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_aluno_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Aluno a ser acedido nao existe.">AlunoNaoExistente</ref>(<ref refid="class_aluno" kindref="compound" tooltip="Aluno de uma escola.">Aluno</ref><sp/>*<sp/>a){</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aluno<sp/>=<sp/>a;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74" refid="class_aluno_nao_existente_1aacfbce6e5c3fba7f14cdfe4588d9f3fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_aluno_nao_existente_1aacfbce6e5c3fba7f14cdfe4588d9f3fc" kindref="member">getErro</ref>(){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Aluno<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>aluno-&gt;getNome()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>nao<sp/>existe!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79" refid="class_aluno_nao_existente_1a72857c8ba816dbec308567382904e14b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_aluno_nao_existente_1a72857c8ba816dbec308567382904e14b" kindref="member" tooltip="Destrutor.">~AlunoNaoExistente</ref>(){}<sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="class_professor_nao_existente" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_professor_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Professor a ser acedido nao existe.">ProfessorNaoExistente</ref></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="86" refid="class_professor_nao_existente_1ac9d47ada01b74d050825da7e7517bf2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_professor" kindref="compound" tooltip="Professor de uma Escola (class Base), podendo ou nao ser Director de Turma.">Professor</ref>*<sp/><ref refid="class_professor_nao_existente_1ac9d47ada01b74d050825da7e7517bf2e" kindref="member" tooltip="Aluno inesxistente.">professor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_professor_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Professor a ser acedido nao existe.">ProfessorNaoExistente</ref>(<ref refid="class_professor" kindref="compound" tooltip="Professor de uma Escola (class Base), podendo ou nao ser Director de Turma.">Professor</ref>*<sp/>p){</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>professor<sp/>=<sp/>p;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90" refid="class_professor_nao_existente_1a7e4f7530740f578c181f1e8d05404104" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_professor_nao_existente_1a7e4f7530740f578c181f1e8d05404104" kindref="member">getErro</ref>(){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Professor<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>professor-&gt;getNome()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>nao<sp/>existe!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95" refid="class_professor_nao_existente_1ad0582a609813717d969ba09d93b7c1ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_professor_nao_existente_1ad0582a609813717d969ba09d93b7c1ff" kindref="member" tooltip="Destrutor.">~ProfessorNaoExistente</ref>(){}<sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="class_disciplina_nao_existente" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_disciplina_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Professor a ser acedido nao existe.">DisciplinaNaoExistente</ref></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="102" refid="class_disciplina_nao_existente_1ad681e3d7b6ba5c6120b23084bf4ae657" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_disciplina" kindref="compound" tooltip="Class representa uma Disciplina contendo a sua designacao, duracao e hora de inicio.">Disciplina</ref>*<sp/><ref refid="class_disciplina_nao_existente_1ad681e3d7b6ba5c6120b23084bf4ae657" kindref="member" tooltip="Aluno inesxistente.">disciplina</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_disciplina_nao_existente" kindref="compound" tooltip="Excepcao lancada quando o Professor a ser acedido nao existe.">DisciplinaNaoExistente</ref>(<ref refid="class_disciplina" kindref="compound" tooltip="Class representa uma Disciplina contendo a sua designacao, duracao e hora de inicio.">Disciplina</ref>*<sp/>d){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disciplina<sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106" refid="class_disciplina_nao_existente_1a6a201b94440edd339ec05d1e9db8319b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_disciplina_nao_existente_1a6a201b94440edd339ec05d1e9db8319b" kindref="member">getErro</ref>(){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Disciplina:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>disciplina-&gt;getNome()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>nao<sp/>existe!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111" refid="class_disciplina_nao_existente_1a4c0655a54da71a17d8f0fba702cf374d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_disciplina_nao_existente_1a4c0655a54da71a17d8f0fba702cf374d" kindref="member" tooltip="Destrutor.">~DisciplinaNaoExistente</ref>(){}<sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_duracao_excedida" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_duracao_excedida" kindref="compound">DuracaoExcedida</ref>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:<sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_duracao;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_duracao_excedida" kindref="compound">DuracaoExcedida</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d){</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_duracao<sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>getErro()</highlight><highlight class="keyword">const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;A<sp/>duracao,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_duracao<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>excedeu<sp/>os<sp/>limites<sp/>estabelecidos!(0<sp/>-<sp/>90)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h"/>
+  </compounddef>
+</doxygen>

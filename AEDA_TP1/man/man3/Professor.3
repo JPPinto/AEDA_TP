@@ -1,0 +1,124 @@
+.TH "Professor" 3 "Mon Nov 11 2013" "AEDA TP1 2013/2014" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Professor \- 
+.PP
+\fBProfessor\fP de uma \fBEscola\fP (class Base), podendo ou nao ser Director de \fBTurma\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Professor\&.h>\fP
+.PP
+Inherits \fBPessoa\fP\&.
+.PP
+Inherited by \fBDirectorTurma\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProfessor\fP (string n, \fBDisciplina\fP *d, \fBTurma\fP *t)"
+.br
+.RI "\fIConstrutor de \fBProfessor\fP inicializando com o minimo de uma turma\&. \fP"
+.ti -1c
+.RI "bool \fBaddTurma\fP (\fBTurma\fP *t)"
+.br
+.RI "\fIAdiciona uma \fBTurma\fP as do \fBProfessor\fP\&. \fP"
+.ti -1c
+.RI "bool \fBremoveTurma\fP (const int id)"
+.br
+.RI "\fIRemove uma \fBTurma\fP das do \fBProfessor\fP\&. \fP"
+.ti -1c
+.RI "string \fBprint\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDisciplina\fP (\fBDisciplina\fP *d)"
+.br
+.ti -1c
+.RI "\fBDisciplina\fP * \fBgetDiscipina\fP () const "
+.br
+.ti -1c
+.RI "vector< \fBTurma\fP * > \fBgetTurmas\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBProfessor\fP *p2)"
+.br
+.ti -1c
+.RI "virtual \fB~Professor\fP ()"
+.br
+.RI "\fIDestructor for \fBProfessor\fP\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProfessor\fP de uma \fBEscola\fP (class Base), podendo ou nao ser Director de \fBTurma\fP\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Professor::Professor (stringn, \fBDisciplina\fP *d, \fBTurma\fP *t)"
+
+.PP
+Construtor de \fBProfessor\fP inicializando com o minimo de uma turma\&. \fBParameters:\fP
+.RS 4
+\fIn\fP 
+.br
+\fId\fP 
+.br
+\fIt\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Professor::addTurma (\fBTurma\fP *t)"
+
+.PP
+Adiciona uma \fBTurma\fP as do \fBProfessor\fP\&. adds turma t to \fBProfessor\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.SS "bool Professor::operator== (\fBProfessor\fP *a2)"
+\fBParameters:\fP
+.RS 4
+\fIa2\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "string Professor::print ()\fC [virtual]\fP"
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPessoa\fP\&.
+.SS "bool Professor::removeTurma (const intid)"
+
+.PP
+Remove uma \fBTurma\fP das do \fBProfessor\fP\&. \fBParameters:\fP
+.RS 4
+\fIid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for AEDA TP1 2013/2014 from the source code\&.

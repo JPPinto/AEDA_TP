@@ -1,0 +1,46 @@
+.TH "TurmaExistente" 3 "Mon Nov 11 2013" "AEDA TP1 2013/2014" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TurmaExistente \- 
+.PP
+Excepcao lancada quando uma \fBTurma\fP a ser adicionada ao vector de Turmas de uma \fBProfessor\fP que ja contem a mesma\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Excepcao\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTurmaExistente\fP (\fBTurma\fP *t)"
+.br
+.ti -1c
+.RI "string \fBgetErro\fP ()"
+.br
+.ti -1c
+.RI "virtual \fB~TurmaExistente\fP ()"
+.br
+.RI "\fIDestrutor\&. \fP"
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBTurma\fP * \fBturma\fP"
+.br
+.RI "\fI\fBTurma\fP ja existente\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Excepcao lancada quando uma \fBTurma\fP a ser adicionada ao vector de Turmas de uma \fBProfessor\fP que ja contem a mesma\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "string TurmaExistente::getErro ()\fC [inline]\fP"
+< Mensagem de erro lancada por esta excepcao 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for AEDA TP1 2013/2014 from the source code\&.

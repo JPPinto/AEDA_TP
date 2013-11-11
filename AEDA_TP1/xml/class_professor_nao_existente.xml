@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_professor_nao_existente" kind="class" prot="public">
+    <compoundname>ProfessorNaoExistente</compoundname>
+    <includes refid="_excepcao_8h" local="no">Excepcao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_professor_nao_existente_1ac9d47ada01b74d050825da7e7517bf2e" prot="public" static="no" mutable="no">
+        <type><ref refid="class_professor" kindref="compound">Professor</ref> *</type>
+        <definition>Professor* ProfessorNaoExistente::professor</definition>
+        <argsstring></argsstring>
+        <name>professor</name>
+        <briefdescription>
+<para><ref refid="class_aluno" kindref="compound">Aluno</ref> inesxistente. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="86" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_professor_nao_existente_1a010426aacae28cf35fd7b82d51a92c92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ProfessorNaoExistente::ProfessorNaoExistente</definition>
+        <argsstring>(Professor *p)</argsstring>
+        <name>ProfessorNaoExistente</name>
+        <param>
+          <type><ref refid="class_professor" kindref="compound">Professor</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="87" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_nao_existente_1a7e4f7530740f578c181f1e8d05404104" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string ProfessorNaoExistente::getErro</definition>
+        <argsstring>()</argsstring>
+        <name>getErro</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Mensagem de erro lancada pela excepcao </para>        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="90" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="90" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_nao_existente_1ad0582a609813717d969ba09d93b7c1ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ProfessorNaoExistente::~ProfessorNaoExistente</definition>
+        <argsstring>()</argsstring>
+        <name>~ProfessorNaoExistente</name>
+        <briefdescription>
+<para>Destrutor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="95" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Excepcao lancada quando o <ref refid="class_professor" kindref="compound">Professor</ref> a ser acedido nao existe. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="40">
+        <label>ProfessorNaoExistente</label>
+        <link refid="class_professor_nao_existente"/>
+        <childnode refid="41" relation="usage">
+          <edgelabel>professor</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="41">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" line="84" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Excepcao.h" bodystart="83" bodyend="96"/>
+    <listofallmembers>
+      <member refid="class_professor_nao_existente_1a7e4f7530740f578c181f1e8d05404104" prot="public" virt="non-virtual"><scope>ProfessorNaoExistente</scope><name>getErro</name></member>
+      <member refid="class_professor_nao_existente_1ac9d47ada01b74d050825da7e7517bf2e" prot="public" virt="non-virtual"><scope>ProfessorNaoExistente</scope><name>professor</name></member>
+      <member refid="class_professor_nao_existente_1a010426aacae28cf35fd7b82d51a92c92" prot="public" virt="non-virtual"><scope>ProfessorNaoExistente</scope><name>ProfessorNaoExistente</name></member>
+      <member refid="class_professor_nao_existente_1ad0582a609813717d969ba09d93b7c1ff" prot="public" virt="virtual"><scope>ProfessorNaoExistente</scope><name>~ProfessorNaoExistente</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

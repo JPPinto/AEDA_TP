@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_pessoa" kind="class" prot="public">
+    <compoundname>Pessoa</compoundname>
+    <derivedcompoundref refid="class_aluno" prot="public" virt="non-virtual">Aluno</derivedcompoundref>
+    <derivedcompoundref refid="class_professor" prot="public" virt="non-virtual">Professor</derivedcompoundref>
+    <includes refid="_professor_8h" local="no">Professor.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_pessoa_1a2e48ddfc442a6b1d30477ad23cf851d4" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Pessoa::_nome</definition>
+        <argsstring></argsstring>
+        <name>_nome</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="15" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_pessoa_1a789675384a5b47a16c9f0a5a819aa1ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Pessoa::Pessoa</definition>
+        <argsstring>(string n)</argsstring>
+        <name>Pessoa</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="18" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pessoa_1afe5128d96f8ef52b644746b9a45f63e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pessoa::setNome</definition>
+        <argsstring>(const string n)</argsstring>
+        <name>setNome</name>
+        <param>
+          <type>const string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="19" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pessoa_1a8d4d2f40ba5634f49b0ce181fee7f0a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Pessoa::getNome</definition>
+        <argsstring>() const </argsstring>
+        <name>getNome</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="20" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pessoa_1a6ccbd5e11c47beb6de6650054caa5a79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>string</type>
+        <definition>virtual string Pessoa::print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <reimplementedby refid="class_aluno_1ac5c1bdeaea70f418dd7aa1b0c73160aa">print</reimplementedby>
+        <reimplementedby refid="class_professor_1a3fcf6e5e91713f69e178d3c77524f9bc">print</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="21" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Classe Base para <ref refid="class_professor" kindref="compound">Professor</ref> e <ref refid="class_aluno" kindref="compound">Aluno</ref>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="32">
+        <label>DirectorTurma</label>
+        <link refid="class_director_turma"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Aluno</label>
+        <link refid="class_aluno"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="31">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="12" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="12" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_pessoa_1a2e48ddfc442a6b1d30477ad23cf851d4" prot="private" virt="non-virtual"><scope>Pessoa</scope><name>_nome</name></member>
+      <member refid="class_pessoa_1a8d4d2f40ba5634f49b0ce181fee7f0a7" prot="public" virt="non-virtual"><scope>Pessoa</scope><name>getNome</name></member>
+      <member refid="class_pessoa_1a789675384a5b47a16c9f0a5a819aa1ff" prot="public" virt="non-virtual"><scope>Pessoa</scope><name>Pessoa</name></member>
+      <member refid="class_pessoa_1a6ccbd5e11c47beb6de6650054caa5a79" prot="public" virt="virtual"><scope>Pessoa</scope><name>print</name></member>
+      <member refid="class_pessoa_1afe5128d96f8ef52b644746b9a45f63e7" prot="public" virt="non-virtual"><scope>Pessoa</scope><name>setNome</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
