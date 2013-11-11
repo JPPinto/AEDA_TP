@@ -13,7 +13,7 @@ using namespace std;
 ///Representa uma Escola contendo todos os seus Alunos, Professores, Turmas, Disciplinas e Horarios
 class Escola
 {
-	static vector<Aluno*> _alunos;			///< Todos os alunos inscritos na Escola
+	vector<Aluno*> _alunos;			///< Todos os alunos inscritos na Escola
 	static vector<Professor*> _professores;	///< Todos os Professores que leccionam na Escola
 	static vector<Turma*> _turmas;			///< Todas as turmas existentes na Escola
 	//vector<Horario *> _horarios; Não há horarios sem turmas, tem de ser um atributo de Turma
@@ -24,8 +24,8 @@ public:
 	Escola();
 
 	//Aluno	
-	static vector<Aluno *> getAlunos();
-	static Aluno * getAlunoByNome(string n);			///< Devolve o Aluno com o nome igual a n
+	 vector<Aluno *> getAlunos();
+	 Aluno * getAlunoByNome(string n);			///< Devolve o Aluno com o nome igual a n
 
 	bool addAluno(string nome, int numero, Turma* t);								///< Adiciona um Aluno a Escola
 	string showAluno(Aluno * a);								///< Mostra o Aluno no ecra
