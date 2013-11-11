@@ -24,5 +24,7 @@ public:
 	void setID(int i);
 	void setAnoEscolar(int ae);
 	void setHorario(Horario* h);
+
+	bool operator==(Turma * t2);
 };
 #endif /* TURMA_H_ */

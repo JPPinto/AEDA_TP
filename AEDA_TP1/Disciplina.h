@@ -23,6 +23,8 @@ public:
 	void setHoraInicio(int h);
 	int getHoraFim() const;
 
+	bool operator==(Disciplina * d2);
+
 	virtual ~Disciplina(){}
 };
 #endif /* DISCIPLINA_H_ */

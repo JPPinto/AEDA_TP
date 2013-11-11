@@ -38,3 +38,7 @@ void Disciplina::setHoraInicio(int h){
 int Disciplina::getHoraFim() const{
 	return _hora_inicio+_duracao;
 }
+
+bool Disciplina::operator==(Disciplina * d2){
+	return _nome == d2->getNome();
+}

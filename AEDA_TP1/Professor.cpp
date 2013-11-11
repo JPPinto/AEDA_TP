@@ -86,3 +86,7 @@ DirectorTurma::~DirectorTurma(){
 	_turmas_resposaveis.clear();
 }
 
+bool Professor::operator==(Professor * a2){
+	return (_nome == a2->getNome()) && (_disciplina == a2->getDiscipina());
+}
+

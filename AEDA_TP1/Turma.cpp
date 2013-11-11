@@ -39,3 +39,7 @@ Horario* Turma::getHorario(){
 void Turma::setHorario(Horario* h){
 
 }
+
+bool Turma::operator==(Turma * t2){
+	return id == t2->getID();
+}

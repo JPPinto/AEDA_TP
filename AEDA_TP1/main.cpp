@@ -176,10 +176,17 @@ bool criar(int i, Escola * escola) {
 			cout << "Nao e possivel adicionar Alunos sem antes haver Turmas!" << endl;
 			return false;
 		}
+		Turma * _temp = NULL;
+		_temp = escola->getTurmaById(idTurma);
 
-		Aluno * aluno = new Aluno(idTurma, nome, numero);
-		alunos.push_back(aluno);
-		cout << "Aluno criado com sucesso" << endl;
+		if(_temp != NULL){
+			Aluno * aluno = new Aluno(nome, numero, _temp);
+			escola->getAlunos().push_back(aluno);
+			cout << "Aluno criado com sucesso!" << endl;
+		} else {
+			cout << "Numero de Turma invalido!" << endl;
+		}
+
 	} else if (i == 2) {
 		cout << "?!PROFESSOR!?" << endl;
 		cout << "Nome:" << endl;

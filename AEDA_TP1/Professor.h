@@ -28,7 +28,7 @@ public:
 	void setDisciplina(Disciplina * d){_disciplina = d;}
 	Disciplina * getDiscipina()const{return _disciplina;}
 	vector<Turma *> getTurmas()const{return _turmas;}
-
+	bool operator==(Professor * p2);
 	virtual ~Professor();
 
 };
