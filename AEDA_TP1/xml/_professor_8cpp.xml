@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="_professor_8cpp" kind="file">
+    <compoundname>Professor.cpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes refid="_excepcao_8h" local="yes">Excepcao.h</includes>
+    <includes refid="_professor_8h" local="yes">Professor.h</includes>
+    <incdepgraph>
+      <node id="120">
+        <label>Professor.h</label>
+        <link refid="_professor_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>Aluno.h</label>
+        <link refid="_aluno_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>string</label>
+      </node>
+      <node id="114">
+        <label>Turma.h</label>
+        <link refid="_turma_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>vector</label>
+      </node>
+      <node id="113">
+        <label>sstream</label>
+      </node>
+      <node id="117">
+        <label>Disciplina.h</label>
+        <link refid="_disciplina_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>iostream</label>
+      </node>
+      <node id="115">
+        <label>Horario.h</label>
+        <link refid="_horario_8h_source"/>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>Excepcao.h</label>
+        <link refid="_excepcao_8h_source"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>Professor.cpp</label>
+        <link refid="Professor.cpp"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Excepcao.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Professor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="class_professor_1a8e20e8472f95da9e7dbbe043b2ca40c0" kindref="member" tooltip="Construtor de Professor inicializando com o minimo de uma turma.">Professor::Professor</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>n,<sp/><ref refid="class_disciplina" kindref="compound" tooltip="Class representa uma Disciplina contendo a sua designacao, duracao e hora de inicio.">Disciplina</ref><sp/>*<sp/>d,<ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t):<ref refid="class_pessoa" kindref="compound" tooltip="Classe Base para Professor e Aluno.">Pessoa</ref>(n)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>_disciplina<sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>addTurma(t);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_professor_1a4242c678534b7effaec214ad2f8a3079" kindref="member" tooltip="Adiciona uma Turma as do Professor.">Professor::addTurma</ref>(<ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t){</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Turma<sp/>*&gt;::iterator<sp/>it<sp/>=<sp/>_turmas.begin();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;it<sp/>!=<sp/>_turmas.end();it++){</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*it)-&gt;getID()<sp/>==<sp/>t-&gt;<ref refid="class_turma_1a25bc31537a7fb3345712b780ff2f825f" kindref="member">getID</ref>())</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma_existente" kindref="compound" tooltip="Excepcao lancada quando uma Turma a ser adicionada ao vector de Turmas de uma Professor que ja contem...">TurmaExistente</ref>(t);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>_turmas.push_back(t);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_professor_1a1cc34746e255348252f50e0b6ab34e41" kindref="member" tooltip="Remove uma Turma das do Professor.">Professor::removeTurma</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!_turmas.size()<sp/>||<sp/>_turmas.size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Turma<sp/>*&gt;::iterator<sp/>it<sp/>=<sp/>_turmas.begin();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;it<sp/>!=<sp/>_turmas.end();it++){</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*it)-&gt;getID()<sp/>==<sp/>id){</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_turmas.erase(it);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma_nao_existente" kindref="compound" tooltip="Excepcao lancada quando a Turma a ser acedida nao existe.">TurmaNaoExistente</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma" kindref="compound">Turma</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><ref refid="class_professor_1afc11ab966c1f1231a6cd92d7304cce50" kindref="member" tooltip="Destructor for Professor.">Professor::~Professor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(_disciplina);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>_turmas.clear();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><ref refid="class_director_turma_1a68cae9fe812395183f4da5e8b2f5cfe6" kindref="member">DirectorTurma::DirectorTurma</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>n,<sp/><ref refid="class_disciplina" kindref="compound" tooltip="Class representa uma Disciplina contendo a sua designacao, duracao e hora de inicio.">Disciplina</ref><sp/>*<sp/>d,<ref refid="class_turma" kindref="compound">Turma</ref>*<sp/>t,<sp/><ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t_responsavel):<ref refid="class_professor" kindref="compound" tooltip="Professor de uma Escola (class Base), podendo ou nao ser Director de Turma.">Professor</ref>(n,d,t){</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>addTurmaResponsavel(t_responsavel);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_director_turma_1a99567238fee363836711fb01e7b49617" kindref="member">DirectorTurma::addTurmaResponsavel</ref>(<ref refid="class_turma" kindref="compound">Turma</ref><sp/>*<sp/>t){</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Turma<sp/>*&gt;::iterator<sp/>it<sp/>=<sp/>_turmas_resposaveis.begin();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;it<sp/>!=<sp/>_turmas_resposaveis.end();it++){</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*it)-&gt;getID()<sp/>==<sp/>t-&gt;<ref refid="class_turma_1a25bc31537a7fb3345712b780ff2f825f" kindref="member">getID</ref>())</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma_existente" kindref="compound" tooltip="Excepcao lancada quando uma Turma a ser adicionada ao vector de Turmas de uma Professor que ja contem...">TurmaExistente</ref>(t);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>_turmas_resposaveis.push_back(t);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_director_turma_1a08f76bfffd82b428bd601773fe44a26e" kindref="member">DirectorTurma::removeTurmaResponsavel</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!_turmas_resposaveis.size()<sp/>||<sp/>_turmas_resposaveis.size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Turma<sp/>*&gt;::iterator<sp/>it<sp/>=<sp/>_turmas_resposaveis.begin();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;it<sp/>!=<sp/>_turmas_resposaveis.end();it++){</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*it)-&gt;getID()<sp/>==<sp/>id){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_turmas_resposaveis.erase(it);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma_nao_existente" kindref="compound" tooltip="Excepcao lancada quando a Turma a ser acedida nao existe.">TurmaNaoExistente</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_turma" kindref="compound">Turma</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><ref refid="class_director_turma_1aff25a8b46c65247f194598fcef54e4b1" kindref="member" tooltip="Destructor for DirectorTurma.">DirectorTurma::~DirectorTurma</ref>(){</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>_turmas_resposaveis.clear();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_professor_1afa33df5062ac3fd56de2a54530bd1c68" kindref="member">Professor::operator==</ref>(<ref refid="class_professor" kindref="compound" tooltip="Professor de uma Escola (class Base), podendo ou nao ser Director de Turma.">Professor</ref><sp/>*<sp/>a2){</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(getNome()<sp/>==<sp/>a2-&gt;getNome())<sp/>&amp;&amp;<sp/>(_disciplina<sp/>==<sp/>a2-&gt;getDiscipina());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_professor_1a3fcf6e5e91713f69e178d3c77524f9bc" kindref="member">Professor::print</ref>(){</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>s;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>s<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Nome:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>getNome()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>-<sp/>Disciplina:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>getDiscipina()-&gt;<ref refid="class_disciplina_1a09445908668708d2b62feb8b600a6af6" kindref="member">getNome</ref>()<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;i&lt;<sp/>getTurmas().size();i++){</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>-<sp/>Turma:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>getTurmas()[i]-&gt;getID()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>-<sp/>Ano:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>getTurmas()[i]-&gt;getAnoEscolar()<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s.str();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp"/>
+  </compounddef>
+</doxygen>

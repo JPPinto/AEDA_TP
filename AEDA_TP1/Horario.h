@@ -16,7 +16,7 @@
 #include "Disciplina.h"
 
 using namespace std;
-
+/// Horário de uma Turma
 class Horario {
 private:
 	vector<Disciplina*> disciplinas;

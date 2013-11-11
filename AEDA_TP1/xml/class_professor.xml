@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_professor" kind="class" prot="public">
+    <compoundname>Professor</compoundname>
+    <basecompoundref refid="class_pessoa" prot="public" virt="non-virtual">Pessoa</basecompoundref>
+    <derivedcompoundref refid="class_director_turma" prot="public" virt="non-virtual">DirectorTurma</derivedcompoundref>
+    <includes refid="_professor_8h" local="no">Professor.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_professor_1afca4e4fdf336bcab9b9a94b032175999" prot="private" static="no" mutable="no">
+        <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+        <definition>Disciplina* Professor::_disciplina</definition>
+        <argsstring></argsstring>
+        <name>_disciplina</name>
+        <briefdescription>
+<para>&lt; Nome do <ref refid="class_professor" kindref="compound">Professor</ref> </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="class_disciplina" kindref="compound">Disciplina</ref> que o <ref refid="class_professor" kindref="compound">Professor</ref> lecciona </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="29" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_professor_1af407ab1e7b5da16bdb0f70458e5457fa" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_turma" kindref="compound">Turma</ref> * &gt;</type>
+        <definition>vector&lt;Turma *&gt; Professor::_turmas</definition>
+        <argsstring></argsstring>
+        <name>_turmas</name>
+        <briefdescription>
+<para>Turmas em que o <ref refid="class_professor" kindref="compound">Professor</ref> lecciona. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="30" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_professor_1a8e20e8472f95da9e7dbbe043b2ca40c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Professor::Professor</definition>
+        <argsstring>(string n, Disciplina *d, Turma *t)</argsstring>
+        <name>Professor</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Construtor de <ref refid="class_professor" kindref="compound">Professor</ref> inicializando com o minimo de uma turma. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="33" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1a4242c678534b7effaec214ad2f8a3079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Professor::addTurma</definition>
+        <argsstring>(Turma *t)</argsstring>
+        <name>addTurma</name>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Adiciona uma <ref refid="class_turma" kindref="compound">Turma</ref> as do <ref refid="class_professor" kindref="compound">Professor</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>adds turma t to <ref refid="class_professor" kindref="compound">Professor</ref></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="35" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="20" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1a1cc34746e255348252f50e0b6ab34e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Professor::removeTurma</definition>
+        <argsstring>(const int id)</argsstring>
+        <name>removeTurma</name>
+        <param>
+          <type>const int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove uma <ref refid="class_turma" kindref="compound">Turma</ref> das do <ref refid="class_professor" kindref="compound">Professor</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="36" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="38" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1a3fcf6e5e91713f69e178d3c77524f9bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string Professor::print</definition>
+        <argsstring>()</argsstring>
+        <name>print</name>
+        <reimplements refid="class_pessoa_1a6ccbd5e11c47beb6de6650054caa5a79">print</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="38" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="130" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1a6670967a09f78b6d0016a2e3417c238f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Professor::setDisciplina</definition>
+        <argsstring>(Disciplina *d)</argsstring>
+        <name>setDisciplina</name>
+        <param>
+          <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="39" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1ae09b97fead0e86fa47e9d477a1f4b1d5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+        <definition>Disciplina* Professor::getDiscipina</definition>
+        <argsstring>() const </argsstring>
+        <name>getDiscipina</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="40" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1a9474309b22807309eacd155312b9f65d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; <ref refid="class_turma" kindref="compound">Turma</ref> * &gt;</type>
+        <definition>vector&lt;Turma *&gt; Professor::getTurmas</definition>
+        <argsstring>() const </argsstring>
+        <name>getTurmas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="41" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1afa33df5062ac3fd56de2a54530bd1c68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Professor::operator==</definition>
+        <argsstring>(Professor *p2)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type><ref refid="class_professor" kindref="compound">Professor</ref> *</type>
+          <declname>p2</declname>
+          <defname>a2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="42" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="123" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_professor_1afc11ab966c1f1231a6cd92d7304cce50" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Professor::~Professor</definition>
+        <argsstring>()</argsstring>
+        <name>~Professor</name>
+        <briefdescription>
+<para>Destructor for <ref refid="class_professor" kindref="compound">Professor</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="43" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="57" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_professor" kindref="compound">Professor</ref> de uma <ref refid="class_escola" kindref="compound">Escola</ref> (class Base), podendo ou nao ser Director de <ref refid="class_turma" kindref="compound">Turma</ref>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="36">
+        <label>DirectorTurma</label>
+        <link refid="class_director_turma"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="34">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="38">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="37">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="26" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="26" bodyend="45"/>
+    <listofallmembers>
+      <member refid="class_professor_1afca4e4fdf336bcab9b9a94b032175999" prot="private" virt="non-virtual"><scope>Professor</scope><name>_disciplina</name></member>
+      <member refid="class_professor_1af407ab1e7b5da16bdb0f70458e5457fa" prot="private" virt="non-virtual"><scope>Professor</scope><name>_turmas</name></member>
+      <member refid="class_professor_1a4242c678534b7effaec214ad2f8a3079" prot="public" virt="non-virtual"><scope>Professor</scope><name>addTurma</name></member>
+      <member refid="class_professor_1ae09b97fead0e86fa47e9d477a1f4b1d5" prot="public" virt="non-virtual"><scope>Professor</scope><name>getDiscipina</name></member>
+      <member refid="class_pessoa_1a8d4d2f40ba5634f49b0ce181fee7f0a7" prot="public" virt="non-virtual"><scope>Professor</scope><name>getNome</name></member>
+      <member refid="class_professor_1a9474309b22807309eacd155312b9f65d" prot="public" virt="non-virtual"><scope>Professor</scope><name>getTurmas</name></member>
+      <member refid="class_professor_1afa33df5062ac3fd56de2a54530bd1c68" prot="public" virt="non-virtual"><scope>Professor</scope><name>operator==</name></member>
+      <member refid="class_pessoa_1a789675384a5b47a16c9f0a5a819aa1ff" prot="public" virt="non-virtual"><scope>Professor</scope><name>Pessoa</name></member>
+      <member refid="class_professor_1a3fcf6e5e91713f69e178d3c77524f9bc" prot="public" virt="virtual"><scope>Professor</scope><name>print</name></member>
+      <member refid="class_professor_1a8e20e8472f95da9e7dbbe043b2ca40c0" prot="public" virt="non-virtual"><scope>Professor</scope><name>Professor</name></member>
+      <member refid="class_professor_1a1cc34746e255348252f50e0b6ab34e41" prot="public" virt="non-virtual"><scope>Professor</scope><name>removeTurma</name></member>
+      <member refid="class_professor_1a6670967a09f78b6d0016a2e3417c238f" prot="public" virt="non-virtual"><scope>Professor</scope><name>setDisciplina</name></member>
+      <member refid="class_pessoa_1afe5128d96f8ef52b644746b9a45f63e7" prot="public" virt="non-virtual"><scope>Professor</scope><name>setNome</name></member>
+      <member refid="class_professor_1afc11ab966c1f1231a6cd92d7304cce50" prot="public" virt="virtual"><scope>Professor</scope><name>~Professor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

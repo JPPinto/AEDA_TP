@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3">
+  <compounddef id="class_director_turma" kind="class" prot="public">
+    <compoundname>DirectorTurma</compoundname>
+    <basecompoundref refid="class_professor" prot="public" virt="non-virtual">Professor</basecompoundref>
+    <includes refid="_professor_8h" local="no">Professor.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_director_turma_1a2fd8cdf155493e59e0d9b135b0c1268a" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_turma" kindref="compound">Turma</ref> * &gt;</type>
+        <definition>vector&lt;Turma *&gt; DirectorTurma::_turmas_resposaveis</definition>
+        <argsstring></argsstring>
+        <name>_turmas_resposaveis</name>
+        <briefdescription>
+<para>Turmas que o <ref refid="class_director_turma" kindref="compound">DirectorTurma</ref> e responsavel. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="51" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_director_turma_1a68cae9fe812395183f4da5e8b2f5cfe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DirectorTurma::DirectorTurma</definition>
+        <argsstring>(string n, Disciplina *d, Turma *t, Turma *t_responsavel)</argsstring>
+        <name>DirectorTurma</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="class_disciplina" kindref="compound">Disciplina</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t_responsavel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_responsavel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="55" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_director_turma_1a99567238fee363836711fb01e7b49617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DirectorTurma::addTurmaResponsavel</definition>
+        <argsstring>(Turma *t)</argsstring>
+        <name>addTurmaResponsavel</name>
+        <param>
+          <type><ref refid="class_turma" kindref="compound">Turma</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="56" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="77" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_director_turma_1a08f76bfffd82b428bd601773fe44a26e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DirectorTurma::removeTurmaResponsavel</definition>
+        <argsstring>(const int id)</argsstring>
+        <name>removeTurmaResponsavel</name>
+        <param>
+          <type>const int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="57" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="95" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_director_turma_1ad481d568f5e9f30ddcfa6a6c65daaf1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; <ref refid="class_turma" kindref="compound">Turma</ref> * &gt;</type>
+        <definition>vector&lt;Turma *&gt; DirectorTurma::getTurmasResponsaveis</definition>
+        <argsstring>()</argsstring>
+        <name>getTurmasResponsaveis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="59" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_director_turma_1aff25a8b46c65247f194598fcef54e4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DirectorTurma::~DirectorTurma</definition>
+        <argsstring>()</argsstring>
+        <name>~DirectorTurma</name>
+        <briefdescription>
+<para>Destructor for <ref refid="class_director_turma" kindref="compound">DirectorTurma</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="61" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.cpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Classe derivado de <ref refid="class_professor" kindref="compound">Professor</ref> tendo a mais um vector com as turmas de que e responsavel. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="12">
+        <label>DirectorTurma</label>
+        <link refid="class_director_turma"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="13">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="15">
+        <label>DirectorTurma</label>
+        <link refid="class_director_turma"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Pessoa</label>
+        <link refid="class_pessoa"/>
+      </node>
+      <node id="16">
+        <label>Professor</label>
+        <link refid="class_professor"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" line="48" bodyfile="E:/Documentos/git/AEDA_TP1/AEDA_TP1/Professor.h" bodystart="48" bodyend="62"/>
+    <listofallmembers>
+      <member refid="class_director_turma_1a2fd8cdf155493e59e0d9b135b0c1268a" prot="private" virt="non-virtual"><scope>DirectorTurma</scope><name>_turmas_resposaveis</name></member>
+      <member refid="class_professor_1a4242c678534b7effaec214ad2f8a3079" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>addTurma</name></member>
+      <member refid="class_director_turma_1a99567238fee363836711fb01e7b49617" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>addTurmaResponsavel</name></member>
+      <member refid="class_director_turma_1a68cae9fe812395183f4da5e8b2f5cfe6" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>DirectorTurma</name></member>
+      <member refid="class_professor_1ae09b97fead0e86fa47e9d477a1f4b1d5" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>getDiscipina</name></member>
+      <member refid="class_pessoa_1a8d4d2f40ba5634f49b0ce181fee7f0a7" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>getNome</name></member>
+      <member refid="class_professor_1a9474309b22807309eacd155312b9f65d" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>getTurmas</name></member>
+      <member refid="class_director_turma_1ad481d568f5e9f30ddcfa6a6c65daaf1b" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>getTurmasResponsaveis</name></member>
+      <member refid="class_professor_1afa33df5062ac3fd56de2a54530bd1c68" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>operator==</name></member>
+      <member refid="class_pessoa_1a789675384a5b47a16c9f0a5a819aa1ff" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>Pessoa</name></member>
+      <member refid="class_professor_1a3fcf6e5e91713f69e178d3c77524f9bc" prot="public" virt="virtual"><scope>DirectorTurma</scope><name>print</name></member>
+      <member refid="class_professor_1a8e20e8472f95da9e7dbbe043b2ca40c0" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>Professor</name></member>
+      <member refid="class_professor_1a1cc34746e255348252f50e0b6ab34e41" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>removeTurma</name></member>
+      <member refid="class_director_turma_1a08f76bfffd82b428bd601773fe44a26e" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>removeTurmaResponsavel</name></member>
+      <member refid="class_professor_1a6670967a09f78b6d0016a2e3417c238f" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>setDisciplina</name></member>
+      <member refid="class_pessoa_1afe5128d96f8ef52b644746b9a45f63e7" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>setNome</name></member>
+      <member refid="class_director_turma_1aff25a8b46c65247f194598fcef54e4b1" prot="public" virt="non-virtual"><scope>DirectorTurma</scope><name>~DirectorTurma</name></member>
+      <member refid="class_professor_1afc11ab966c1f1231a6cd92d7304cce50" prot="public" virt="virtual"><scope>DirectorTurma</scope><name>~Professor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
