@@ -1,11 +1,12 @@
-#include "Professor.h"
 #include <iostream>
 #include "Excepcao.h"
+#include "Professor.h"
+
 
 Professor::Professor(string n, Disciplina * d,Turma * t) {
 	_nome = n;
 	_disciplina = d;
-	addTurma(t);
+	bool x = addTurma(t);
 }
 
 bool Professor::addTurma(Turma * t){

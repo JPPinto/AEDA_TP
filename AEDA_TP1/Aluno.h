@@ -23,5 +23,6 @@ public:
 	void setNome(string nome);
 	void setNumero(int numero);
 	void setTurma(int id);
+	bool operator==(Aluno * a2);
 };
 #endif /* ALUNO_H_ */

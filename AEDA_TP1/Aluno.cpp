@@ -51,3 +51,7 @@ void Aluno::setTurma(int id){
 	else
 		_turma = _temp_turma;
 }
+
+bool Aluno::operator==(Aluno * a2){
+	return (getNome() == a2->getNome()) && (this->getNumero() == a2->getNumero());
+}

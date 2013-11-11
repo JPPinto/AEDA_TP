@@ -25,17 +25,17 @@ public:
 
 	//Aluno	
 	static vector<Aluno *> getAlunos();
-	static Aluno * getAlunoByNome(const string n) const;			///< Devolve o Aluno com o nome igual a n
+	static Aluno * getAlunoByNome(const string n);			///< Devolve o Aluno com o nome igual a n
 
-	bool addAlunos(Aluno * a);								///< Adiciona um Aluno a Escola
-	void showAluno(Aluno * a);								///< Mostra o Aluno no ecra
+	bool addAlunos(string nome, int numero, int turma);								///< Adiciona um Aluno a Escola
+	string showAluno(Aluno * a);								///< Mostra o Aluno no ecra
 	bool updateAluno(Aluno * a);							///< Altera informacao do Aluno
 	bool removeAluno(Aluno * a);							///< Remove um Aluno da Escola
 
 
 	//Professor
 	static vector<Professor *> getProfessores();					///< Devolve todos os professores existentes na Escola
-	static Professor * getProfessorByNome(const string n) const;	///< Devolve o Professor com o nome igual a n
+	static Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
 	bool addProfessor(Professor * p);						///< Adiciona um Professor a Escola
 	bool showProfessor(Professor * p);						///< Mostra o Professor no ecra
@@ -54,8 +54,8 @@ public:
 
 
 	//Disciplina
-	static vector<Disciplina *> getDiscipinas();				///< Devolve todas as Disciplinas que sao leccionadas na Escola
-	static Disciplina * getDisciplinaByNome(const string n)const;	///< Devolve a Disciplina com o nome igual a n
+	static vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
+	static Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
 
 	bool addDisciplina(Disciplina * d);						///< Adiciona uma Disciplina a Escola
 	bool showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra

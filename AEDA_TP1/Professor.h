@@ -6,8 +6,6 @@
 #include <vector>
 #include "Turma.h"
 #include "Disciplina.h"
-#include "Horario.h"
-
 
 using namespace std;
 
@@ -19,7 +17,6 @@ private:
 	Disciplina * _disciplina;		///< Disciplina que o Professor lecciona
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
-
 public:
 	Professor(string n, Disciplina * d,Turma* t);			///< Construtor de Professor inicializando com o minimo de uma turma
 
