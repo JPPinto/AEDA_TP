@@ -7,38 +7,47 @@
 
 #include "Aluno.h"
 #include "Excepcao.h"
+#include "Escola.h"
 
 
-Aluno::Aluno(string nome, int numero, int idTurma){
-	this->nome=nome;
-	this->numero=numero;
-	setTurma(idTurma);
+Aluno::Aluno(string nome, int numero, int id){
+	this->_nome=nome;
+	this->_numero=numero;
+	setTurma(id);
 }
 
 string Aluno::getNome(){
-	return nome;
+	return _nome;
 }
 
 int Aluno::getNumero(){
-	return numero;
+	return _numero;
 }
 
-int Aluno::getTurma(){
-	return idTurma;
+Turma * Aluno::getTurma(){
+	return _turma;
 }
 
 void Aluno::setNome(string nome){
-	this->nome=nome;
+	this->_nome=nome;
 }
 
 void Aluno::setNumero(int numero){
 	if(numero<=0 && numero>MAX_ALUNOS){
 		throw new AlunosPorTurmaExcedido(this);
 	}else{
-		this->numero=numero;
+		this->_numero=numero;
 	}
 }
 
-void Aluno::setTurma(int idTurma){
-	this->idTurma=idTurma;
+void Aluno::setTurma(int id){
+
+	Turma* _temp_turma = NULL;
+
+	_temp_turma = Escola::getTurmaById(id);
+
+	if(_temp_turma == NULL)
+		throw TurmaNaoExistente(new Turma(id));
+	else
+		_turma = _temp_turma;
 }

@@ -1,10 +1,3 @@
-/*
- * Aluno.h
- *
- *  Created on: 30/09/2013
- *      Author: João
- */
-
 #ifndef _ALUNO_H_
 #define _ALUNO_H_
 
@@ -17,17 +10,18 @@
 using namespace std;
 
 class Aluno {
-	string nome;
-	int numero, idTurma;
+	string _nome;
+	int _numero;
+	Turma * _turma;
 public:
-	Aluno(string nome, int numero, int idTurma);
+	Aluno(string nome, int numero, int id);
 
 	string getNome();
 	int getNumero();
-	int getTurma();
+	Turma * getTurma();
 
 	void setNome(string nome);
 	void setNumero(int numero);
-	void setTurma(int idTurma);
+	void setTurma(int id);
 };
 #endif /* ALUNO_H_ */
