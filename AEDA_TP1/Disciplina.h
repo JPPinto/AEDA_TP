@@ -23,7 +23,7 @@ public:
 	void setHoraInicio(int h);
 	int getHoraFim() const;
 
-	bool operator==(Disciplina * d2);
+	bool operator==(Disciplina * d2);///< Verificasse quando o nome entre os dois objetos e igual 
 
 	virtual ~Disciplina(){}
 };
