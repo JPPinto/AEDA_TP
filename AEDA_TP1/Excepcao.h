@@ -91,6 +91,22 @@ public:
 	virtual ~ProfessorNaoExistente(){}	///< Destrutor
 };
 
+/// Excepcao lancada quando o Professor a ser acedido nao existe
+class DisciplinaNaoExistente
+{
+public:
+	Disciplina* disciplina;					///< Aluno inesxistente
+	DisciplinaNaoExistente(Disciplina* d){
+		disciplina = d;
+	}
+	string getErro(){				///< Mensagem de erro lancada pela excepcao
+		stringstream s;
+		s << "Disciplina: " << disciplina->getNome() << " nao existe!" << endl;
+		return s.str();
+	}
+	virtual ~DisciplinaNaoExistente(){}	///< Destrutor
+};
+
 class DuracaoExcedida{
 
 public: 

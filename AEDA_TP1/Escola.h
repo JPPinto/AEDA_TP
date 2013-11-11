@@ -57,8 +57,8 @@ public:
 	vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
 	Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
 
-	bool addDisciplina(Disciplina * d);						///< Adiciona uma Disciplina a Escola
-	bool showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra
+	bool addDisciplina(string nome, int d, int h);						///< Adiciona uma Disciplina a Escola
+	string showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra
 	bool updateDisciplina(Disciplina * d);					///< Altera a informacao da Disciplina
 	bool removeDisciplina(const string n);					///< Remove uma disciplina da Escola
 

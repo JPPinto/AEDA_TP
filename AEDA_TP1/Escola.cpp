@@ -212,13 +212,73 @@ bool Escola::removeTurma(const int id){
 }
 
 //Disciplina
-vector<Disciplina *> getDiscipinas() ;
-Disciplina * getDisciplinaByNome(const string n);
+vector<Disciplina *> Escola::getDiscipinas() {
+	return _disciplinas;
+}
 
-bool addDisciplina(Disciplina * d);
-bool showDisciplina();
-bool updateDisciplina(Disciplina * d);
-bool removeDisciplina(const string n);
+Disciplina * Escola::getDisciplinaByNome(const string n){
+	vector<Disciplina*>::iterator it=_disciplinas.begin();
+	for(;it!=_disciplinas.end();it++){
+		if((*it)->getNome()==n){
+			return getDisciplinaByNome(n);
+		}
+	}
+	throw new DisciplinaNaoExistente((*it));
+}
+
+bool Escola::addDisciplina(string nome, int d, int h){
+	Disciplina * d2 = new Disciplina(nome, d, h);
+	_disciplinas.push_back(d2);
+	return true;
+}
+
+string Escola::showDisciplina(Disciplina * d){
+	vector<Disciplina*>::iterator it = _disciplinas.begin();
+	stringstream s;
+	for (; it < _disciplinas.end(); it++) {
+		if ((*it) == d) {
+			s << "Disciplina: " << d->getNome() << " - Duracao: " << d->getDuracao()
+				<< " - Hora de inicio: " << d->getHoraInicio() << endl;
+			return s.str();
+		}
+	}
+	throw DisciplinaNaoExistente(d);
+}
+
+bool Escola::updateDisciplina(Disciplina * d){
+	bool b = false;
+
+	vector<Disciplina*>::iterator it = _disciplinas.begin();
+
+	for (; it < _disciplinas.end(); it++) {
+		if ((*it) == d) {
+			b = true;
+			break;
+		}
+	}
+	if(b){
+		(*it) = d;
+		return true;
+	}
+	throw DisciplinaNaoExistente(d);
+}
+
+bool Escola::removeDisciplina(const string n){
+	bool b = false;
+
+	vector<Disciplina*>::iterator it = _disciplinas.begin();
+
+	for (; it < _disciplinas.end(); it++) {
+		if ((*it) == getDisciplinaByNome(n)) {
+			b = true;
+			break;
+		}
+	}
+	if(b){
+		_disciplinas.erase(it);
+	}
+	throw DisciplinaNaoExistente((*it));
+}
 
 Escola::Escola() {
 }
