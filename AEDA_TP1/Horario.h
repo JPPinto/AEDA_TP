@@ -8,15 +8,23 @@
 #ifndef HORARIO_H_
 #define HORARIO_H_
 
+#define INICIO 480
+#define FIM 1200
+#define VARIANCIA 30
+
 #include <vector>
 #include "Disciplina.h"
 
 using namespace std;
 
 class Horario {
+private:
 	vector<Disciplina*> disciplinas;
 public:
 	Horario();
 	virtual ~Horario();
+
+	vector<Disciplina*> getDisciplinas()const;
+	bool addDisciplina(Disciplina* d);
 };
 #endif /* HORARIO_H_ */

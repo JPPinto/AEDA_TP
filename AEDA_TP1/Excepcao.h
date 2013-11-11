@@ -6,6 +6,7 @@
 #include "Disciplina.h"
 #include "Horario.h"
 #include "Aluno.h"
+#include "Professor.h"
 
 using namespace std;
 
@@ -72,6 +73,22 @@ public:
 		return s.str();
 	}
 	virtual ~AlunoNaoExistente(){}	///< Destrutor
+};
+
+/// Excepcao lancada quando o Professor a ser acedido nao existe
+class ProfessorNaoExistente
+{
+public:
+	Professor* professor;					///< Aluno inesxistente
+	ProfessorNaoExistente(Professor* p){
+		professor = p;
+	}
+	string getErro(){				///< Mensagem de erro lancada pela excepcao
+		stringstream s;
+		s << "Professor " << professor->getNome() << " nao existe!" << endl;
+		return s.str();
+	}
+	virtual ~ProfessorNaoExistente(){}	///< Destrutor
 };
 
 class DuracaoExcedida{

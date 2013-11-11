@@ -34,10 +34,10 @@ public:
 
 
 	//Professor
-	static vector<Professor *> getProfessores();					///< Devolve todos os professores existentes na Escola
+	static vector<Professor *> getProfessores();			///< Devolve todos os professores existentes na Escola
 	static Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
-	bool addProfessor(Professor * p);						///< Adiciona um Professor a Escola
+	bool addProfessor(string n, string  d,int t);	///< Adiciona um Professor a Escola
 	bool showProfessor(Professor * p);						///< Mostra o Professor no ecra
 	bool updateProfessor(Professor * p);					///< Altera a informacao do Professor
 	bool removeProfessor(const string n);					///< Remove um Professor da Escola

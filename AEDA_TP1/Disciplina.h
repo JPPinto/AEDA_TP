@@ -21,6 +21,7 @@ public:
 	void setDuracao(int d);
 	int getHoraInicio() const;
 	void setHoraInicio(int h);
+	int getHoraFim() const;
 
 	virtual ~Disciplina(){}
 };
