@@ -82,13 +82,27 @@ Professor * Escola::getProfessorByNome(const string n){
 			return _professores[i];
 		}
 	}
-	//throw
+	Professor* p=new Professor(n, NULL, NULL);
+	throw new ProfessorNaoExistente(p);
 }
 
-bool Escola::addProfessor(Professor * p);
-bool Escola::showProfessor();
-bool Escola::updateProfessor(Professor * p);
-bool Escola::removeProfessor(const string n);
+bool Escola::addProfessor(string n, string  d, int t){
+	Professor * p2 = new Professor(n, getDisciplinaByNome(d), getTurmaById(t));
+	_professores.push_back(p2);
+	return true;
+}
+
+bool Escola::showProfessor(Professor * p){
+
+}
+
+bool Escola::updateProfessor(Professor * p){
+
+}
+
+bool Escola::removeProfessor(const string n){
+
+}
 
 //Turma
 vector<Turma *> getTurmas() ;
