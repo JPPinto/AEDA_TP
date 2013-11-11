@@ -4,6 +4,10 @@
 vector<Aluno *> Escola::getAlunos() {
 	return _alunos;
 }
+	
+void Escola::setAluno(Aluno* a){
+	_alunos.push_back(a);
+}
 
 Aluno * Escola::getAlunoByNome(string n) {
 	vector<Aluno*>::iterator it = _alunos.begin();
@@ -74,6 +78,10 @@ bool Escola::removeAluno(Aluno * a) {
 //Professor
 vector<Professor *> Escola::getProfessores(){
 	return _professores;
+}
+	
+void Escola::setProfessor(Professor* p){
+	_professores.push_back(p);
 }
 
 Professor * Escola::getProfessorByNome(const string n){
@@ -147,6 +155,10 @@ vector<Turma *> Escola::getTurmas(){
 	return _turmas;
 }
 
+void Escola::setTurma(Turma* t){
+	_turmas.push_back(t);
+}
+
 Turma * Escola::getTurmaById(const int id){
 	vector<Turma*>::iterator it=_turmas.begin();
 	for(; it!=_turmas.end();it++){
@@ -214,6 +226,10 @@ bool Escola::removeTurma(const int id){
 //Disciplina
 vector<Disciplina *> Escola::getDiscipinas() {
 	return _disciplinas;
+}
+	
+void Escola::setDisciplina(Disciplina* d){
+	_disciplinas.push_back(d);
 }
 
 Disciplina * Escola::getDisciplinaByNome(const string n){

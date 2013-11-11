@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include "Excepcao.h"
 #include "Escola.h"
 #include "Aluno.h"
 #include "Professor.h"
@@ -23,7 +24,7 @@ void menuListagens();
 
 ////CRUD
 bool criar(int i, Escola * escola);
-//bool ler(int i);
+bool ler(int i, Escola * escola);
 //bool actualizar(int i);
 //bool eliminar(int i);
 
@@ -127,13 +128,13 @@ void manutencao(int i, Escola * escola) {
 		cout << "5. Voltar" << endl;
 
 		cin >> crud;
-		cin.clear(); cin.ignore(INT_MAX,'\n'); 
+		
 		switch (crud) {
 		case 1:
 			criar(i, escola);
 			break;
 		case 2:
-			//ler(i);
+			ler(i, escola);
 			break;
 		case 3:
 			//actualizar(i);
@@ -160,12 +161,12 @@ void menuListagens() {
 
 bool criar(int i, Escola * escola) {
 	int idTurma, numero, idTurmaResponsavel, anoEscolar;
-	int tipoProfessor = 0, duracao = 0, horaInicio = 0;
+	int tipoProfessor, duracao = 0, horaInicio = 0;
 	string nome = "", nome_disciplina = "";
 	vector<int> profTurmas;
 
 	if (i == 1) {
-		if(!escola->getTurmas().size()){
+		if(!escola->getTurmas().empty()){
 			cout << "?!ALUNO!?" << endl;
 			cout << "Nome:" << endl;
 			cin >> nome;
@@ -178,14 +179,18 @@ bool criar(int i, Escola * escola) {
 			return false;
 		}
 		Turma * _temp = NULL;
-		_temp = escola->getTurmaById(idTurma);
+		try{
+			_temp = escola->getTurmaById(idTurma);
 
-		if(_temp != NULL){
-			Aluno * aluno = new Aluno(nome, numero, _temp);
-			escola->getAlunos().push_back(aluno);
-			cout << "Aluno criado com sucesso!" << endl;
-		} else {
-			cout << "Numero de Turma invalido!" << endl;
+			if(_temp != NULL){
+				Aluno * aluno = new Aluno(nome, numero, _temp);
+				escola->setAluno(aluno);
+				cout << "Aluno criado com sucesso!" << endl;
+			} else {
+				cout << "Numero de Turma invalido!" << endl;
+			}
+		}catch(TurmaNaoExistente x){
+			cout << x.getErro() << endl;
 		}
 
 	} else if (i == 2) {
@@ -246,7 +251,7 @@ bool criar(int i, Escola * escola) {
 
 			if(_temp != NULL && _temp2 != NULL){
 				Professor * professor = new Professor(nome, _temp, _temp2);
-				escola->getProfessores().push_back(professor);
+				escola->setProfessor(professor);
 				cout << "Professor criado com sucesso!" << endl;
 			} else {
 				cout << "Numero de Turma OU Disciplina invalido!" << endl;
@@ -262,7 +267,7 @@ bool criar(int i, Escola * escola) {
 		cin >> anoEscolar;
 
 		Turma * turma = new Turma(idTurma, anoEscolar);
-		escola->getTurmas().push_back(turma);
+		escola->setTurma(turma);
 		cout << "Turma criada com sucesso!" << endl;
 	} else {
 		cout << "?!DISCIPLINA!?" << endl;
@@ -278,40 +283,48 @@ bool criar(int i, Escola * escola) {
 	}
 	return true;
 }
-//
-//bool ler(int i) {
-//	if (i == 1) {
-//		if (alunos.empty()) {
-//			cout << "Nao existem alunos para ler" << endl;
-//		} else {
-//			for (unsigned int i = 0; i < alunos.size(); i++) {
-//				cout << "Nome: " << alunos[i].getNome() << " - Numero: "
-//						<< alunos[i].getNumero() << " - Turma: "
-//						<< alunos[i].getIDturma() << endl;
-//			}
-//		}
-//		return true;
-//	} else if (i == 2) {
-//		if (professores.empty()) {
-//			cout << "Nao existem professores para ler" << endl;
-//		} else {
-//			//listar os professores e as respectivas turmas
-//		}
-//		return true;
-//	} else if (i == 3) {
-//		if (turmas.empty()) {
-//			cout << "Nao existem turmas para ler" << endl;
-//		}
-//		return true;
-//	} else {
-//		if (disciplinas.empty()) {
-//			cout << "Nao existem disciplinas para ler" << endl;
-//		}
-//		return true;
-//	}
-//	return false;
-//}
-//
+
+bool ler(int i, Escola * escola) {
+	if (i == 1) {
+		if (escola->getAlunos().empty()) {
+			cout << "Nao existem alunos para ler" << endl;
+		} else {
+			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
+				cout << escola->showAluno(escola->getAlunos()[j]) << endl;
+			}
+		}
+		return true;
+	} else if (i == 2) {
+		if (escola->getProfessores().empty()) {
+			cout << "Nao existem professores para ler" << endl;
+		} else {
+			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
+				cout << escola->showProfessor(escola->getProfessores()[j]) << endl;
+			}
+		}
+		return true;
+	} else if (i == 3) {
+		if (escola->getTurmas().empty()) {
+			cout << "Nao existem turmas para ler" << endl;
+		} else {
+			for (unsigned int j = 0; j < escola->getAlunos().size(); j++) {
+				cout << escola->showTurma(escola->getTurmas()[j]) << endl;
+			}
+		}
+		return true;
+	} else {
+		if (escola->getDiscipinas().empty()) {
+			cout << "Nao existem disciplinas para ler" << endl;
+		} else {
+			for (unsigned int j = 0; j < escola->getDiscipinas().size(); j++) {
+				cout << escola->showDisciplina(escola->getDiscipinas()[j]) << endl;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
 //bool actualizar(int i) {
 //	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
 //	string nome = "";

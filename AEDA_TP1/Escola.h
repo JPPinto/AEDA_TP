@@ -24,8 +24,9 @@ public:
 	Escola();
 
 	//Aluno	
-	 vector<Aluno *> getAlunos();
-	 Aluno * getAlunoByNome(string n);			///< Devolve o Aluno com o nome igual a n
+	vector<Aluno *> getAlunos();
+	void setAluno(Aluno* a);					///< Acrescenta alunos ao vector _alunos
+	Aluno * getAlunoByNome(string n);			///< Devolve o Aluno com o nome igual a n
 
 	bool addAluno(string nome, int numero, Turma* t);								///< Adiciona um Aluno a Escola
 	string showAluno(Aluno * a);								///< Mostra o Aluno no ecra
@@ -35,6 +36,7 @@ public:
 
 	//Professor
 	vector<Professor *> getProfessores();			///< Devolve todos os professores existentes na Escola
+	void setProfessor(Professor* p);				///< Acrescenta professores ao vector _professores
 	Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
 	bool addProfessor(string n, string  d,int t);	///< Adiciona um Professor a Escola
@@ -45,6 +47,7 @@ public:
 
 	//Turma
 	vector<Turma *> getTurmas();						///< Devolve todas as turmas existentes na Escola
+	void setTurma(Turma* t);							///< Acrescenta turmas ao vector turmas
 	Turma * getTurmaById(int id);						///< Devolve a Turma com o id igual a id
 
 	bool addTurma(int id, int anoEscolar);								///< Adiciona uma Turma a Escola
@@ -55,6 +58,7 @@ public:
 
 	//Disciplina
 	vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
+	void setDisciplina(Disciplina* d);				///< Acrescenta disciplinas ao vector _disciplinas
 	Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
 
 	bool addDisciplina(string nome, int d, int h);						///< Adiciona uma Disciplina a Escola
