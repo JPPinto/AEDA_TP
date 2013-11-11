@@ -74,4 +74,20 @@ public:
 	virtual ~AlunoNaoExistente(){}	///< Destrutor
 };
 
+class DuracaoExcedida{
+
+public: 
+	int _duracao;
+
+	DuracaoExcedida(int d){
+		_duracao = d;
+	}
+
+	string getErro()const{
+		stringstream s;
+		s << "A duracao, " << _duracao << ", excedeu os limites estabelecidos!(0 - 90)" << endl;
+		return s.str();
+	}
+}
+
 #endif
