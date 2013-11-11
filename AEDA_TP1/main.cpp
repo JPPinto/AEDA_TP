@@ -22,7 +22,7 @@ void menuAssociacoes();
 void menuListagens();
 
 ////CRUD
-//bool criar(int i, Escola * escola);
+bool criar(int i, Escola * escola);
 //bool ler(int i);
 //bool actualizar(int i);
 //bool eliminar(int i);
@@ -159,8 +159,9 @@ void menuListagens() {
 }
 
 bool criar(int i, Escola * escola) {
-	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
-	string nome = "";
+	int idTurma, numero, idTurmaResponsavel, anoEscolar;
+	int tipoProfessor = 0, duracao = 0, horaInicio = 0;
+	string nome = "", nome_disciplina = "";
 	vector<int> profTurmas;
 
 	if (i == 1) {
@@ -188,22 +189,71 @@ bool criar(int i, Escola * escola) {
 		}
 
 	} else if (i == 2) {
-		cout << "?!PROFESSOR!?" << endl;
-		cout << "Nome:" << endl;
-		cin >> nome;
-		cout << "Identificacao da disciplina:" << endl;
-		cin >> idDisciplina;
-		cout << "Numero de turmas em que da aulas:" << endl;
-		cin >> qtdTurmas;
-		for (int i = 0; i < qtdTurmas; i++) {
-			cout << "Numero da " << (i + 1) << "º turma:" << endl;
+		if(!escola->getDiscipinas().size() || !escola->getTurmas().size()){
+
+			while(tipoProfessor < 1 && tipoProfessor > 3){
+				cout << "Escolha o tipo de Professor:" << endl;
+				cout << "1. Professor" << endl;
+				cout << "2. Director de Turma" << endl;
+				cout << "3. Sair." << endl;
+				cin >> tipoProfessor;
+			}
+
+			if(tipoProfessor == 3)
+				return false;
+
+			if(tipoProfessor == 1)
+				cout << "?!PROFESSOR!?" << endl;
+			else
+				cout << "?!Director de Turma!?" << endl;
+
+			cout << "Nome:" << endl;
+			cin >> nome;
+			cout << "Nome da disciplina:" << endl;
+			cin >> nome_disciplina;
+			cout << "ID de uma Turma de leccionacao:" << endl;
 			cin >> idTurma;
-			profTurmas.push_back(idTurma);
+
+			if(tipoProfessor == 2){
+				cout << "ID de uma Turma responsavel(pode ser a mesma que a anterior):" << endl;
+				cin >> idTurmaResponsavel;
+			}
+
+			Disciplina * _temp = NULL;
+			Turma * _temp2 = NULL;
+
+			_temp = escola->getDisciplinaByNome(nome_disciplina);
+			_temp2 = escola->getTurmaById(idTurma);
+
+			if(tipoProfessor== 2){
+
+				Turma * _temp3 = NULL;
+				_temp3 = escola->getTurmaById(idTurmaResponsavel);
+
+				if(_temp == NULL)
+					cout << "Nome de Disciplina invalido!" << endl;
+				else	if(_temp2 == NULL)
+					cout << "Numero de Turma a leccionar invalido!!" << endl;
+				else    if(_temp3 == NULL)
+					cout << "Numero de Turma responsavel invalido!!" << endl;
+				else if(_temp != NULL && _temp2 != NULL && _temp3 != NULL){
+					DirectorTurma * _temp_director = new DirectorTurma(nome, _temp, _temp2, _temp3);
+					escola->getProfessores().push_back(_temp_director);
+					cout << "Director de Turma criado com sucesso!" << endl;
+				}
+						
+			}
+
+			if(_temp != NULL && _temp2 != NULL){
+				Professor * professor = new Professor(nome, _temp, _temp2);
+				escola->getProfessores().push_back(professor);
+				cout << "Professor criado com sucesso!" << endl;
+			} else {
+				cout << "Numero de Turma OU Disciplina invalido!" << endl;
+			}
+		} else {
+			cout << "Nao e possivel adicionar Professores sem antes adicionar Disciplinas OU Turmas!" << endl;
 		}
-		//director de turma
-		//e necessario mudar o true
-		Professor professor(nome, idDisciplina, profTurmas, true);
-		professores.push_back(professor);
 	} else if (i == 3) {
 		cout << "?!TURMA!?" << endl;
 		cout << "Numero da turma:" << endl;
@@ -211,18 +261,21 @@ bool criar(int i, Escola * escola) {
 		cout << "Ano Escolar:" << endl;
 		cin >> anoEscolar;
 
-		Turma turma(idTurma, anoEscolar);
-		turmas.push_back(turma);
+		Turma * turma = new Turma(idTurma, anoEscolar);
+		escola->getTurmas().push_back(turma);
+		cout << "Turma criada com sucesso!" << endl;
 	} else {
 		cout << "?!DISCIPLINA!?" << endl;
 		cout << "Nome:" << endl;
 		cin >> nome;
-		cout << "Numero:" << endl;
-		cin >> idDisciplina;
+		cout << "Duracao da Aula (em minutos):" << endl;
+		cin >> duracao;
+		cout << "Hora de inicio (entre as 8:00 e as 16:00):" << endl;
+		cin >> horaInicio;
 
-		Disciplina disc(nome, idDisciplina);
-		disciplinas.push_back(disc);
-	}		//tambem devera ter horario
+		Disciplina * disc = new Disciplina(nome, duracao, horaInicio);
+		escola->getDiscipinas().push_back(disc);
+	}
 	return true;
 }
 //
