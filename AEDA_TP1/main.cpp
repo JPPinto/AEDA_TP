@@ -126,17 +126,15 @@ void manutencao(int i) {
 		cout << "##############################" << endl;
 		cout << "1. Criar " << entidade << endl;
 		cout << "2. Ler " << entidade << endl;
-		cout << "3. Actualizar" << entidade << endl;
-		cout << "4. Eliminar" << entidade << endl;
+		cout << "3. Actualizar " << entidade << endl;
+		cout << "4. Eliminar " << entidade << endl;
 		cout << "5. Voltar" << endl;
 
 		cin >> crud;
 
 		switch (crud) {
 		case 1:
-			if(criar(i)){
-				cout<<entidade<<" criado(a) com sucesso."<<endl;
-			}
+			criar(i);
 			break;
 		case 2:
 			ler(i);
@@ -211,48 +209,84 @@ bool criar(int i) {
 		cout << "?!DISCIPLINA!?" << endl;
 		cout << "Nome:" << endl;
 		cin >> nome;
-		cout <<"Numero:"<<endl;
-		cin>>idDisciplina;
+		cout << "Numero:" << endl;
+		cin >> idDisciplina;
 
 		Disciplina disc(nome, idDisciplina);
 		disciplinas.push_back(disc);
-	}//tambem devera ter horario
+	}		//tambem devera ter horario
 	return true;
 }
 
 bool ler(int i) {
-	if(i==1){
-		if(alunos.empty()){
-			cout<<"Nao existem alunos para ler"<<endl;
-			return false;
-		}else{
-			for(unsigned int i=0;i<alunos.size();i++){
-				cout<<"Nome: "<<alunos[i].getNome()<<" - Numero: "<<alunos[i].getNumero()<<" - Turma: "<<alunos[i].getIDturma()<<endl;
+	if (i == 1) {
+		if (alunos.empty()) {
+			cout << "Nao existem alunos para ler" << endl;
+		} else {
+			for (unsigned int i = 0; i < alunos.size(); i++) {
+				cout << "Nome: " << alunos[i].getNome() << " - Numero: "
+						<< alunos[i].getNumero() << " - Turma: "
+						<< alunos[i].getIDturma() << endl;
 			}
 		}
-	}else if(i==2){
-		if(professores.empty()){
-			cout<<"Nao existem professores para ler"<<endl;
-			return false;
+		return true;
+	} else if (i == 2) {
+		if (professores.empty()) {
+			cout << "Nao existem professores para ler" << endl;
+		} else {
+			//listar os professores e as respectivas turmas
 		}
-	}else if(i==3){
-		if(turmas.empty()){
-			cout<<"Nao existem turmas para ler"<<endl;
-			return false;
+		return true;
+	} else if (i == 3) {
+		if (turmas.empty()) {
+			cout << "Nao existem turmas para ler" << endl;
 		}
-	}else{
-		if(disciplinas.empty()){
-			cout<<"Nao existem disciplinas para ler"<<endl;
-			return false;
+		return true;
+	} else {
+		if (disciplinas.empty()) {
+			cout << "Nao existem disciplinas para ler" << endl;
+		}
+		return true;
+	}
+	return false;
+}
+
+bool actualizar(int i) {
+	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
+	string nome = "";
+	if (i == 1) {
+		if (alunos.empty()) {
+			cout << "Nao existem alunos para actualizar" << endl;
+		} else {
+			int num = 0;
+			cout << "Qual o numero do aluno que pretende actualizar?" << endl;
+			for (unsigned int j = 0; j < alunos.size(); j++) {
+							cout << "Nome: " << alunos[j].getNome() << " - Numero: "
+									<< alunos[j].getNumero() << " - Turma: "
+									<< alunos[j].getIDturma() << endl;
+						}
+			cin >> num;
+			for (unsigned int j = 0; j < alunos.size(); j++) {
+				if (alunos[j].getNumero() == num) {
+					cout << "?!ALUNO!?" << endl;
+					cout << "Nome:" << endl;
+					cin >> nome;
+					cout << "Numero:" << endl;
+					cin >> numero;
+					cout << "Numero da turma:" << endl;
+					cin >> idTurma;
+
+					alunos[j].setNome(nome);
+					alunos[j].setNumero(numero);
+					alunos[j].setIDturma(idTurma);
+					cout << "Aluno criado com sucesso" << endl;
+				}
+			}
 		}
 	}
 	return true;
 }
 
-bool actualizar(int i) {
-	return 0;
-}
-
 bool eliminar(int i) {
-	return 0;
+	return false;
 }

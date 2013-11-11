@@ -1,10 +1,3 @@
-/*
- * Turma.cpp
- *
- *  Created on: 30/09/2013
- *      Author: João
- */
-
 #include "Turma.h"
 
 Turma::Turma(){
@@ -41,10 +34,10 @@ void Turma::setAnoEscolar(int ae){
 	anoEscolar=ae;
 }
 
-Horario Turma::getHorario(){
+Horario* Turma::getHorario(){
 	return horario;
 }
 
-void Turma::setHorario(Horario h){
+void Turma::setHorario(Horario* h){
 
 }

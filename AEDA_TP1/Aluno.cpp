@@ -6,37 +6,39 @@
  */
 
 #include "Aluno.h"
+#include "Excepcao.h"
 
-Aluno::Aluno(int idTurma, string nome, int numero) {
-	this->idTurma=idTurma;
+
+Aluno::Aluno(string nome, int numero, int idTurma){
 	this->nome=nome;
 	this->numero=numero;
-}
-
-Aluno::~Aluno() {
-
-}
-
-int Aluno::getIDturma(){
-	return idTurma;
-}
-
-void Aluno::setIDturma(int idT){
-	idTurma=idT;
+	setTurma(idTurma);
 }
 
 string Aluno::getNome(){
 	return nome;
 }
 
-void Aluno::setNome(string n){
-	nome=n;
-}
-
 int Aluno::getNumero(){
 	return numero;
 }
 
-void Aluno::setNumero(int n){
-	numero=n;
+int Aluno::getTurma(){
+	return idTurma;
+}
+
+void Aluno::setNome(string nome){
+	this->nome=nome;
+}
+
+void Aluno::setNumero(int numero){
+	if(numero<=0 && numero>MAX_ALUNOS){
+		throw new AlunosPorTurmaExcedido(this);
+	}else{
+		this->numero=numero;
+	}
+}
+
+void Aluno::setTurma(int idTurma){
+	this->idTurma=idTurma;
 }

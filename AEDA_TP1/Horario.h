@@ -14,7 +14,7 @@
 using namespace std;
 
 class Horario {
-	vector<Disciplina> disciplinas;
+	vector<Disciplina*> disciplinas;
 public:
 	Horario();
 	virtual ~Horario();

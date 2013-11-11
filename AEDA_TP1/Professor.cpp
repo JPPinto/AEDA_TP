@@ -1,5 +1,6 @@
 #include "Professor.h"
 #include <iostream>
+#include "Excepcao.h"
 
 Professor::Professor(string n, Disciplina * d,Turma * t) {
 	_nome = n;

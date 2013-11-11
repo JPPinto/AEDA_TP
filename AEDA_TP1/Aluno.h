@@ -5,11 +5,14 @@
  *      Author: João
  */
 
-#ifndef ALUNO_H_
-#define ALUNO_H_
+#ifndef _ALUNO_H_
+#define _ALUNO_H_
 
 #include <string>
 #include "Turma.h"
+
+
+#define MAX_ALUNOS 30
 
 using namespace std;
 
@@ -17,13 +20,14 @@ class Aluno {
 	string nome;
 	int numero, idTurma;
 public:
-	Aluno(int idTurma, string nome, int numero);
-	virtual ~Aluno();
-	int getIDturma();
-	void setIDturma(int idT);
+	Aluno(string nome, int numero, int idTurma);
+
 	string getNome();
-	void setNome(string n);
 	int getNumero();
-	void setNumero(int n);
+	int getTurma();
+
+	void setNome(string nome);
+	void setNumero(int numero);
+	void setTurma(int idTurma);
 };
 #endif /* ALUNO_H_ */

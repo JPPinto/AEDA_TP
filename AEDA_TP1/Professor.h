@@ -1,10 +1,3 @@
-/*
-* Professor.h
-*
-*  Created on: 30/09/2013
-*      Author: João
-*/
-
 #ifndef PROFESSOR_H_
 #define PROFESSOR_H_
 
@@ -14,7 +7,7 @@
 #include "Turma.h"
 #include "Disciplina.h"
 #include "Horario.h"
-#include "Excepcao.h"
+
 
 using namespace std;
 
