@@ -10,10 +10,10 @@
 #include "Escola.h"
 
 
-Aluno::Aluno(string nome, int numero, int id){
+Aluno::Aluno(string nome, int numero,Turma * t){
 	this->_nome=nome;
 	this->_numero=numero;
-	setTurma(id);
+	setTurma(t);
 }
 
 string Aluno::getNome(){
@@ -40,16 +40,8 @@ void Aluno::setNumero(int numero){
 	}
 }
 
-void Aluno::setTurma(int id){
-
-	Turma* _temp_turma = NULL;
-
-	_temp_turma = Escola::getTurmaById(id);
-
-	if(_temp_turma == NULL)
-		throw TurmaNaoExistente(new Turma(id));
-	else
-		_turma = _temp_turma;
+void Aluno::setTurma(Turma * t){
+	_turma = t;
 }
 
 bool Aluno::operator==(Aluno * a2){

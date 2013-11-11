@@ -25,9 +25,9 @@ public:
 
 	//Aluno	
 	static vector<Aluno *> getAlunos();
-	static Aluno * getAlunoByNome(const string n);			///< Devolve o Aluno com o nome igual a n
+	static Aluno * getAlunoByNome(string n);			///< Devolve o Aluno com o nome igual a n
 
-	bool addAlunos(string nome, int numero, int turma);								///< Adiciona um Aluno a Escola
+	bool addAluno(string nome, int numero, Turma* t);								///< Adiciona um Aluno a Escola
 	string showAluno(Aluno * a);								///< Mostra o Aluno no ecra
 	bool updateAluno(Aluno * a);							///< Altera informacao do Aluno
 	bool removeAluno(Aluno * a);							///< Remove um Aluno da Escola
@@ -45,7 +45,7 @@ public:
 
 	//Turma
 	static vector<Turma *> getTurmas();						///< Devolve todas as turmas existentes na Escola
-	static Turma * getTurmaById(const int id);						///< Devolve a Turma com o id igual a id
+	static Turma * getTurmaById(int id);						///< Devolve a Turma com o id igual a id
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma a Escola
 	bool showTurma(Turma * t);								///< Mostra a Turma no ecra
