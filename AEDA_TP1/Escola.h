@@ -14,10 +14,10 @@ using namespace std;
 class Escola
 {
 	vector<Aluno*> _alunos;			///< Todos os alunos inscritos na Escola
-	static vector<Professor*> _professores;	///< Todos os Professores que leccionam na Escola
-	static vector<Turma*> _turmas;			///< Todas as turmas existentes na Escola
+	vector<Professor*> _professores;	///< Todos os Professores que leccionam na Escola
+	vector<Turma*> _turmas;			///< Todas as turmas existentes na Escola
 	//vector<Horario *> _horarios; Não há horarios sem turmas, tem de ser um atributo de Turma
-	static vector<Disciplina*> _disciplinas;	///< Todas as disciplinas existentes na Escola
+	vector<Disciplina*> _disciplinas;	///< Todas as disciplinas existentes na Escola
 
 public:
 
@@ -34,18 +34,18 @@ public:
 
 
 	//Professor
-	static vector<Professor *> getProfessores();			///< Devolve todos os professores existentes na Escola
-	static Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
+	vector<Professor *> getProfessores();			///< Devolve todos os professores existentes na Escola
+	Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
 	bool addProfessor(string n, string  d,int t);	///< Adiciona um Professor a Escola
-	bool showProfessor(Professor * p);						///< Mostra o Professor no ecra
-	bool updateProfessor(Professor * p);					///< Altera a informacao do Professor
-	bool removeProfessor(const string n);					///< Remove um Professor da Escola
+	string showProfessor(Professor * p);			///< Mostra o Professor no ecra
+	bool updateProfessor(Professor * p);			///< Altera a informacao do Professor
+	bool removeProfessor(const string n);			///< Remove um Professor da Escola
 
 
 	//Turma
-	static vector<Turma *> getTurmas();						///< Devolve todas as turmas existentes na Escola
-	static Turma * getTurmaById(int id);						///< Devolve a Turma com o id igual a id
+	vector<Turma *> getTurmas();						///< Devolve todas as turmas existentes na Escola
+	Turma * getTurmaById(int id);						///< Devolve a Turma com o id igual a id
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma a Escola
 	bool showTurma(Turma * t);								///< Mostra a Turma no ecra
@@ -54,8 +54,8 @@ public:
 
 
 	//Disciplina
-	static vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
-	static Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
+	vector<Disciplina *> getDiscipinas();			///< Devolve todas as Disciplinas que sao leccionadas na Escola
+	Disciplina * getDisciplinaByNome(const string n);///< Devolve a Disciplina com o nome igual a n
 
 	bool addDisciplina(Disciplina * d);						///< Adiciona uma Disciplina a Escola
 	bool showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra
