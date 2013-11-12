@@ -343,42 +343,42 @@ bool ler(int i, Escola * escola) {
 	return false;
 }
 
-//bool actualizar(int i) {
-//	int idTurma, numero, idDisciplina, qtdTurmas, anoEscolar;
-//	string nome = "";
-//	if (i == 1) {
-//		if (alunos.empty()) {
-//			cout << "Nao existem alunos para actualizar" << endl;
-//		} else {
-//			int num = 0;
-//			cout << "Qual o numero do aluno que pretende actualizar?" << endl;
-//			for (unsigned int j = 0; j < alunos.size(); j++) {
-//							cout << "Nome: " << alunos[j].getNome() << " - Numero: "
-//									<< alunos[j].getNumero() << " - Turma: "
-//									<< alunos[j].getIDturma() << endl;
-//						}
-//			cin >> num;
-//			for (unsigned int j = 0; j < alunos.size(); j++) {
-//				if (alunos[j].getNumero() == num) {
-//					cout << "?!ALUNO!?" << endl;
-//					cout << "Nome:" << endl;
-//					cin >> nome;
-//					cout << "Numero:" << endl;
-//					cin >> numero;
-//					cout << "Numero da turma:" << endl;
-//					cin >> idTurma;
-//
-//					alunos[j].setNome(nome);
-//					alunos[j].setNumero(numero);
-//					alunos[j].setIDturma(idTurma);
-//					cout << "Aluno criado com sucesso" << endl;
-//				}
-//			}
-//		}
-//	}
-//	return true;
-//}
-//
-//bool eliminar(int i) {
-//	return false;
-//}
+bool actualizar(int i) {
+	int idturma, numero, iddisciplina, qtdturmas, anoescolar;
+	string nome = "";
+	if (i == 1) {
+		if (alunos.empty()) {
+			cout << "nao existem alunos para actualizar" << endl;
+		} else {
+			int num = 0;
+			cout << "Qual o numero do aluno que pretende actualizar?" << endl;
+			for (unsigned int j = 0; j < alunos.size(); j++) {
+							cout << "nome: " << alunos[j].getnome() << " - numero: "
+									<< alunos[j].getnumero() << " - turma: "
+									<< alunos[j].getidturma() << endl;
+						}
+			cin >> num;
+			for (unsigned int j = 0; j < alunos.size(); j++) {
+				if (alunos[j].getnumero() == num) {
+					cout << "?!ALUNO!?" << endl;
+					cout << "nome:" << endl;
+					cin >> nome;
+					cout << "numero:" << endl;
+					cin >> numero;
+					cout << "numero da turma:" << endl;
+					cin >> idturma;
+
+					alunos[j].setnome(nome);
+					alunos[j].setnumero(numero);
+					alunos[j].setidturma(idturma);
+					cout << "aluno criado com sucesso" << endl;
+				}
+			}
+		}
+	}
+	return true;
+}
+
+bool eliminar(int i) {
+	return false;
+}
