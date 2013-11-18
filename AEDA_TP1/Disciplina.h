@@ -22,6 +22,7 @@ public:
 	int getHoraInicio() const;
 	void setHoraInicio(int h);
 	int getHoraFim() const;
+	string print();
 
 	bool operator==(Disciplina * d2);///< Verificasse quando o nome entre os dois objetos e igual 
 

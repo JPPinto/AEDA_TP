@@ -73,3 +73,10 @@ int Disciplina::getHoraFim() const{
 bool Disciplina::operator==(Disciplina * d2){
 	return _nome == d2->getNome();
 }
+
+string Disciplina::print(){
+		stringstream s;
+		s << "Nome: " << getNome() << " Duracao: " << getDuracao()
+			<< " Hora Inicio: " << getHoraInicio() << ";" << endl;
+			return s.str();
+}

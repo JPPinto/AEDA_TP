@@ -66,7 +66,7 @@ bool Aluno::operator==(Aluno * a2){
  */
 string Aluno::print(){
 	stringstream s;
-			s << "Nome: " << getNome() << " - Numero: " << getNumero()
-					<< " - Turma: " << getNumero() << endl;
+			s << "Nome: " << getNome() << " Numero: " << getNumero()
+					<< " Turma: " << getNumero() << ";" << endl;
 			return s.str();
 }

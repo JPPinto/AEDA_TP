@@ -11,6 +11,7 @@
 Professor::Professor(string n, Disciplina * d,Turma * t):Pessoa(n) {
 	_disciplina = d;
 	bool x = addTurma(t);
+	director_turma = false;
 }
 /**
  * @brief adds turma t to Professor
@@ -68,6 +69,7 @@ Professor::~Professor() {
  */
 DirectorTurma::DirectorTurma(string n, Disciplina * d,Turma* t, Turma * t_responsavel):Professor(n,d,t){
 	addTurmaResponsavel(t_responsavel);
+	director_turma = true;
 }
 /**
  *
@@ -129,9 +131,28 @@ bool Professor::operator==(Professor * a2){
  */
 string Professor::print(){
 	stringstream s;
-	s << "Nome: " << getNome() << " - Disciplina: " << getDiscipina()->getNome() << endl;
+	s << "Nome: " << getNome() << " - Disciplina Leccionada: " << getDiscipina()->getNome() << ";"<< endl;
+	s << "Turmas em que lecciona:" << endl;
 	for(unsigned int i=0;i< getTurmas().size();i++){
-		s<< " - Turma: " << getTurmas()[i]->getID() << " - Ano: " << getTurmas()[i]->getAnoEscolar() << endl;
+		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
 	}
 	return s.str();
+}
+
+string DirectorTurma::print(){
+	stringstream s;
+	s << "Nome: " << getNome() << " - Disciplina Leccionada: " << getDiscipina()->getNome() << ";"<< endl;
+	s << "Turmas em que lecciona:" << endl;
+	for(unsigned int i=0;i< getTurmas().size();i++){
+		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+	}
+	s << "Turmas responsaveis:" << endl;
+	for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
+		s << "			ID: " << getTurmasResponsaveis()[i]->getID() << " Ano: " << getTurmasResponsaveis()[i]->getAnoEscolar() << ";"<< endl;
+	}
+	return s.str();
+}
+
+bool DirectorTurma::operator==(DirectorTurma* p2){
+	return (getNome() == p2->getNome()) && (_disciplina == p2->getDiscipina());
 }

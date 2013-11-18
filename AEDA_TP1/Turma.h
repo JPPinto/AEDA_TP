@@ -2,6 +2,7 @@
 #define TURMA_H_
 
 #include "Horario.h"
+#include <sstream>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ public:
 	void setID(int i);
 	void setAnoEscolar(int ae);
 	void setHorario(Horario* h);
+	string print();
 
 	bool operator==(Turma * t2);
 };

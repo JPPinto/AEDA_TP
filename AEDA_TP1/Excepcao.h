@@ -21,7 +21,7 @@ public:
 	}
 	string getErro(){				///< Mensagem de erro lancada por esta excepcao
 		stringstream s;
-		s << "Turma " << turma->getID() << " ja e leccionada por este professor!" << endl;
+		s << endl << "ERRO: " << "Turma " << turma->getID() << " ja e leccionada por este professor!" << endl;
 		return s.str();
 	}
 	virtual ~TurmaExistente(){}		///< Destrutor
@@ -31,9 +31,13 @@ public:
 class TurmaNaoExistente
 {
 public:
-	Turma * turma;					///< Turma inesxistente
+	int id;					///< Turma inesxistente
 	TurmaNaoExistente(Turma * t){
-		turma = t;
+		id = t->getID();
+	}
+	
+	TurmaNaoExistente(int i){
+		id = i;
 	}
 	/**
 	 * @brief Mensagem de erro lancada pela excepcao
@@ -41,7 +45,7 @@ public:
 	 */
 	string getErro(){
 		stringstream s;
-		s << "Turma " << turma->getID() << " nao existe!" << endl;
+		s << endl << "ERRO: " <<  "Turma " << id << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~TurmaNaoExistente(){}	///< Destrutor
@@ -57,7 +61,7 @@ public:
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << "Aluno " << aluno->getNome() << " excede o limite da turma!" << endl;
+		s << endl << "ERRO: " << "Aluno " << aluno->getNome() << " excede o limite da turma!" << endl;
 		return s.str();
 	}
 	virtual ~AlunosPorTurmaExcedido(){}	///< Destrutor
@@ -73,7 +77,7 @@ public:
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << "Aluno " << aluno->getNome() << " nao existe!" << endl;
+		s << endl << "ERRO: " << "Aluno " << aluno->getNome() << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~AlunoNaoExistente(){}	///< Destrutor
@@ -89,7 +93,7 @@ public:
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << "Professor " << professor->getNome() << " nao existe!" << endl;
+		s << endl << "ERRO: " << "Professor " << professor->getNome() << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~ProfessorNaoExistente(){}	///< Destrutor
@@ -99,13 +103,16 @@ public:
 class DisciplinaNaoExistente
 {
 public:
-	Disciplina* disciplina;					///< Aluno inesxistente
+	string disciplina;					///< Nome de disciplina inesxistente
 	DisciplinaNaoExistente(Disciplina* d){
+		disciplina = d->getNome();
+	}
+	DisciplinaNaoExistente(string d){
 		disciplina = d;
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << "Disciplina: " << disciplina->getNome() << " nao existe!" << endl;
+		s << endl << "ERRO: " << "Disciplina: " << disciplina << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~DisciplinaNaoExistente(){}	///< Destrutor
@@ -122,8 +129,28 @@ public:
 
 	string getErro()const{
 		stringstream s;
-		s << "A duracao, " << _duracao << ", excedeu os limites estabelecidos!(0 - 90)" << endl;
+		s << endl << "ERRO: " << "A duracao, " << _duracao << ", excedeu os limites estabelecidos!(0 - 90)" << endl;
 		return s.str();
+	}
+};
+
+class NaoEPossivelAdicionarAluno{
+public:
+	NaoEPossivelAdicionarAluno(){}
+	string getError(){
+		stringstream s;
+		s << endl << "ERRO: " << "Nao e possivel adicionar Alunos sem antes haver Turmas!" << endl;
+		return s.str();
+	}
+};
+
+class NaoEPossivelAdicionarProfessor{
+public:
+	NaoEPossivelAdicionarProfessor(){}
+	string getError(){
+		stringstream s;
+		s << endl << "ERRO: " << "Nao foi possivel adicionar Professor!" << endl;
+		s.str();
 	}
 };
 

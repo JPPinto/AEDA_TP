@@ -77,3 +77,9 @@ void Turma::setHorario(Horario* h){
 bool Turma::operator==(Turma * t2){
 	return id == t2->getID();
 }
+
+string Turma::print(){
+		stringstream s;
+		s << "ID: " << getID() << " Ano Escolar: " << getAnoEscolar() << ";" << endl;
+			return s.str();
+}

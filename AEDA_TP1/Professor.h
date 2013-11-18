@@ -11,7 +11,7 @@ using namespace std;
 /// Classe Base para Professor e Aluno
 class Pessoa {
 
-private:
+protected:
 	string _nome;
 
 public:
@@ -25,7 +25,9 @@ public:
 /// Professor de uma Escola (class Base), podendo ou nao ser Director de Turma
 class Professor : public Pessoa{
 
+protected:
 	///< Nome do Professor
+	bool director_turma;
 	Disciplina * _disciplina;		///< Disciplina que o Professor lecciona
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
@@ -40,6 +42,7 @@ public:
 	Disciplina * getDiscipina()const{return _disciplina;}
 	vector<Turma *> getTurmas()const{return _turmas;}
 	bool operator==(Professor * p2);
+	bool getDirectorTurma(){return director_turma;}
 	virtual ~Professor();
 
 };
@@ -55,6 +58,8 @@ public:
 	DirectorTurma(string n, Disciplina * d,Turma* t, Turma * t_responsavel);
 	bool addTurmaResponsavel(Turma * t);
 	bool removeTurmaResponsavel(const int id);
+	bool operator==(DirectorTurma * p2);
+	string print();
 
 	vector<Turma *> getTurmasResponsaveis(){return _turmas_resposaveis;}
 
