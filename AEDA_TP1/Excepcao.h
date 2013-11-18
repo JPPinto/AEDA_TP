@@ -35,14 +35,14 @@ public:
 	TurmaNaoExistente(Turma * t){
 		id = t->getID();
 	}
-	
+
 	TurmaNaoExistente(int i){
 		id = i;
 	}
 	/**
-	 * @brief Mensagem de erro lancada pela excepcao
-	 * @return
-	 */
+	* @brief Mensagem de erro lancada pela excepcao
+	* @return
+	*/
 	string getErro(){
 		stringstream s;
 		s << endl << "ERRO: " <<  "Turma " << id << " nao existe!" << endl;
@@ -135,22 +135,67 @@ public:
 };
 
 class NaoEPossivelAdicionarAluno{
+private:
+	string id;
 public:
-	NaoEPossivelAdicionarAluno(){}
+	NaoEPossivelAdicionarAluno(){
+		id ="";
+	}
+	NaoEPossivelAdicionarAluno(string i){
+		id =i;
+	}
 	string getError(){
 		stringstream s;
-		s << endl << "ERRO: " << "Nao e possivel adicionar Alunos sem antes haver Turmas!" << endl;
+		if(id != "")
+			s << endl << "ERRO: " << "Ja existe o Aluno " << id << " !" << endl;
+		else
+			s << endl << "ERRO: " << "Nao e possivel adicionar Alunos sem antes haver Turmas!" << endl;
+
 		return s.str();
 	}
 };
 
 class NaoEPossivelAdicionarProfessor{
+private:
+	string id;
 public:
-	NaoEPossivelAdicionarProfessor(){}
+	NaoEPossivelAdicionarProfessor(){
+		id = "";
+	}
+	NaoEPossivelAdicionarProfessor(string i){
+		id = i;
+	}
 	string getError(){
 		stringstream s;
-		s << endl << "ERRO: " << "Nao foi possivel adicionar Professor!" << endl;
-		s.str();
+
+		if(id != "")
+			s << endl << "ERRO: " << "Ja existe o Professor " << id << " !" << endl;
+		else
+			s << endl << "ERRO: " << "Nao foi possivel adicionar Professor!" << endl;
+
+		return s.str();
+	}
+};
+
+class NaoEPossivelAdicionarTurma{
+private:
+	int id;
+public:
+	NaoEPossivelAdicionarTurma(){
+		id = -1;
+	}
+	NaoEPossivelAdicionarTurma(int i){
+		id = i;
+	}
+	string getError(){
+		stringstream s;
+
+		if(id != -1)
+			s << endl << "ERRO: " << "Ja existe a Turma " << id << " !" << endl;
+		else
+			s << endl << "ERRO: " << "Nao foi possivel adicionar Turma!" << endl;
+
+		return s.str();
 	}
 };
 
