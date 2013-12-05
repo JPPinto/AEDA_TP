@@ -36,7 +36,7 @@ public:
 	////CRUD
 	void criar(int i);
 	void ler(int i);
-	bool actualizar(int i);
+	void actualizar(int i);
 	void eliminar(int i);
 	int chooseProfessorType();
 };
