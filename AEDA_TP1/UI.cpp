@@ -391,9 +391,6 @@ void UI::actualizar(int i) {
 	string nome = "";
 	int num = 0;
 	if (i == 1) {
-
-		//chamar ler()
-
 		//eliminar o aluno a ser alterado
 		//chamar criar()
 		//se sem sucesso repor o aluno anterior 
@@ -402,7 +399,15 @@ void UI::actualizar(int i) {
 		} else {
 			cout << "Qual o nome do aluno que pretende editar?" << endl;
 			cin >> nome;
-			cout << escola->showAluno(escola->getAlunoByNome(nome)) << endl;
+
+			Aluno * _temp_aluno = escola->getAlunoByNome(nome);
+
+			cout << escola->showAluno(_temp_aluno) << endl;
+
+			escola->removeAluno(_temp_aluno->getNome());
+			cout << "Reinsira as informações do aluno: " << _temp_aluno->getNome() << " ." << endl << endl;
+
+			criar(1);
 		}
 
 	} else if (i == 2) {
