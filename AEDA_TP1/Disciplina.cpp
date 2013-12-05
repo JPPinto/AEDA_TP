@@ -41,7 +41,7 @@ int Disciplina::getDuracao() const{
  */
 void Disciplina::setDuracao(int d){
 	if(d > DURACAO_MAX || d <= 0)
-		throw new DuracaoExcedida(d);
+		throw DuracaoExcedida(d);
 	_duracao = d;
 }
 /**

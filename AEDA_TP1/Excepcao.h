@@ -32,17 +32,9 @@ class TurmaNaoExistente
 {
 public:
 	int id;					///< Turma inesxistente
-	TurmaNaoExistente(Turma *t){
-		id = t->getID();
+	TurmaNaoExistente(int t){
+		id = t;
 	}
-
-	TurmaNaoExistente(int i){
-		id = i;
-	}
-	/**
-	* @brief Mensagem de erro lancada pela excepcao
-	* @return
-	*/
 	string getErro(){
 		stringstream s;
 		s << endl << "ERRO: " <<  "Turma " << id << " nao existe!" << endl;
@@ -71,13 +63,13 @@ public:
 class AlunoNaoExistente
 {
 public:
-	Aluno * aluno;					///< Aluno inesxistente
-	AlunoNaoExistente(Aluno * a){
-		aluno = a;
+	string nome;				///< Aluno inesxistente
+	AlunoNaoExistente(string a){
+		nome = a;
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << endl << "ERRO: " << "Aluno " << aluno->getNome() << " nao existe!" << endl;
+		s << endl << "ERRO: " << "Aluno " << nome << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~AlunoNaoExistente(){}	///< Destrutor
@@ -87,13 +79,13 @@ public:
 class ProfessorNaoExistente
 {
 public:
-	Professor* professor;					///< Aluno inesxistente
-	ProfessorNaoExistente(Professor* p){
-		professor = p;
+	string nome;					///< Professor inesxistente
+	ProfessorNaoExistente(string p){
+		nome = p;
 	}
 	string getErro(){				///< Mensagem de erro lancada pela excepcao
 		stringstream s;
-		s << endl << "ERRO: " << "Professor " << professor->getNome() << " nao existe!" << endl;
+		s << endl << "ERRO: " << "Professor " << nome << " nao existe!" << endl;
 		return s.str();
 	}
 	virtual ~ProfessorNaoExistente(){}	///< Destrutor
@@ -104,9 +96,7 @@ class DisciplinaNaoExistente
 {
 public:
 	string disciplina;					///< Nome de disciplina inesxistente
-	DisciplinaNaoExistente(Disciplina* d){
-		disciplina = d->getNome();
-	}
+
 	DisciplinaNaoExistente(string d){
 		disciplina = d;
 	}
@@ -118,6 +108,7 @@ public:
 	virtual ~DisciplinaNaoExistente(){}	///< Destrutor
 };
 
+/// Excepcao lancada quando na criação de uma nova dsiciplina esta excede os limites de duracao por aula
 class DuracaoExcedida{
 
 public: 
@@ -134,6 +125,7 @@ public:
 	}
 };
 
+/// Excepcao lancada quando nao e possivel adicionar alunos
 class NaoEPossivelAdicionarAluno{
 private:
 	string id;
@@ -155,6 +147,7 @@ public:
 	}
 };
 
+/// Excepcao lancada quando nao e possivel adicionar profesores
 class NaoEPossivelAdicionarProfessor{
 private:
 	string id;
@@ -177,6 +170,7 @@ public:
 	}
 };
 
+/// Excepcao lancada quando nao e possivel adicionar turmas
 class NaoEPossivelAdicionarTurma{
 private:
 	int id;
@@ -199,6 +193,7 @@ public:
 	}
 };
 
+/// Excepcao lancada quando nao e possivel adicionar disciplinas
 class NaoEPossivelAdicionarDisciplina{
 private:
 	string nome;

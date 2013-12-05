@@ -8,7 +8,6 @@
 vector<Aluno *> Escola::getAlunos() {
 	return _alunos;
 }
-
 void Escola::setAlunos( vector<Aluno*> a )
 {
 	_alunos = a;
@@ -25,8 +24,7 @@ Aluno * Escola::getAlunoByNome(string n) {
 			return (*it);
 		}
 	}
-	Aluno * a = new Aluno(n, 1, (new Turma()));
-	throw AlunoNaoExistente(a);
+	throw AlunoNaoExistente(n);
 }
 
 /**
@@ -39,7 +37,7 @@ Aluno * Escola::getAlunoByNome(string n) {
 bool Escola::addAluno(string nome, int numero, Turma * t) {
 	Aluno * a2 = new Aluno(nome, numero, t);
 
-	for(int i = 0; i < _alunos.size(); i++){
+	for(auto i = 0u; i < _alunos.size(); i++){
 		if(_alunos[i] == a2)
 			throw NaoEPossivelAdicionarAluno(nome);
 	}
@@ -64,7 +62,7 @@ string Escola::showAluno(Aluno * a) {
 		}
 	}
 
-	throw AlunoNaoExistente(a);
+	throw AlunoNaoExistente(a->getNome());
 }
 
 /**
@@ -87,7 +85,7 @@ bool Escola::updateAluno(Aluno * a) {
 		(*it) = a;
 		return true;
 	}
-	throw AlunoNaoExistente(a);
+	throw AlunoNaoExistente(a->getNome());
 }
 
 /**
@@ -95,13 +93,13 @@ bool Escola::updateAluno(Aluno * a) {
 * @param a
 * @return boolean
 */
-bool Escola::removeAluno(Aluno * a) {
+void Escola::removeAluno(string a) {
 	bool b = false;
 
 	vector<Aluno*>::iterator it = _alunos.begin();
 
 	for (; it < _alunos.end(); it++) {
-		if ((*it) == a) {
+		if ((*it)->getNome() == a) {
 			b = true;
 			break;
 		}
@@ -152,7 +150,7 @@ Professor * Escola::getProfessorByNome(const string n){
 		}
 	}
 	Professor* p=new Professor(n, NULL, NULL);
-	throw ProfessorNaoExistente(p);
+	throw ProfessorNaoExistente(n);
 }
 /**
 *
@@ -164,7 +162,7 @@ Professor * Escola::getProfessorByNome(const string n){
 bool Escola::addProfessor(string n, string  d, int t){
 	Professor * p2 = new Professor(n, getDisciplinaByNome(d), getTurmaById(t));
 
-	for (int i = 0; i < _professores.size();i++)
+	for (auto i = 0u; i < _professores.size();i++)
 	{
 		if(_professores[i] == p2)
 			throw NaoEPossivelAdicionarProfessor(n);
@@ -177,7 +175,7 @@ bool Escola::addProfessor(string n, string  d, int t){
 bool Escola::addDirector(string n, string  d, int t1, int t2){
 	DirectorTurma * p2 = new DirectorTurma(n, getDisciplinaByNome(d), getTurmaById(t1), getTurmaById(t2));
 
-	for (int i = 0; i < _professores.size();i++)
+	for (auto i = 0u; i < _professores.size();i++)
 	{
 		if(_professores[i] == p2)
 			throw NaoEPossivelAdicionarProfessor(n);
@@ -203,7 +201,7 @@ string Escola::showProfessor(Professor * p){
 			return s.str();
 		}
 	}
-	throw ProfessorNaoExistente(p);
+	throw ProfessorNaoExistente(p->getNome());
 }
 /**
 *
@@ -225,29 +223,28 @@ bool Escola::updateProfessor(Professor * p){
 		(*it) = p;
 		return true;
 	}
-	throw ProfessorNaoExistente(p);
+	throw ProfessorNaoExistente(p->getNome());
 }
 /**
 *
 * @param n
 * @return
 */
-bool Escola::removeProfessor(const string n){
+void Escola::removeProfessor(const string n){
 	bool b = false;
 
 	vector<Professor*>::iterator it = _professores.begin();
 
 	for (; it < _professores.end(); it++) {
-		if ((*it) == getProfessorByNome(n)) {
+		if ((*it)->getNome() == n) {
 			b = true;
 			break;
 		}
 	}
 	if(b){
 		_professores.erase(it);
-		return true;
 	}
-	throw ProfessorNaoExistente(getProfessorByNome(n));
+	throw ProfessorNaoExistente(n);
 }
 
 void Escola::printProfessores(){
@@ -308,7 +305,7 @@ Turma * Escola::getTurmaById(const int id){
 bool Escola::addTurma(int id, int anoEscolar){
 	Turma * t2 = new Turma(id, anoEscolar);
 
-	for (int i = 0; i < _turmas.size();i++)
+	for (auto i = 0u; i < _turmas.size();i++)
 	{
 		if(_turmas[i] == t2)
 			throw NaoEPossivelAdicionarTurma(id);
@@ -332,7 +329,7 @@ string Escola::showTurma(Turma * t){
 		}
 	}
 
-	throw TurmaNaoExistente(t);
+	throw TurmaNaoExistente(t->getID());
 }
 /**
 *
@@ -354,29 +351,28 @@ bool Escola::updateTurma(Turma * t){
 		(*it) = t;
 		return true;
 	}
-	throw TurmaNaoExistente(t);
+	throw TurmaNaoExistente(t->getID());
 }
 /**
 *
 * @param id
 * @return
 */
-bool Escola::removeTurma(const int id){
+void Escola::removeTurma(const int id){
 	bool b = false;
 
 	vector<Turma*>::iterator it = _turmas.begin();
 
 	for (; it < _turmas.end(); it++) {
-		if ((*it) == getTurmaById(id)) {
+		if ((*it)->getID() == id) {
 			b = true;
 			break;
 		}
 	}
 	if(b){
 		_turmas.erase(it);
-		return true;
 	}
-	throw TurmaNaoExistente((*it));
+	throw TurmaNaoExistente(id);
 }
 
 void Escola::printTurmas(){
@@ -412,10 +408,10 @@ Disciplina * Escola::getDisciplinaByNome(const string n){
 	vector<Disciplina*>::iterator it=_disciplinas.begin();
 	for(;it!=_disciplinas.end();it++){
 		if((*it)->getNome()==n){
-			return getDisciplinaByNome(n);
+			return (*it);
 		}
 	}
-	throw new DisciplinaNaoExistente((*it));
+	throw DisciplinaNaoExistente(n);
 }
 /**
 *
@@ -446,12 +442,12 @@ string Escola::showDisciplina(Disciplina * d){
 	stringstream s;
 	for (; it < _disciplinas.end(); it++) {
 		if ((*it) == d) {
-			s << "Disciplina: " << d->getNome() << " - Duracao: " << d->getDuracao()
+			s << endl << "Disciplina: " << d->getNome() << " - Duracao: " << d->getDuracao()
 				<< " - Hora de inicio: " << d->getHoraInicio() << endl;
 			return s.str();
 		}
 	}
-	throw DisciplinaNaoExistente(d);
+	throw DisciplinaNaoExistente(d->getNome());
 }
 /**
 *
@@ -473,20 +469,20 @@ bool Escola::updateDisciplina(Disciplina * d){
 		(*it) = d;
 		return true;
 	}
-	throw DisciplinaNaoExistente(d);
+	throw DisciplinaNaoExistente(d->getNome());
 }
 /**
 *
 * @param n
 * @return
 */
-bool Escola::removeDisciplina(const string n){
+void Escola::removeDisciplina(const string n){
 	bool b = false;
 
 	vector<Disciplina*>::iterator it = _disciplinas.begin();
 
 	for (; it < _disciplinas.end(); it++) {
-		if ((*it) == getDisciplinaByNome(n)) {
+		if ((*it)->getNome() == n) {
 			b = true;
 			break;
 		}
@@ -494,7 +490,7 @@ bool Escola::removeDisciplina(const string n){
 	if(b){
 		_disciplinas.erase(it);
 	}
-	throw DisciplinaNaoExistente((*it));
+	throw DisciplinaNaoExistente(n);
 }
 
 void Escola::printDisciplinas(){

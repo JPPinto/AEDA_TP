@@ -32,7 +32,7 @@ public:
 	bool addAluno(string nome,int numero, Turma* t);///< Adiciona um Aluno a Escola
 	string showAluno(Aluno * a);					///< Mostra o Aluno no ecra
 	bool updateAluno(Aluno * a);					///< Altera informacao do Aluno
-	bool removeAluno(Aluno * a);					///< Remove um Aluno da Escola
+	void removeAluno(string a);					///< Remove um Aluno da Escola
 	void printAlunos();								///< Imprime os dados de todos os alunos
 
 	//Professor
@@ -44,7 +44,7 @@ public:
 	bool addDirector(string n, string d, int t1, int t2);	///< Adiciona um Director a Escola
 	string showProfessor(Professor * p);			///< Mostra o Professor no ecra
 	bool updateProfessor(Professor * p);			///< Altera a informacao do Professor
-	bool removeProfessor(const string n);			///< Remove um Professor da Escola
+	void removeProfessor(const string n);			///< Remove um Professor da Escola
 	void printProfessores();						///< Imprime os dados de todos os Professores
 	void printDirectoresTurma();					///< Imprime os dados de todos os Directores de Tuma
 
@@ -56,7 +56,7 @@ public:
 	bool addTurma(int id, int anoEscolar);			///< Adiciona uma Turma a Escola
 	string showTurma(Turma * t);					///< Mostra a Turma no ecra
 	bool updateTurma(Turma * t);					///< Altera a informacao da Turma
-	bool removeTurma(const int id);					///< Remove uma Turma da Escola
+	void removeTurma(const int id);					///< Remove uma Turma da Escola
 	void printTurmas();								///< Imprime os dados de todas as Turmas
 
 
@@ -68,7 +68,7 @@ public:
 	bool addDisciplina(string nome, int d, int h);			///< Adiciona uma Disciplina a Escola
 	string showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra
 	bool updateDisciplina(Disciplina * d);					///< Altera a informacao da Disciplina
-	bool removeDisciplina(const string n);					///< Remove uma disciplina da Escola
+	void removeDisciplina(const string n);					///< Remove uma disciplina da Escola
 	void printDisciplinas();								///< Imprime os dados de todas as Disciplinas
 
 	~Escola();

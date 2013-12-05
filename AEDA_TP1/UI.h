@@ -34,9 +34,9 @@ public:
 	void menuListagens();
 
 	////CRUD
-	bool criar(int i);
-	bool ler(int i);
+	void criar(int i);
+	void ler(int i);
 	bool actualizar(int i);
-	bool eliminar(int i);
-	void chooseProfessorType( int & tipoProfessor );
+	void eliminar(int i);
+	int chooseProfessorType();
 };

@@ -50,7 +50,7 @@ bool Professor::removeTurma(const int id){
 		}	
 	}
 
-	throw new TurmaNaoExistente(new Turma(id));
+	throw new TurmaNaoExistente(id);
 }
 /**
  * @brief Destructor for Professor
@@ -108,7 +108,7 @@ bool DirectorTurma::removeTurmaResponsavel(const int id){
 		}	
 	}
 
-	throw TurmaNaoExistente(new Turma(id));
+	throw TurmaNaoExistente(id);
 }
 /**
  * @brief Destructor for DirectorTurma

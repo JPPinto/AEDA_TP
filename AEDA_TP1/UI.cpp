@@ -17,7 +17,7 @@ void UI::init() {
 		cout << "#     Gestao de turmas numa escola     #" << endl;
 		cout << "########################################" << endl << endl;
 		cout << "[1] Manutencao das entidades;" << endl;
-		cout << "[2] Fazer associacoes entre entidades;" << endl;
+		//cout << "[2] Fazer associacoes entre entidades;" << endl;
 		cout << "[3] Listagens;" << endl;
 		cout << "[4] Sair." << endl;
 
@@ -28,7 +28,7 @@ void UI::init() {
 			menuManutencao();
 			break;
 		case 2:
-			menuAssociacoes();
+			//menuAssociacoes();
 			break;
 		case 3:
 			menuListagens();
@@ -135,15 +135,56 @@ void UI::manutencao(int i) {
 			catch(NaoEPossivelAdicionarTurma & e){
 				cout << e.getErro() << endl;
 			}
+			catch(DuracaoExcedida e){
+				cout << e.getErro() << endl;
+			}
+			catch(...){
+				cout<<"ERRO DESCONHECIDO!"<<endl;
+			}
 			break;
 		case 2:
-			//ler(i);
+			try{
+
+				ler(i);
+			}
+			catch(AlunoNaoExistente a){
+				cout<<a.getErro()<<endl;
+			}
+			catch(ProfessorNaoExistente p){
+				cout<<p.getErro()<<endl;
+			}
+			catch(TurmaNaoExistente t){
+				cout<<t.getErro()<<endl;
+			}
+			catch(DisciplinaNaoExistente d){
+				cout<<d.getErro()<<endl;
+			}
+			catch(...){
+				cout<<"ERRO DESCONHECIDO!"<<endl;
+			}
 			break;
 		case 3:
 			//actualizar(i);
 			break;
 		case 4:
-			//eliminar(i);
+			try{
+			eliminar(i);
+			}
+			catch(DisciplinaNaoExistente d){
+				cout<<d.getErro()<<endl;
+			}
+			catch(AlunoNaoExistente d){
+				cout<<d.getErro()<<endl;
+			}
+			catch(ProfessorNaoExistente d){
+				cout<<d.getErro()<<endl;
+			}
+			catch(TurmaNaoExistente d){
+				cout<<d.getErro()<<endl;
+			}
+			catch(...){
+				cout<<"ERRO DESCONHECIDO!"<<endl;
+			}
 			break;
 		case 5:
 			return;
@@ -203,7 +244,7 @@ void UI::menuListagens() {
 
 }
 
-bool UI::criar(int i) {
+void UI::criar(int i) {
 	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0, tipoProfessor = 0, duracao = 0, horaInicio = 0;
 	string nome = "", nome_disciplina = "";
 
@@ -225,20 +266,18 @@ bool UI::criar(int i) {
 
 		escola->addAluno(nome, numero, _temp);
 		cout << "Aluno criado com sucesso!" << endl;
-		return true;
-
 
 	} else if (i == 2) {
 		if(!escola->getDiscipinas().size() || !escola->getTurmas().size()){
 
-			chooseProfessorType(tipoProfessor);
+			tipoProfessor = chooseProfessorType();
 
 			if(tipoProfessor == 3)
-				return false;
+				return;
 
 			if(tipoProfessor == 1)
 				cout << "==PROFESSOR==" << endl;
-			else
+			else if(tipoProfessor == 2)
 				cout << "==DIRECTOR DE TURMA==" << endl;
 
 			cout << "Nome: " << endl;
@@ -257,7 +296,7 @@ bool UI::criar(int i) {
 				escola->addDirector(nome, nome_disciplina, idTurma, idTurmaResponsavel);
 				//escola->addDirector();
 				cout << "\nDirector de Turma criado com sucesso!" << endl;
-				return true;
+				return;
 			}
 
 			escola->addProfessor(nome, nome_disciplina, idTurma);
@@ -288,81 +327,65 @@ bool UI::criar(int i) {
 
 		escola->addDisciplina(nome, duracao, horaInicio);
 	}
-	return true;
 }
 
-void UI::chooseProfessorType( int & tipoProfessor )
+int UI::chooseProfessorType()
 {
-	while(tipoProfessor < 1 && tipoProfessor > 3){
-		cout << "Escolha o tipo de Professor: " << endl;
+	int x = 0;
+	while(x < 1 || x > 3){
+		cout << endl << "Escolha o tipo de Professor: " << endl;
 		cout << "[1] Professor" << endl;
 		cout << "[2] Director de Turma" << endl;
 		cout << "[3] Sair." << endl;
-		cin >> tipoProfessor;
+		cin >> x;
 	}
 
+	return x;
 }
 
-//
-//bool UI::ler(int i) {
-//	int num;
-//	string nome;
-//	if (i == 1) {
-//		if (escola->getAlunos().empty()) {
-//			cout << "Nao existem alunos para ler" << endl;
-//		} else {
-//			cout << "Qual o nome do aluno que pretende ver?" << endl;
-//			getline(cin, nome);
-//			try{
-//				cout << escola->showAluno(escola->getAlunoByNome(nome)) << endl;
-//			}catch(AlunoNaoExistente a){
-//				cout<<a.getErro()<<endl;
-//			}
-//		}
-//		return true;
-//	} else if (i == 2) {
-//		if (escola->getProfessores().empty()) {
-//			cout << "Nao existem professores para ler" << endl;
-//		} else {
-//			cout << "Qual o nome do professor que pretende ver?" << endl;
-//			getline(cin, nome);
-//			try{
-//				cout << escola->showProfessor(escola->getProfessorByNome(nome)) << endl;
-//			}catch(ProfessorNaoExistente p){
-//				cout<<p.getErro()<<endl;
-//			}
-//		}
-//		return true;
-//	} else if (i == 3) {
-//		if (escola->getTurmas().empty()) {
-//			cout << "Nao existem turmas para ler" << endl;
-//		} else {
-//			cout <<"Qual o numero da turma que pretende ver?"<<endl;
-//			cin >> num;
-//			try{
-//				cout << escola->showTurma(escola->getTurmaById(num)) << endl;
-//			}catch(TurmaNaoExistente t){
-//				cout<<t.getErro()<<endl;
-//			}
-//		}
-//		return true;
-//	} else {
-//		if (escola->getDiscipinas().empty()) {
-//			cout << "Nao existem disciplinas para ler" << endl;
-//		} else {
-//			cout <<"Qual o nome da disciplina que pretende ver?"<<endl;
-//			getline(cin, nome);
-//			try{
-//				cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
-//			}catch(DisciplinaNaoExistente d){
-//				cout<<d.getErro()<<endl;
-//			}
-//		}
-//		return true;
-//	}
-//	return false;
-//}
-//
+void UI::ler(int i) {
+
+	int num;
+	string nome;
+
+	if (i == 1) {
+		if (escola->getAlunos().empty()) {
+			cout << "Nao existem alunos para ler!" << endl;
+		} else {
+			cout << "Qual o nome do aluno que pretende ver?" << endl;
+			cin >> nome;
+			cout << escola->showAluno(escola->getAlunoByNome(nome)) << endl;
+		}
+
+	} else if (i == 2) {
+		if (escola->getProfessores().empty()) {
+			cout << "Nao existem professores para ler" << endl;
+		} else {
+			cout << "Qual o nome do professor que pretende ver?" << endl;
+			cin >> nome;
+			cout << escola->showProfessor(escola->getProfessorByNome(nome)) << endl;
+		}
+
+	} else if (i == 3) {
+		if (escola->getTurmas().empty()) {
+			cout << "Nao existem turmas para ler" << endl;
+		} else {
+			cout <<"Qual o numero da turma que pretende ver?"<<endl;
+			cin >> num;
+			cout << escola->showTurma(escola->getTurmaById(num)) << endl;
+		}
+
+	} else if(i == 4){
+		if (escola->getDiscipinas().empty()) {
+			cout << "Nao existem disciplinas para ler" << endl;
+		} else {
+			cout <<"Qual o nome da disciplina que pretende ver?"<<endl;
+			cin >> nome;
+			cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
+		}
+	}
+}
+
 //bool UI::actualizar(int i) {
 //	int idturma, numero, iddisciplina, qtdturmas, anoescolar;
 //	string nome = "";
@@ -399,6 +422,45 @@ void UI::chooseProfessorType( int & tipoProfessor )
 //	return true;
 //}
 //
-//bool UI::eliminar(int i) {
-//	return false;
-//}
+void UI::eliminar(int i) {
+
+	int num;
+	string nome;
+
+	if (i == 1) {
+		if (escola->getAlunos().empty()) {
+			cout << "Nao existem alunos para eliminar!" << endl;
+		} else {
+			cout << "Qual o nome do aluno que pretende eliminar?" << endl;
+			cin >> nome;
+			escola->removeAluno(nome);
+		}
+
+	} else if (i == 2) {
+		if (escola->getProfessores().empty()) {
+			cout << "Nao existem professores para eliminar" << endl;
+		} else {
+			cout << "Qual o nome do professor que pretende eliminar?" << endl;
+			cin >> nome;
+			escola->removeProfessor(nome);
+		}
+
+	} else if (i == 3) {
+		if (escola->getTurmas().empty()) {
+			cout << "Nao existem turmas para eliminar" << endl;
+		} else {
+			cout <<"Qual o numero da turma que pretende eliminar?"<<endl;
+			cin >> num;
+			escola->removeTurma(num);
+		}
+
+	} else if(i == 4){
+		if (escola->getDiscipinas().empty()) {
+			cout << "Nao existem disciplinas para eliminar" << endl;
+		} else {
+			cout <<"Qual o nome da disciplina que pretende eliminar?"<<endl;
+			cin >> nome;
+			escola->removeDisciplina(nome);
+		}
+	}
+}
