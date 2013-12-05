@@ -118,11 +118,23 @@ void UI::manutencao(int i) {
 			try{
 				criar(i);
 			}catch(NaoEPossivelAdicionarAluno &e){
-				cout << e.getError();
+				cout << e.getError() << endl;
 			}
 			catch(TurmaNaoExistente & e){
-				cout << e.getErro();
+				cout << e.getErro() << endl;
 			}		
+			catch(DisciplinaNaoExistente & e){
+				cout << e.getErro() << endl;
+			}
+			catch(NaoEPossivelAdicionarProfessor & e){
+				cout << e.getErro() << endl;
+			}
+			catch(NaoEPossivelAdicionarDisciplina & e){
+				cout << e.getErro() << endl;
+			}
+			catch(NaoEPossivelAdicionarTurma & e){
+				cout << e.getErro() << endl;
+			}
 			break;
 		case 2:
 			//ler(i);
@@ -192,10 +204,8 @@ void UI::menuListagens() {
 }
 
 bool UI::criar(int i) {
-	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0;
-	int tipoProfessor = 0, duracao = 0, horaInicio = 0;
+	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0, tipoProfessor = 0, duracao = 0, horaInicio = 0;
 	string nome = "", nome_disciplina = "";
-	vector<int> profTurmas;
 
 	if (i == 1) {
 		if(!escola->getTurmas().empty()){
@@ -210,9 +220,10 @@ bool UI::criar(int i) {
 			throw NaoEPossivelAdicionarAluno();
 		}
 		Turma * _temp = NULL;
+
 		_temp = escola->getTurmaById(idTurma);
 
-		escola->addAluno(nome, numero, );
+		escola->addAluno(nome, numero, _temp);
 		cout << "Aluno criado com sucesso!" << endl;
 		return true;
 
@@ -242,42 +253,20 @@ bool UI::criar(int i) {
 				cin >> idTurmaResponsavel;
 			}
 
-			Disciplina * _temp = NULL;
-			Turma * _temp2 = NULL;
-
-			_temp = escola->getDisciplinaByNome(nome_disciplina);
-			_temp2 = escola->getTurmaById(idTurma);
-
 			if(tipoProfessor== 2){
-
-				Turma * _temp3 = NULL;
-				_temp3 = escola->getTurmaById(idTurmaResponsavel);
-
-				if(_temp == NULL)
-					cout << "Nome de Disciplina invalido!" << endl;
-				else	if(_temp2 == NULL)
-					cout << "Numero de Turma a leccionar invalido!!" << endl;
-				else    if(_temp3 == NULL)
-					cout << "Numero de Turma responsavel invalido!!" << endl;
-				else {
-					DirectorTurma * _temp_director = new DirectorTurma(nome, _temp, _temp2, _temp3);
-					escola->getProfessores().push_back(_temp_director);
-					cout << "\nDirector de Turma criado com sucesso!" << endl;
-					return true;
-				}
-
+				escola->addDirector(nome, nome_disciplina, idTurma, idTurmaResponsavel);
+				//escola->addDirector();
+				cout << "\nDirector de Turma criado com sucesso!" << endl;
+				return true;
 			}
 
-			if(_temp != NULL && _temp2 != NULL){
-				Professor * professor = new Professor(nome, _temp, _temp2);
-				escola->setProfessores(professor);
-				cout << "Professor criado com sucesso!" << endl;
-			} else if(!_temp)
-				throw DisciplinaNaoExistente(nome_disciplina);	
+			escola->addProfessor(nome, nome_disciplina, idTurma);
+			cout << "Professor criado com sucesso!" << endl;
 
 		} else {
 			throw NaoEPossivelAdicionarProfessor();
 		}
+
 	} else if (i == 3) {
 		cout << "==TURMA==" << endl;
 		cout << "Numero da turma:" << endl;
@@ -285,10 +274,10 @@ bool UI::criar(int i) {
 		cout << "Ano Escolar:" << endl;
 		cin >> anoEscolar;
 
-		Turma * turma = new Turma(idTurma, anoEscolar);
-		escola->setTurmas(turma);
+		escola->addTurma(idTurma, anoEscolar);
 		cout << "Turma criada com sucesso!" << endl;
-	} else {
+
+	} else if(i == 4){
 		cout << "==DISCIPLINA==" << endl;
 		cout << "Nome:" << endl;
 		cin >> nome;
@@ -297,8 +286,7 @@ bool UI::criar(int i) {
 		cout << "Hora de inicio (entre as 8:00 e as 16:00):" << endl;
 		cin >> horaInicio;
 
-		Disciplina * disc = new Disciplina(nome, duracao, horaInicio);
-		escola->getDiscipinas().push_back(disc);
+		escola->addDisciplina(nome, duracao, horaInicio);
 	}
 	return true;
 }

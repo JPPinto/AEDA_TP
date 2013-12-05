@@ -24,7 +24,7 @@ bool Professor::addTurma(Turma * t){
 
 	for(;it != _turmas.end();it++){
 		if((*it)->getID() == t->getID())
-			throw new TurmaExistente(t);
+			throw TurmaExistente(t);
 	}
 
 	_turmas.push_back(t);
@@ -82,7 +82,7 @@ bool DirectorTurma::addTurmaResponsavel(Turma * t){
 
 	for(;it != _turmas_resposaveis.end();it++){
 		if((*it)->getID() == t->getID())
-			throw new TurmaExistente(t);
+			throw TurmaExistente(t);
 	}
 
 	_turmas_resposaveis.push_back(t);
@@ -108,7 +108,7 @@ bool DirectorTurma::removeTurmaResponsavel(const int id){
 		}	
 	}
 
-	throw new TurmaNaoExistente(new Turma(id));
+	throw TurmaNaoExistente(new Turma(id));
 }
 /**
  * @brief Destructor for DirectorTurma

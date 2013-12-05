@@ -26,7 +26,7 @@ public:
 
 	//Aluno	
 	vector<Aluno *> getAlunos();
-	void setAlunos(vector<Aluno*> a);						///< Acrescenta alunos ao vector _alunos
+	void setAlunos(vector<Aluno*> a);				///< Define o vector _alunos
 	Aluno * getAlunoByNome(string n);				///< Devolve o Aluno com o nome igual a n
 
 	bool addAluno(string nome,int numero, Turma* t);///< Adiciona um Aluno a Escola
@@ -37,10 +37,11 @@ public:
 
 	//Professor
 	vector<Professor *> getProfessores();			///< Devolve todos os professores existentes na Escola
-	void setProfessores(vector<Professor*> p);				///< Acrescenta professores ao vector _professores
+	void setProfessores(vector<Professor*> p);		///< Define o vector _professores
 	Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
 	bool addProfessor(string n, string  d,int t);	///< Adiciona um Professor a Escola
+	bool addDirector(string n, string d, int t1, int t2);	///< Adiciona um Director a Escola
 	string showProfessor(Professor * p);			///< Mostra o Professor no ecra
 	bool updateProfessor(Professor * p);			///< Altera a informacao do Professor
 	bool removeProfessor(const string n);			///< Remove um Professor da Escola
@@ -49,7 +50,7 @@ public:
 
 	//Turma
 	vector<Turma *> getTurmas();					///< Devolve todas as turmas existentes na Escola
-	void setTurmas(vector<Turma*> t);						///< Acrescenta turmas ao vector turmas
+	void setTurmas(vector<Turma*> t);				///< Define o vector _turmas
 	Turma * getTurmaById(int id);					///< Devolve a Turma com o id igual a id
 
 	bool addTurma(int id, int anoEscolar);			///< Adiciona uma Turma a Escola
@@ -61,7 +62,7 @@ public:
 
 	//Disciplina
 	vector<Disciplina *> getDiscipinas();					///< Devolve todas as Disciplinas que sao leccionadas na Escola
-	void setDisciplina(Disciplina* d);						///< Acrescenta disciplinas ao vector _disciplinas
+	void setDisciplina(vector<Disciplina *> d);				///< Define o vector _disciplinas
 	Disciplina * getDisciplinaByNome(const string n);		///< Devolve a Disciplina com o nome igual a n
 
 	bool addDisciplina(string nome, int d, int h);			///< Adiciona uma Disciplina a Escola

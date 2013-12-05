@@ -166,10 +166,23 @@ bool Escola::addProfessor(string n, string  d, int t){
 
 	for (int i = 0; i < _professores.size();i++)
 	{
-			if(_professores[i] == p2)
-				throw NaoEPossivelAdicionarProfessor(n);
+		if(_professores[i] == p2)
+			throw NaoEPossivelAdicionarProfessor(n);
 	}
-	
+
+	_professores.push_back(p2);
+	return true;
+}
+
+bool Escola::addDirector(string n, string  d, int t1, int t2){
+	DirectorTurma * p2 = new DirectorTurma(n, getDisciplinaByNome(d), getTurmaById(t1), getTurmaById(t2));
+
+	for (int i = 0; i < _professores.size();i++)
+	{
+		if(_professores[i] == p2)
+			throw NaoEPossivelAdicionarProfessor(n);
+	}
+
 	_professores.push_back(p2);
 	return true;
 }
@@ -371,7 +384,7 @@ void Escola::printTurmas(){
 		cout << endl << "Nao existem Turmas!" << endl;
 	else
 		for(unsigned int i = 0; i < _turmas.size(); i++){
-				_turmas[i]->print();
+			_turmas[i]->print();
 		}
 }
 /** */
@@ -387,8 +400,8 @@ vector<Disciplina *> Escola::getDiscipinas() {
 *
 * @param d
 */
-void Escola::setDisciplina(Disciplina* d){
-	_disciplinas.push_back(d);
+void Escola::setDisciplina(vector<Disciplina *> d){
+	_disciplinas = d;
 }
 /**
 *
@@ -412,7 +425,14 @@ Disciplina * Escola::getDisciplinaByNome(const string n){
 * @return
 */
 bool Escola::addDisciplina(string nome, int d, int h){
+
 	Disciplina * d2 = new Disciplina(nome, d, h);
+
+	for(auto i = 0u; i < _disciplinas.size(); i++){
+		if(_disciplinas[i]->getNome() == d2->getNome())
+			throw NaoEPossivelAdicionarDisciplina(d2->getNome());
+	}
+
 	_disciplinas.push_back(d2);
 	return true;
 }
@@ -482,7 +502,7 @@ void Escola::printDisciplinas(){
 		cout << endl << "Nao existem Disciplinas!" << endl;
 	else
 		for(unsigned int i = 0; i < _disciplinas.size(); i++){
-				_disciplinas[i]->print();
+			_disciplinas[i]->print();
 		}
 }
 

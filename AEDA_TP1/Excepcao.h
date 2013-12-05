@@ -32,7 +32,7 @@ class TurmaNaoExistente
 {
 public:
 	int id;					///< Turma inesxistente
-	TurmaNaoExistente(Turma * t){
+	TurmaNaoExistente(Turma *t){
 		id = t->getID();
 	}
 
@@ -165,7 +165,7 @@ public:
 	NaoEPossivelAdicionarProfessor(string i){
 		id = i;
 	}
-	string getError(){
+	string getErro(){
 		stringstream s;
 
 		if(id != "")
@@ -187,7 +187,7 @@ public:
 	NaoEPossivelAdicionarTurma(int i){
 		id = i;
 	}
-	string getError(){
+	string getErro(){
 		stringstream s;
 
 		if(id != -1)
@@ -196,6 +196,28 @@ public:
 			s << endl << "ERRO: " << "Nao foi possivel adicionar Turma!" << endl;
 
 		return s.str();
+	}
+};
+
+class NaoEPossivelAdicionarDisciplina{
+private:
+	string nome;
+public:
+	NaoEPossivelAdicionarDisciplina(){
+		nome = "";
+	}
+	NaoEPossivelAdicionarDisciplina(string n){
+		nome = n;
+	}
+	string getErro(){
+		stringstream ss;
+
+		if(!nome.size())
+			ss << endl << "ERRO: " << "Ja existe a Disciplina " << nome << " !" << endl;
+		else
+			ss << endl << "ERRO: " << "Nao foi possivel adicionar Disciplina!" << endl;
+
+		return ss.str();
 	}
 };
 
