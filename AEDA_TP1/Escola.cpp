@@ -116,7 +116,7 @@ void Escola::printAlunos(){
 		cout << endl << "Nao existem alunos inscritos!" << endl;
 	else
 		for(unsigned int i = 0; i < _alunos.size(); i++){
-			_alunos[i]->print();
+			cout << _alunos[i]->print();
 		}
 }
 
@@ -252,7 +252,7 @@ void Escola::printProfessores(){
 		cout << endl << "Nao existem Professores inscritos!" << endl;
 	else
 		for(unsigned int i = 0; i < _professores.size(); i++){
-			_professores[i]->print();
+			cout << _professores[i]->print();
 		}
 }
 
@@ -380,7 +380,7 @@ void Escola::printTurmas(){
 		cout << endl << "Nao existem Turmas!" << endl;
 	else
 		for(unsigned int i = 0; i < _turmas.size(); i++){
-			_turmas[i]->print();
+			cout << _turmas[i]->print();
 		}
 }
 /** */
@@ -498,7 +498,7 @@ void Escola::printDisciplinas(){
 		cout << endl << "Nao existem Disciplinas!" << endl;
 	else
 		for(unsigned int i = 0; i < _disciplinas.size(); i++){
-			_disciplinas[i]->print();
+			cout << _disciplinas[i]->print();
 		}
 }
 

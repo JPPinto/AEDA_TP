@@ -4,16 +4,14 @@
 
 using namespace std;
 
-int main() {
-
-	//UI ui = UI();
-
-	//ui.init();
+int main(int argc, char* argv[]) {
 
 	IO io = IO();
+	Escola * escola = io.LoadData(argv[1]);
 
+	UI ui = UI(escola);
 
-	io.LoadData("test.txt");
+	ui.init();
 
 	string x;
 	cin >> x;

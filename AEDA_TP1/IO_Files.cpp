@@ -60,9 +60,10 @@ Escola * IO::LoadData(const string file){
 		for(auto i = 0u; i < _temp.size(); i++){
 
 			replace( _temp[i].begin(), _temp[i].end(), '.', ' ' );
-			cout << _temp[i] << " ";
+			//cout << _temp[i] << " ";
 
-		}cout << endl;
+		}//cout << endl;
+
 
 		try{
 			switch(type){
