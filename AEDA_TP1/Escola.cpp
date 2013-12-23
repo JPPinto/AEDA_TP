@@ -116,7 +116,7 @@ void Escola::printAlunos(){
 		cout << endl << "Nao existem alunos inscritos!" << endl;
 	else
 		for(unsigned int i = 0; i < _alunos.size(); i++){
-			cout << _alunos[i]->print();
+			cout << _alunos[i]->print(); 
 		}
 }
 
