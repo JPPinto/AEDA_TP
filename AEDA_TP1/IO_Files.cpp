@@ -76,7 +76,7 @@ Escola * IO::LoadData(const string file){
 				}
 				break;
 			case 2:
-				escola->addProfessor(_temp[1], _temp[2], stoi(_temp[3]));
+				escola->addProfessor(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]));
 				break;
 			case 3:
 				escola->addTurma(stoi(_temp[1]), stoi(_temp[2]));
@@ -85,14 +85,15 @@ Escola * IO::LoadData(const string file){
 				escola->addDisciplina(_temp[1], stoi(_temp[2]), stoi(_temp[3]));
 				break;
 			case 5:
-				escola->addDirector(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]));
+				escola->addDirector(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]), stoi(_temp[5]));
 				break;
 			default:
 				break;
 			}
-		}catch(...){
+		} 		catch(...){
 			cout << "ERRO DESCONHECIDO!" << endl;
 		}
+		
 
 	}
 	myfile.close();

@@ -241,7 +241,7 @@ void UI::menuListagens() {
 }
 
 void UI::criar(int i) {
-	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0, tipoProfessor = 0, duracao = 0, horaInicio = 0;
+	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0, tipoProfessor = 0, duracao = 0, horaInicio = 0, contacto = 0;
 	string nome = "", nome_disciplina = "";
 
 	if (i == 1) {
@@ -282,17 +282,19 @@ void UI::criar(int i) {
 			cin >> nome_disciplina;
 			cout << "ID de uma Turma de leccionacao: " << endl;
 			cin >> idTurma;
+			cout << "Contacto: " << endl;
+			cin >> contacto;
 
 			if(tipoProfessor == 2){
 				cout << "ID de uma Turma responsavel(pode ser a mesma que a anterior):" << endl;
 				cin >> idTurmaResponsavel;
 
-				escola->addDirector(nome, nome_disciplina, idTurma, idTurmaResponsavel);
+				escola->addDirector(nome, nome_disciplina, idTurma, contacto, idTurmaResponsavel);
 				cout << "\nDirector de Turma criado com sucesso!" << endl;
 				return;
 			}
 
-			escola->addProfessor(nome, nome_disciplina, idTurma);
+			escola->addProfessor(nome, nome_disciplina, idTurma, contacto);
 			cout << "Professor criado com sucesso!" << endl;
 
 		} else {

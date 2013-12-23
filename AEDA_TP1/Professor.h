@@ -35,7 +35,7 @@ protected:
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
 
 public:
-	Professor(string n, Disciplina * d,Turma* t);			///< Construtor de Professor inicializando com o minimo de uma turma
+	Professor(string n, Disciplina * d,Turma* t, long c);			///< Construtor de Professor inicializando com o minimo de uma turma
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
 	bool removeTurma(const int id);							///< Remove uma Turma das do Professor
@@ -62,7 +62,7 @@ private:
 	//Horario _horario_atendimento;			///< Horario de atendimento das turmas responsaveis do DirectorTurma
 
 public:
-	DirectorTurma(string n, Disciplina * d,Turma* t, Turma * t_responsavel);
+	DirectorTurma(string n, Disciplina * d,Turma* t, long c ,Turma * t_responsavel);
 	bool addTurmaResponsavel(Turma * t);
 	bool removeTurmaResponsavel(const int id);
 	bool operator==(DirectorTurma * p2);

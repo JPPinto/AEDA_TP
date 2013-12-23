@@ -40,8 +40,8 @@ public:
 	void setProfessores(vector<Professor*> p);		///< Define o vector _professores
 	Professor * getProfessorByNome(const string n);	///< Devolve o Professor com o nome igual a n
 
-	bool addProfessor(string n, string  d,int t);	///< Adiciona um Professor a Escola
-	bool addDirector(string n, string d, int t1, int t2);	///< Adiciona um Director a Escola
+	bool addProfessor(string n, string  d,int t, long c);	///< Adiciona um Professor a Escola
+	bool addDirector(string n, string d, int t1, long c, int t2);	///< Adiciona um Director a Escola
 	string showProfessor(Professor * p);			///< Mostra o Professor no ecra
 	bool updateProfessor(Professor * p);			///< Altera a informacao do Professor
 	void removeProfessor(const string n);			///< Remove um Professor da Escola

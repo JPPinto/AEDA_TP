@@ -12,9 +12,5 @@ int main(int argc, char* argv[]) {
 	UI ui = UI(escola);
 
 	ui.init();
-
-	string x;
-	cin >> x;
-
 	return 0;
 }

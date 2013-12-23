@@ -12,6 +12,7 @@
 Disciplina::Disciplina(string nome, int d, int h) {
 	this->_nome=nome;
 	setDuracao(d);
+	_hora_inicio = h;
 }
 
 /**

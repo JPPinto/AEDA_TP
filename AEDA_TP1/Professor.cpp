@@ -8,11 +8,12 @@
  * @param d
  * @param t
  */
-Professor::Professor(string n, Disciplina * d,Turma * t):Pessoa(n) {
+Professor::Professor(string n, Disciplina * d,Turma * t, long c):Pessoa(n) {
 	_disciplina = d;
 	bool x = addTurma(t);
 	director_turma = false;
 	addDisciplinaAres(_disciplina);
+	contacto = c;
 }
 /**
  * @brief adds turma t to Professor
@@ -68,7 +69,7 @@ Professor::~Professor() {
  * @param t
  * @param t_responsavel
  */
-DirectorTurma::DirectorTurma(string n, Disciplina * d,Turma* t, Turma * t_responsavel):Professor(n,d,t){
+DirectorTurma::DirectorTurma(string n, Disciplina * d,Turma* t, long c, Turma * t_responsavel):Professor(n,d,t,c){
 	addTurmaResponsavel(t_responsavel);
 	director_turma = true;
 }

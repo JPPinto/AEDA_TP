@@ -149,7 +149,7 @@ Professor * Escola::getProfessorByNome(const string n){
 			return _professores[i];
 		}
 	}
-	Professor* p=new Professor(n, NULL, NULL);
+	Professor* p=new Professor(n, NULL, NULL, 0);
 	throw ProfessorNaoExistente(n);
 }
 /**
@@ -159,8 +159,8 @@ Professor * Escola::getProfessorByNome(const string n){
 * @param t
 * @return
 */
-bool Escola::addProfessor(string n, string  d, int t){
-	Professor * p2 = new Professor(n, getDisciplinaByNome(d), getTurmaById(t));
+bool Escola::addProfessor(string n, string  d, int t, long c){
+	Professor * p2 = new Professor(n, getDisciplinaByNome(d), getTurmaById(t), c);
 
 	for (auto i = 0u; i < _professores.size();i++)
 	{
@@ -172,8 +172,8 @@ bool Escola::addProfessor(string n, string  d, int t){
 	return true;
 }
 
-bool Escola::addDirector(string n, string  d, int t1, int t2){
-	DirectorTurma * p2 = new DirectorTurma(n, getDisciplinaByNome(d), getTurmaById(t1), getTurmaById(t2));
+bool Escola::addDirector(string n, string  d, int t1, long c,int t2){
+	DirectorTurma * p2 = new DirectorTurma(n, getDisciplinaByNome(d), getTurmaById(t1), c, getTurmaById(t2));
 
 	for (auto i = 0u; i < _professores.size();i++)
 	{
@@ -252,6 +252,7 @@ void Escola::printProfessores(){
 		cout << endl << "Nao existem Professores inscritos!" << endl;
 	else
 		for(unsigned int i = 0; i < _professores.size(); i++){
+			if(!_professores[i]->getDirectorTurma())
 			cout << _professores[i]->print();
 		}
 }
@@ -262,7 +263,7 @@ void Escola::printDirectoresTurma(){
 	else
 		for(unsigned int i = 0; i < _professores.size(); i++){
 			if(_professores[i]->getDirectorTurma())
-				_professores[i]->print();
+				cout << _professores[i]->print();
 		}
 }
 
