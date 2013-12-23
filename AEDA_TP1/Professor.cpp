@@ -12,6 +12,7 @@ Professor::Professor(string n, Disciplina * d,Turma * t):Pessoa(n) {
 	_disciplina = d;
 	bool x = addTurma(t);
 	director_turma = false;
+	addDisciplinaAres(_disciplina);
 }
 /**
  * @brief adds turma t to Professor
@@ -137,6 +138,20 @@ string Professor::print(){
 		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
 	}
 	return s.str();
+}
+
+void Professor::addDisciplinaAres(Disciplina * d){
+	if(_d_area.empty())
+		_d_area.push_back(d);
+	else
+	{
+		for(auto i = 0u; i < _d_area.size();i++){
+			if(_d_area[i]->getNome() == d->getNome())
+				throw(DisciplinaExistente(d->getNome()));
+		}
+
+		_d_area.push_back(d);
+	}
 }
 
 string DirectorTurma::print(){

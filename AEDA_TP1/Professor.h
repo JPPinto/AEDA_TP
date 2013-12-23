@@ -26,24 +26,31 @@ public:
 class Professor : public Pessoa{
 
 protected:
-	///< Nome do Professor
+
 	bool director_turma;
 	Disciplina * _disciplina;		///< Disciplina que o Professor lecciona
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
+	vector<Disciplina *> _d_area;	///< Disciplinas da sua area
+	long int contacto;				///< Contacto telefonico
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
+
 public:
 	Professor(string n, Disciplina * d,Turma* t);			///< Construtor de Professor inicializando com o minimo de uma turma
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
 	bool removeTurma(const int id);							///< Remove uma Turma das do Professor
 
-	string print();
-	void setDisciplina(Disciplina * d){_disciplina = d;}
-	Disciplina * getDiscipina()const{return _disciplina;}
-	vector<Turma *> getTurmas()const{return _turmas;}
-	bool operator==(Professor * p2);
-	bool getDirectorTurma(){return director_turma;}
-	virtual ~Professor();
+	string print();											///< Devolve uma string com toda a informacao do Professor
+	void setContacto(const long int c){contacto = c;}		///< Altera o contacto
+	long int getContacto()const{return contacto;}			///< Devolve o contacto
+	void setDisciplina(Disciplina * d){_disciplina = d;}	///< Altera a disciplina que o professor lecciona
+	vector<Disciplina *> getDArea()const{return _d_area;}	///< Devolve as disciplinas da sua area
+	Disciplina * getDiscipina()const{return _disciplina;}	///< Devolve a disciplina que o professor lecciona
+	vector<Turma *> getTurmas()const{return _turmas;}		///< Devolve as turmas que o professor lecciona
+	void addDisciplinaAres(Disciplina *);					///< Adiciona displina as disciplinas da area do Professor
+	bool getDirectorTurma(){return director_turma;}			///< Devolve se este Professor e director de turma
+	bool operator==(Professor * p2);						///< Definicao do operador ==
+	virtual ~Professor();									///< Destrutor de Professor
 
 };
 

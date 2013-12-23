@@ -91,11 +91,11 @@ public:
 	virtual ~ProfessorNaoExistente(){}	///< Destrutor
 };
 
-/// Excepcao lancada quando o Professor a ser acedido nao existe
+/// Excepcao lancada quando a Disciplina a ser acedida nao existe
 class DisciplinaNaoExistente
 {
 public:
-	string disciplina;					///< Nome de disciplina inesxistente
+	string disciplina;					///< Nome de disciplina inexistente
 
 	DisciplinaNaoExistente(string d){
 		disciplina = d;
@@ -106,6 +106,23 @@ public:
 		return s.str();
 	}
 	virtual ~DisciplinaNaoExistente(){}	///< Destrutor
+};
+
+/// Excepcao lancada quando a Disciplina a ser acedida ja existe
+class DisciplinaExistente
+{
+public:
+	string disciplina;					///< Nome de disciplina existente
+
+	DisciplinaExistente(string d){
+		disciplina = d;
+	}
+	string getErro(){				///< Mensagem de erro lancada pela excepcao
+		stringstream s;
+		s << endl << "ERRO: " << "Disciplina: " << disciplina << " ja existe!" << endl;
+		return s.str();
+	}
+	virtual ~DisciplinaExistente(){}	///< Destrutor
 };
 
 /// Excepcao lancada quando na criação de uma nova dsiciplina esta excede os limites de duracao por aula
