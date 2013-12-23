@@ -17,9 +17,8 @@ void UI::init() {
 		cout << "#     Gestao de turmas numa escola     #" << endl;
 		cout << "########################################" << endl << endl;
 		cout << "[1] Manutencao das entidades;" << endl;
-		//cout << "[2] Fazer associacoes entre entidades;" << endl;
-		cout << "[3] Listagens;" << endl;
-		cout << "[4] Sair." << endl;
+		cout << "[2] Listagens;" << endl;
+		cout << "[3] Sair." << endl;
 
 		cin >> opccao;
 
@@ -28,12 +27,9 @@ void UI::init() {
 			menuManutencao();
 			break;
 		case 2:
-			//menuAssociacoes();
-			break;
-		case 3:
 			menuListagens();
 			break;
-		case 4:
+		case 3:
 			return;
 			break;
 		default:
@@ -135,7 +131,7 @@ void UI::manutencao(int i) {
 			catch(NaoEPossivelAdicionarTurma & e){
 				cout << e.getErro() << endl;
 			}
-			catch(DuracaoExcedida e){
+			catch(DuracaoExcedida & e){
 				cout << e.getErro() << endl;
 			}
 			catch(...){
@@ -290,11 +286,8 @@ void UI::criar(int i) {
 			if(tipoProfessor == 2){
 				cout << "ID de uma Turma responsavel(pode ser a mesma que a anterior):" << endl;
 				cin >> idTurmaResponsavel;
-			}
 
-			if(tipoProfessor== 2){
 				escola->addDirector(nome, nome_disciplina, idTurma, idTurmaResponsavel);
-				//escola->addDirector();
 				cout << "\nDirector de Turma criado com sucesso!" << endl;
 				return;
 			}

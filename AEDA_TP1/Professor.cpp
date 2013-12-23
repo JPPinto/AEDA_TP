@@ -132,10 +132,15 @@ bool Professor::operator==(Professor * a2){
  */
 string Professor::print(){
 	stringstream s;
-	s << "Nome: " << getNome() << " - Disciplina Leccionada: " << getDiscipina()->getNome() << ";"<< endl;
+	s << "Nome: " << getNome() << " - Disciplina Leccionada: " << getDiscipina()->getNome() << " - Contacto: "<< contacto << ";" << endl;
 	s << "Turmas em que lecciona:" << endl;
-	for(unsigned int i=0;i< getTurmas().size();i++){
+	for(auto i=0u;i< getTurmas().size();i++){
 		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+	}
+	s << "Disciplina da sua area:" << endl;
+	for(auto i=0u;i< _d_area.size();i++){
+		s << "			Nome: " << _d_area[i]->getNome() << " Duracao: " << _d_area[i]->getDuracao()
+			<< " Hora Inicio: " << _d_area[i]->getHoraInicio() << ";" << endl;
 	}
 	return s.str();
 }
