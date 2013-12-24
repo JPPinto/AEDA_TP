@@ -1,13 +1,7 @@
-/*
- * Aluno.cpp
- *
- *  Created on: 30/09/2013
- *      Author: João
- */
-
 #include "Aluno.h"
 #include "Excepcao.h"
 #include "Escola.h"
+#include <algorithm>
 
 /**
  *
@@ -67,6 +61,19 @@ bool Aluno::operator==(Aluno * a2){
 string Aluno::print(){
 	stringstream s;
 			s << "Nome: " << getNome() << " Numero: " << getNumero()
-					<< " Turma: " << getNumero() << ";" << endl;
+					<< " Turma: " << getTurma()->getID() << ";" << endl;
 			return s.str();
 }
+
+string Aluno::printSaveFormat()const{
+
+	stringstream s;
+
+	string _temp_nome = getNome();
+	replace(_temp_nome.begin(),_temp_nome.end(), ' ', '.');
+
+	s << "Aluno " << _temp_nome << " " << _numero << " " << _turma->getID() << endl;
+
+	return s.str();
+}
+

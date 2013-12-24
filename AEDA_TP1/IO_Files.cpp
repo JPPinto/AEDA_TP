@@ -3,7 +3,6 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-#include <iostream>
 
 Escola * IO::LoadData(const string file){
 
@@ -103,6 +102,36 @@ Escola * IO::LoadData(const string file){
 	return escola;
 }
 
-void IO::SaveData(const string file){
+void IO::SaveData(Escola * escola, const string file){
+
+	ofstream myfile;
+	myfile.open (file, ios::out || ios::trunc);
+
+	if(!myfile){
+		cout << "UNABLE TO OPEN FILE!" << endl;
+		return;
+	}
+
+	for (auto i = 0u; i < escola->getDiscipinas().size();i++)
+	{
+		myfile << escola->getDiscipinas()[i]->printSaveFormat(); 
+	}
+
+	for (auto i = 0u; i < escola->getTurmas().size();i++)
+	{
+		myfile << escola->getTurmas()[i]->printSaveFormat(); 
+	}
+
+	for (auto i = 0u; i < escola->getProfessores().size();i++)
+	{
+		myfile << escola->getProfessores()[i]->printSaveFormat(); 
+	}
+
+	for (auto i = 0u; i < escola->getAlunos().size();i++)
+	{
+		myfile << escola->getAlunos()[i]->printSaveFormat(); 
+	}
+	
+	myfile.close();
 	return;
 }

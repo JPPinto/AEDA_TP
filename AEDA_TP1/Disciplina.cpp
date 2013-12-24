@@ -1,5 +1,6 @@
 #include "Disciplina.h"
 #include "Excepcao.h"
+#include <algorithm>
 
 #define DURACAO_MAX 90
 
@@ -80,4 +81,18 @@ string Disciplina::print(){
 		s << "Nome: " << getNome() << " Duracao: " << getDuracao()
 			<< " Hora Inicio: " << getHoraInicio() << ";" << endl;
 			return s.str();
+}
+
+string Disciplina::printSaveFormat()const{
+
+	stringstream s;
+	s << "Disciplina";
+
+	string _temp_nome = getNome();
+	replace(_temp_nome.begin(),_temp_nome.end(), ' ', '.');
+
+	s << " " << _temp_nome << " " << getDuracao()
+		<< " " << getHoraInicio() << endl;
+
+	return s.str();
 }

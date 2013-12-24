@@ -12,5 +12,9 @@ int main(int argc, char* argv[]) {
 	UI ui = UI(escola);
 
 	ui.init();
+	
+	io.SaveData(escola, argv[1]);
+
+	//io.SaveData(escola, "asd.txt");
 	return 0;
 }

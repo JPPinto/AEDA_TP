@@ -26,6 +26,7 @@ public:
 	void setAnoEscolar(int ae);
 	void setHorario(Horario* h);
 	string print();
+	string printSaveFormat()const;
 
 	bool operator==(Turma * t2);
 };

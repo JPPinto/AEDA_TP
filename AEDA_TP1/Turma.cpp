@@ -83,3 +83,9 @@ string Turma::print(){
 		s << "ID: " << getID() << " Ano Escolar: " << getAnoEscolar() << ";" << endl;
 			return s.str();
 }
+
+string Turma::printSaveFormat()const{
+	stringstream s;
+	s << "Turma " << id << " " << anoEscolar << endl;
+	return s.str();
+}

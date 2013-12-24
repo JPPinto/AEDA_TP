@@ -1,4 +1,5 @@
 #include "UI.h"
+#include <algorithm>
 
 UI::UI(){
 	escola = new Escola();
@@ -249,6 +250,7 @@ void UI::criar(int i) {
 			cout << "==ALUNO==" << endl;
 			cout << "Nome: ";
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << "Numero: ";
 			cin >> numero;
 			cout << "Numero da turma: ";
@@ -278,8 +280,10 @@ void UI::criar(int i) {
 
 			cout << "Nome: " << endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << "Nome da disciplina: " << endl;
 			cin >> nome_disciplina;
+			replace(nome_disciplina.begin(),nome_disciplina.end(), '.', ' ');
 			cout << "ID de uma Turma de leccionacao: " << endl;
 			cin >> idTurma;
 			cout << "Contacto: " << endl;
@@ -315,6 +319,7 @@ void UI::criar(int i) {
 		cout << "==DISCIPLINA==" << endl;
 		cout << "Nome:" << endl;
 		cin >> nome;
+		replace(nome.begin(),nome.end(), '.', ' ');
 		cout << "Duracao da aula (em minutos):" << endl;
 		cin >> duracao;
 		cout << "Hora de inicio (entre as 8:00 e as 16:00):" << endl;
@@ -349,6 +354,7 @@ void UI::ler(int i) {
 		} else {
 			cout << "Qual o nome do aluno que pretende ver?" << endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << escola->showAluno(escola->getAlunoByNome(nome)) << endl;
 		}
 
@@ -358,6 +364,7 @@ void UI::ler(int i) {
 		} else {
 			cout << "Qual o nome do professor que pretende ver?" << endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << escola->showProfessor(escola->getProfessorByNome(nome)) << endl;
 		}
 
@@ -376,6 +383,7 @@ void UI::ler(int i) {
 		} else {
 			cout <<"Qual o nome da disciplina que pretende ver?"<<endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
 		}
 	}
@@ -445,6 +453,7 @@ void UI::eliminar(int i) {
 		} else {
 			cout << "Qual o nome do aluno que pretende eliminar?" << endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			escola->removeAluno(nome);
 		}
 
@@ -454,6 +463,7 @@ void UI::eliminar(int i) {
 		} else {
 			cout << "Qual o nome do professor que pretende eliminar?" << endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			escola->removeProfessor(nome);
 		}
 
@@ -472,6 +482,7 @@ void UI::eliminar(int i) {
 		} else {
 			cout <<"Qual o nome da disciplina que pretende eliminar?"<<endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 			escola->removeDisciplina(nome);
 		}
 	}

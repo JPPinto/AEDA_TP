@@ -10,7 +10,7 @@ class IO {
 public:
 	IO(){}
 	Escola * LoadData(const string file);
-	void SaveData(const string file);
+	void SaveData(Escola * escola, const string file);
 };
 #endif // !1
 

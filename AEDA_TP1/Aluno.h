@@ -27,5 +27,7 @@ public:
 	void setTurma(Turma * t);
 	bool operator==(Aluno * a2);
 	string print();
+	string printSaveFormat()const;
+
 };
 #endif /* ALUNO_H_ */

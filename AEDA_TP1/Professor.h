@@ -50,6 +50,7 @@ public:
 	void addDisciplinaAres(Disciplina *);					///< Adiciona displina as disciplinas da area do Professor
 	bool getDirectorTurma(){return director_turma;}			///< Devolve se este Professor e director de turma
 	bool operator==(Professor * p2);						///< Definicao do operador ==
+	virtual string printSaveFormat()const;					///< Devolve uma string no formato para guardar em ficheiros
 	virtual ~Professor();									///< Destrutor de Professor
 
 };
@@ -66,9 +67,10 @@ public:
 	bool addTurmaResponsavel(Turma * t);
 	bool removeTurmaResponsavel(const int id);
 	bool operator==(DirectorTurma * p2);
+	string printSaveFormat()const;			///< Devolve uma string no formato para guardar em ficheiros
 	string print();
 
-	vector<Turma *> getTurmasResponsaveis(){return _turmas_resposaveis;}
+	vector<Turma *> getTurmasResponsaveis()const {return _turmas_resposaveis;}
 
 	~DirectorTurma();
 };
