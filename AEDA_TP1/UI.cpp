@@ -210,7 +210,7 @@ void UI::menuListagens() {
 		cout << "[3] Listar Directores de Turma (apenas);" << endl;
 		cout << "[4] Listar Disciplinas;" << endl;
 		cout << "[5] Listar Turmas;" << endl;
-		cout << "[6] Sair." << endl;
+		cout << "[6] Voltar." << endl;
 
 		cin >> opccao;
 
@@ -266,7 +266,7 @@ void UI::criar(int i) {
 		cout << "Aluno criado com sucesso!" << endl;
 
 	} else if (i == 2) {
-		if(!escola->getDiscipinas().size() || !escola->getTurmas().size()){
+		if(!escola->emptyDisciplinas() || !escola->emptyTurmas()){
 
 			tipoProfessor = chooseProfessorType();
 

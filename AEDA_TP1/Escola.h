@@ -1,6 +1,8 @@
 #ifndef ESCOLA_H_
 #define ESCOLA_H_
 
+#include <memory.hpp>
+#include <unordered_set>
 #include <iostream>
 #include "Aluno.h"
 #include "Turma.h"
@@ -19,6 +21,7 @@ class Escola
 	vector<Turma*> _turmas;					///< Todas as turmas existentes na Escola
 	//vector<Horario *> _horarios; Não há horarios sem turmas, tem de ser um atributo de Turma
 	vector<Disciplina*> _disciplinas;		///< Todas as disciplinas existentes na Escola
+	tr1::unordered_set<Professor *, Professor::Hash_Prof> _ex_profs;  
 
 public:
 
@@ -48,10 +51,18 @@ public:
 	void printProfessores();						///< Imprime os dados de todos os Professores
 	void printDirectoresTurma();					///< Imprime os dados de todos os Directores de Tuma
 
+	//Ex Professores
+	tr1::unordered_set<Professor *, Professor::Hash_Prof> getExProfessores(){return _ex_profs;}
+	void setExProfessores(tr1::unordered_set<Professor *, Professor::Hash_Prof> ex) {_ex_profs = ex;}
+	Professor * getExProfessorByNome(const string s);
+	void addExProfessor(Professor * prof);			///< Adiciona um professor a tabela de Ex Professores
+	void removerExProfessor(const string n);
+
 	//Turma
 	vector<Turma *> getTurmas();					///< Devolve todas as turmas existentes na Escola
 	void setTurmas(vector<Turma*> t);				///< Define o vector _turmas
 	Turma * getTurmaById(int id);					///< Devolve a Turma com o id igual a id
+	bool emptyTurmas()const{return _turmas.empty();}///< Devolve se _turmas esta vazio
 
 	bool addTurma(int id, int anoEscolar);			///< Adiciona uma Turma a Escola
 	string showTurma(Turma * t);					///< Mostra a Turma no ecra
@@ -64,6 +75,8 @@ public:
 	vector<Disciplina *> getDiscipinas();					///< Devolve todas as Disciplinas que sao leccionadas na Escola
 	void setDisciplina(vector<Disciplina *> d);				///< Define o vector _disciplinas
 	Disciplina * getDisciplinaByNome(const string n);		///< Devolve a Disciplina com o nome igual a n
+	bool emptyDisciplinas()const{							///< Devolve se _turmas esta vazio
+		return _disciplinas.empty();}						
 
 	bool addDisciplina(string nome, int d, int h);			///< Adiciona uma Disciplina a Escola
 	string showDisciplina(Disciplina * d);					///< Mostra a Disciplina no ecra

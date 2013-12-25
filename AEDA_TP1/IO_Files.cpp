@@ -75,7 +75,40 @@ Escola * IO::LoadData(const string file){
 				}
 				break;
 			case 2:
-				escola->addProfessor(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]));
+				{
+					stringstream ssd;
+					ssd << "";
+
+					vector<string> _temp_disciplinas;
+					//Separation of every discipline on a professor
+					for(auto i = 0u; i < _temp[5].size(); i++){
+
+						if(_temp[5][i] == '-' || i == _temp[5].size() - 1){
+
+							if(i == _temp[5].size() - 1)
+								ssd << _temp[5][i];
+
+							_temp_disciplinas.push_back(ssd.str());
+							ssd.str(std::string());
+							continue;
+						}
+						ssd << _temp[5][i];
+					}
+
+// 					for(auto i = 0u; i < _temp_disciplinas.size(); i++){
+// 
+// 						cout << _temp_disciplinas[i] << " ";
+// 
+// 					}cout << endl;
+
+					escola->addProfessor(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]));
+
+					Professor * _temp_prof = escola->getProfessorByNome(_temp[1]);
+
+					for(auto i = 1u; i < _temp_disciplinas.size();i++){
+						_temp_prof->addDisciplinaAres(escola->getDisciplinaByNome(_temp_disciplinas[i]));
+					}
+				}
 				break;
 			case 3:
 				escola->addTurma(stoi(_temp[1]), stoi(_temp[2]));
@@ -84,7 +117,34 @@ Escola * IO::LoadData(const string file){
 				escola->addDisciplina(_temp[1], stoi(_temp[2]), stoi(_temp[3]));
 				break;
 			case 5:
+				{
+				stringstream ssd;
+				ssd << "";
+
+				vector<string> _temp_disciplinas;
+				//Separation of every discipline on a professor
+				for(auto i = 0u; i < _temp[6].size(); i++){
+
+					if(_temp[6][i] == '-' || i == _temp[6].size() - 1){
+
+						if(i == _temp[6].size() - 1)
+							ssd << _temp[6][i];
+
+						_temp_disciplinas.push_back(ssd.str());
+						ssd.str(std::string());
+						continue;
+					}
+					ssd << _temp[6][i];
+				}
+
 				escola->addDirector(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]), stoi(_temp[5]));
+				
+				Professor * _temp_prof = escola->getProfessorByNome(_temp[1]);
+
+				for(auto i = 1u; i < _temp_disciplinas.size();i++){
+					_temp_prof->addDisciplinaAres(escola->getDisciplinaByNome(_temp_disciplinas[i]));
+				}
+				}
 				break;
 			default:
 				break;
@@ -92,9 +152,11 @@ Escola * IO::LoadData(const string file){
 		} 		catch(...){
 			cout << "ERRO DESCONHECIDO!" << endl;
 		}
-		
-
+	
 	}
+	
+	cout << "File " << file << " loaded successfully!" << endl << endl;
+	
 	myfile.close();
 
 	//cout << alunos << endl << profs << endl  << "DT: " << directors << endl << turma << endl << disciplinas << endl;
@@ -131,7 +193,9 @@ void IO::SaveData(Escola * escola, const string file){
 	{
 		myfile << escola->getAlunos()[i]->printSaveFormat(); 
 	}
-	
+
+	cout << "File " << file << " saved sucessufully!" << endl << endl;
+
 	myfile.close();
 	return;
 }

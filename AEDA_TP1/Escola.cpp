@@ -253,7 +253,7 @@ void Escola::printProfessores(){
 	else
 		for(unsigned int i = 0; i < _professores.size(); i++){
 			if(!_professores[i]->getDirectorTurma())
-			cout << _professores[i]->print();
+				cout << _professores[i]->print();
 		}
 }
 
@@ -265,6 +265,50 @@ void Escola::printDirectoresTurma(){
 			if(_professores[i]->getDirectorTurma())
 				cout << _professores[i]->print();
 		}
+}
+
+//Ex Professores
+Professor * Escola::getExProfessorByNome(const string s){
+
+	Professor * _temp = NULL;
+
+	if(s.empty())
+		return _temp;
+
+	for(auto i = 0u;i < getProfessores().size();i++){
+		if(s == getProfessores()[i]->getNome())
+			_temp = getProfessores()[i];
+	}
+
+	return _temp;
+}
+
+void Escola::addExProfessor(Professor * prof){
+
+	auto it = getProfessores().begin();
+
+	for(; it != getProfessores().end(); it++){
+		if((*it) == prof){
+			getExProfessores().insert((*it));
+			getProfessores().erase(it);
+			return;
+		}
+	}
+	throw NaoEPossivelAdicionarProfessor(prof->getNome());
+}
+
+void Escola::removerExProfessor(const string n){
+
+	auto it = getExProfessores().begin();
+
+	for (;it != getExProfessores().end();it++)	{
+		if((*it)->getNome() == n){
+			getExProfessores().erase(it);
+			return;
+		}
+	}
+
+	throw ProfessorNaoExistente(n);
 }
 
 //Turma

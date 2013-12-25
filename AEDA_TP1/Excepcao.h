@@ -233,4 +233,21 @@ public:
 	}
 };
 
+//Excepcao lancada quando o contacto inserido esta fora dos limites possiveis de numeros
+
+class ContactoOutOfBounds{
+
+private:
+	long contacto;
+
+public:
+	ContactoOutOfBounds(long c){
+		contacto = c;
+	}
+	string getError()const{
+		stringstream ss;
+		ss << "Numero inserido (" << contacto  << ") fora dos limites!" << endl; 
+	}
+};
+
 #endif
