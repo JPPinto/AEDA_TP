@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
 	
 	io.SaveData(escola, argv[1]);
 
+	//sleep(2);
+
 	//io.SaveData(escola, "asd.txt");
 	return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef ESCOLA_H_
 #define ESCOLA_H_
 
-#include <memory.hpp>
+//#include <memory.hpp>
 #include <unordered_set>
 #include <iostream>
 #include "Aluno.h"
@@ -56,7 +56,9 @@ public:
 	void setExProfessores(tr1::unordered_set<Professor *, Professor::Hash_Prof> ex) {_ex_profs = ex;}
 	Professor * getExProfessorByNome(const string s);
 	void addExProfessor(Professor * prof);			///< Adiciona um professor a tabela de Ex Professores
-	void removerExProfessor(const string n);
+	void removerExProfessor(const string n);		///< Remove um ex professor da tabela
+	string printExProfessores()const;							///< Imprime os dados de todos os ex professores
+	string printSaveData()const;					///< Imprime os dados de todos os ex professores em format para o ficheiro de output
 
 	//Turma
 	vector<Turma *> getTurmas();					///< Devolve todas as turmas existentes na Escola

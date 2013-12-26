@@ -285,12 +285,15 @@ Professor * Escola::getExProfessorByNome(const string s){
 
 void Escola::addExProfessor(Professor * prof){
 
-	auto it = getProfessores().begin();
+	if(_professores.empty())
+		throw NaoEPossivelAdicionarProfessor(prof->getNome());
 
-	for(; it != getProfessores().end(); it++){
+	auto it = _professores.begin();
+
+	for(; it != _professores.end(); it++){
 		if((*it) == prof){
-			getExProfessores().insert((*it));
-			getProfessores().erase(it);
+			_ex_profs.insert((*it));
+			_professores.erase(it);
 			return;
 		}
 	}
@@ -299,16 +302,29 @@ void Escola::addExProfessor(Professor * prof){
 
 void Escola::removerExProfessor(const string n){
 
-	auto it = getExProfessores().begin();
+	if(_ex_profs.empty())
+		throw ProfessorNaoExistente(n);
 
-	for (;it != getExProfessores().end();it++)	{
+	auto it = _ex_profs.begin();
+
+	for (;it != _ex_profs.end();it++)	{
 		if((*it)->getNome() == n){
-			getExProfessores().erase(it);
+			_ex_profs.erase(it);
 			return;
 		}
 	}
 
 	throw ProfessorNaoExistente(n);
+}
+
+string Escola::printExProfessores()const{
+
+	auto it = _ex_profs.begin();
+
+	for (;it!= _ex_profs.end(); it++)	{
+		cout << (*it)->print();
+	}
+	
 }
 
 //Turma

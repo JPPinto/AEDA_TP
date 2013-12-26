@@ -10,7 +10,6 @@ class Turma {
 
 private:
 	int id, anoEscolar;
-	Horario* horario;
 
 public:
 	Turma();
@@ -20,11 +19,9 @@ public:
 
 	int getID();
 	int getAnoEscolar();
-	Horario* getHorario();
 
 	void setID(int i);
 	void setAnoEscolar(int ae);
-	void setHorario(Horario* h);
 	string print();
 	string printSaveFormat()const;
 

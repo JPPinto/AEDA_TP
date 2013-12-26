@@ -57,20 +57,6 @@ void Turma::setAnoEscolar(int ae){
 }
 /**
  *
- * @return
- */
-Horario* Turma::getHorario(){
-	return horario;
-}
-/**
- *
- * @param h
- */
-void Turma::setHorario(Horario* h){
-
-}
-/**
- *
  * @param t2
  * @return
  */

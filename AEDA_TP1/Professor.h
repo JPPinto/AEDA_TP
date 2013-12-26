@@ -7,6 +7,8 @@
 #include "Turma.h"
 #include "Disciplina.h"
 
+#define HASH_TABLE_SIZE 20
+
 using namespace std;
 /// Classe Base para Professor e Aluno
 class Pessoa {
@@ -31,13 +33,20 @@ protected:
 	Disciplina * _disciplina;		///< Disciplina que o Professor lecciona
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
 	vector<Disciplina *> _d_area;	///< Disciplinas da sua area
-	long int contacto;				///< Contacto telefonico
+	long contacto;					///< Contacto telefonico
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
 
 public:
-	struct Hash_Prof {// 		hash function object class for Thing
-// 				std::size_t operator() (const Professor & t) const
-// 				{ /* compute and return a size_t value using some property of Professor */}
+	struct Hash_Prof {		//hash function object class for Thing
+		std::size_t operator() (const Professor * t) const{
+			int seed = 131; 
+			unsigned long hash = 0;
+			for(auto i = 0u; i < t->getNome().length(); i++)
+			{
+				hash = (hash * seed) + t->getNome()[i];
+			}
+			return hash % HASH_TABLE_SIZE;
+		}
 	};
 	Professor(string n, Disciplina * d,Turma* t, long c);	///< Construtor de Professor inicializando com o minimo de uma turma
 
