@@ -1,5 +1,7 @@
 #include "IO_Files.h"
 #include "UI.h"
+#include <dos.h>
+#include <windows.h>
 
 
 using namespace std;
@@ -15,8 +17,7 @@ int main(int argc, char* argv[]) {
 	
 	io.SaveData(escola, argv[1]);
 
-	//sleep(2);
+	Sleep(1000);
 
-	//io.SaveData(escola, "asd.txt");
 	return 0;
 }

@@ -37,7 +37,8 @@ protected:
 	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
 
 public:
-	struct Hash_Prof {		//hash function object class for Thing
+	struct Hash_Prof {
+		//hash function object class for Thing
 		std::size_t operator() (const Professor * t) const{
 			int seed = 131; 
 			unsigned long hash = 0;
@@ -49,6 +50,7 @@ public:
 		}
 	};
 	Professor(string n, Disciplina * d,Turma* t, long c);	///< Construtor de Professor inicializando com o minimo de uma turma
+	Professor(string n, Disciplina * d, long c);	///< Construtor de Professor inicializando sem turma para colocacao em Ex-Professores
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
 	bool removeTurma(const int id);							///< Remove uma Turma das do Professor
@@ -59,6 +61,7 @@ public:
 	void setDisciplina(Disciplina * d){_disciplina = d;}	///< Altera a disciplina que o professor lecciona
 	vector<Disciplina *> getDArea()const{return _d_area;}	///< Devolve as disciplinas da sua area
 	Disciplina * getDiscipina()const{return _disciplina;}	///< Devolve a disciplina que o professor lecciona
+	void setTurmas(vector<Turma *> t);						///< Substitui o vector de turma actuais por 't'
 	vector<Turma *> getTurmas()const{return _turmas;}		///< Devolve as turmas que o professor lecciona
 	void addDisciplinaAres(Disciplina *);					///< Adiciona displina as disciplinas da area do Professor
 	bool getDirectorTurma(){return director_turma;}			///< Devolve se este Professor e director de turma

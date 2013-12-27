@@ -26,6 +26,7 @@ public:
 	////Manutencao
 	void menuManutencao();
 	void manutencao(int i);
+	void retirarProfessor();
 
 	//Associacao
 	void menuAssociacoes();

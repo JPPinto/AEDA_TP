@@ -95,12 +95,6 @@ Escola * IO::LoadData(const string file){
 						ssd << _temp[5][i];
 					}
 
-// 					for(auto i = 0u; i < _temp_disciplinas.size(); i++){
-// 
-// 						cout << _temp_disciplinas[i] << " ";
-// 
-// 					}cout << endl;
-
 					escola->addProfessor(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]));
 
 					Professor * _temp_prof = escola->getProfessorByNome(_temp[1]);
@@ -173,6 +167,9 @@ void IO::SaveData(Escola * escola, const string file){
 		cout << "UNABLE TO OPEN FILE!" << endl;
 		return;
 	}
+	
+	auto _temp_exProf = escola->getExProfessores();
+	auto it = _temp_exProf.begin();
 
 	for (auto i = 0u; i < escola->getDiscipinas().size();i++)
 	{
@@ -187,6 +184,11 @@ void IO::SaveData(Escola * escola, const string file){
 	for (auto i = 0u; i < escola->getProfessores().size();i++)
 	{
 		myfile << escola->getProfessores()[i]->printSaveFormat(); 
+	}
+
+	for (; it != _temp_exProf.end();it++)
+	{
+		myfile << "ExProfessor " << (*it)->printSaveFormat(); 
 	}
 
 	for (auto i = 0u; i < escola->getAlunos().size();i++)

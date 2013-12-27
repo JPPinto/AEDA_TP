@@ -57,7 +57,7 @@ public:
 	Professor * getExProfessorByNome(const string s);
 	void addExProfessor(Professor * prof);			///< Adiciona um professor a tabela de Ex Professores
 	void removerExProfessor(const string n);		///< Remove um ex professor da tabela
-	string printExProfessores()const;							///< Imprime os dados de todos os ex professores
+	void printExProfessores()const;							///< Imprime os dados de todos os ex professores
 	string printSaveData()const;					///< Imprime os dados de todos os ex professores em format para o ficheiro de output
 
 	//Turma

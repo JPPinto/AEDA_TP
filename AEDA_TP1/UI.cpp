@@ -37,7 +37,7 @@ void UI::init() {
 			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
 			break;
 		}
-	} while (opccao != 4);
+	} while (opccao != 3);
 }
 
 void UI::menuManutencao() {
@@ -51,7 +51,8 @@ void UI::menuManutencao() {
 		cout << "[2] Manutencao de professores e directores de turma;" << endl;
 		cout << "[3] Manutencao de turmas;" << endl;
 		cout << "[4] Manutencao de disciplinas;" << endl;
-		cout << "[5] Voltar." << endl;
+		cout << "[5] Tornar um Professor em Ex_Professor;" << endl;
+		cout << "[6] Voltar." << endl;
 
 		cin >> mmo;
 
@@ -69,13 +70,27 @@ void UI::menuManutencao() {
 			manutencao(4);
 			break;
 		case 5:
+			try{
+			retirarProfessor();
+			}
+			catch(NaoEPossivelAdicionarProfessor & e){
+				cout << e.getErro() << endl;
+			}
+			catch(ProfessorNaoExistente & e){
+				cout << e.getErro() << endl;
+			}
+			catch(...){
+				cout<<"ERRO DESCONHECIDO!"<<endl;
+			}
+			break;
+		case 6:
 			return;
 			break;
 		default:
 			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
 			break;
 		}
-	} while (mmo != 5);
+	} while (mmo != 6);
 }
 
 void UI::manutencao(int i) {
@@ -208,9 +223,10 @@ void UI::menuListagens() {
 		cout << "[1] Listar Alunos;" << endl;
 		cout << "[2] Listar Professores;" << endl;
 		cout << "[3] Listar Directores de Turma (apenas);" << endl;
-		cout << "[4] Listar Disciplinas;" << endl;
-		cout << "[5] Listar Turmas;" << endl;
-		cout << "[6] Voltar." << endl;
+		cout << "[4] Listar Ex-Professores;" << endl;
+		cout << "[5] Listar Disciplinas;" << endl;
+		cout << "[6] Listar Turmas;" << endl;
+		cout << "[7] Voltar." << endl;
 
 		cin >> opccao;
 
@@ -224,20 +240,23 @@ void UI::menuListagens() {
 		case 3:
 			escola->printDirectoresTurma();
 			break;
-		case 4:
+		case 5:
 			escola->printDisciplinas();
 			break;
-		case 5:
-			escola->printTurmas();
+		case 4:
+			escola->printExProfessores();
 			break;
 		case 6:
+			escola->printTurmas();
+			break;
+		case 7:
 			return;
 			break;
 		default:
 			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
 			break;
 		}
-	} while (opccao != 4);
+	} while (opccao != 7);
 
 }
 
@@ -485,5 +504,20 @@ void UI::eliminar(int i) {
 			replace(nome.begin(),nome.end(), '.', ' ');
 			escola->removeDisciplina(nome);
 		}
+	}
+}
+
+void UI::retirarProfessor(){
+
+	string nome = "";
+
+	if (escola->getProfessores().empty()) {
+		cout << "Nao existem professores para ler" << endl;
+	} else {
+		cout << "Qual o nome do professor que pretende retirar?" << endl;
+		cin >> nome;
+		replace(nome.begin(),nome.end(), '.', ' ');
+		escola->addExProfessor(escola->getProfessorByNome(nome));
+		cout << "Professor " << nome << " retirado com sucesso!" << endl;
 	}
 }

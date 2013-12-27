@@ -12,7 +12,14 @@
 */
 Professor::Professor(string n, Disciplina * d,Turma * t, long c):Pessoa(n) {
 	_disciplina = d;
-	bool x = addTurma(t);
+	addTurma(t);
+	director_turma = false;
+	addDisciplinaAres(_disciplina);
+	contacto = c;
+}
+
+Professor::Professor(string n, Disciplina * d, long c):Pessoa(n) {
+	_disciplina = d;
 	director_turma = false;
 	addDisciplinaAres(_disciplina);
 	contacto = c;
@@ -34,6 +41,10 @@ bool Professor::addTurma(Turma * t){
 	_turmas.push_back(t);
 
 	return true;
+}
+
+void Professor::setTurmas(vector<Turma *> t){
+	_turmas = t;
 }
 /**
 *
@@ -147,10 +158,14 @@ string Professor::print(){
 	s << "Nome: " << getNome() << endl;
 	s << "			Disciplina Leccionada: " << getDiscipina()->getNome() << ";" << endl;
 	s << "			Contacto: "<< contacto << ";" << endl;
-	s << "	Turmas em que lecciona:" << endl;
-	for(auto i=0u;i< getTurmas().size();i++){
-		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+
+	if(!_turmas.empty()){
+		s << "	Turmas em que lecciona:" << endl;
+		for(auto i=0u;i< getTurmas().size();i++){
+			s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+		}
 	}
+
 	s << "	Disciplinas da sua area:" << endl;
 	for(auto i=0u;i< _d_area.size();i++){
 		s << "			Nome: " << _d_area[i]->getNome() << " Duracao: " << _d_area[i]->getDuracao()
@@ -178,18 +193,24 @@ string DirectorTurma::print(){
 	s << "Nome: " << getNome() << endl;
 	s << "			Disciplina Leccionada: " << getDiscipina()->getNome() << ";" << endl;
 	s << "			Contacto: "<< contacto << ";" << endl;
-	s << "	Turmas em que lecciona:" << endl;
-	for(unsigned int i=0;i< getTurmas().size();i++){
-		s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+
+	if(!_turmas.empty()){
+		s << "	Turmas em que lecciona:" << endl;
+		for(unsigned int i=0;i< getTurmas().size();i++){
+			s << "			ID: " << getTurmas()[i]->getID() << " Ano: " << getTurmas()[i]->getAnoEscolar() << ";"<< endl;
+		}
 	}
 	s << "	Disciplinas da sua area:" << endl;
 	for(auto i=0u;i< _d_area.size();i++){
 		s << "			Nome: " << _d_area[i]->getNome() << " Duracao: " << _d_area[i]->getDuracao()
 			<< " Hora Inicio: " << _d_area[i]->getHoraInicio() << ";" << endl;
 	}
-	s << "	Turmas responsaveis:" << endl;
-	for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
-		s << "			ID: " << getTurmasResponsaveis()[i]->getID() << " Ano: " << getTurmasResponsaveis()[i]->getAnoEscolar() << ";"<< endl;
+
+	if(!_turmas_resposaveis.empty()){
+		s << "	Turmas responsaveis:" << endl;
+		for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
+			s << "			ID: " << getTurmasResponsaveis()[i]->getID() << " Ano: " << getTurmasResponsaveis()[i]->getAnoEscolar() << ";"<< endl;
+		}
 	}
 	return s.str();
 }
@@ -251,27 +272,27 @@ string DirectorTurma::printSaveFormat()const{
 
 	s << " " << contacto;
 
-		for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
-			s << " " << getTurmasResponsaveis()[i]->getID();
-			if(i != getTurmasResponsaveis().size() - 1)
-				s << "-";
-		}
+	for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
+		s << " " << getTurmasResponsaveis()[i]->getID();
+		if(i != getTurmasResponsaveis().size() - 1)
+			s << "-";
+	}
 
 	s << " ";
 
-		for(auto i=0u;i< _d_area.size();i++){
+	for(auto i=0u;i< _d_area.size();i++){
 
-			string _temp_area = _d_area[i]->getNome();
-			replace(_temp_area.begin(),_temp_area.end(), ' ', '.');
+		string _temp_area = _d_area[i]->getNome();
+		replace(_temp_area.begin(),_temp_area.end(), ' ', '.');
 
-			s << _d_area[i]->getNome();
-			if(i != _d_area.size() - 1)
-				s << "-";
-		}
+		s << _d_area[i]->getNome();
+		if(i != _d_area.size() - 1)
+			s << "-";
+	}
 
 
 
-		s << endl;
+	s << endl;
 
-		return s.str();
+	return s.str();
 }

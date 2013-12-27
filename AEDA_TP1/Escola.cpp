@@ -285,19 +285,24 @@ Professor * Escola::getExProfessorByNome(const string s){
 
 void Escola::addExProfessor(Professor * prof){
 
+	auto _temp_turmas = prof->getTurmas();
+	_temp_turmas.clear();
+
+	prof->setTurmas(_temp_turmas);
+
+	_ex_profs.insert(prof);
+
 	if(_professores.empty())
-		throw NaoEPossivelAdicionarProfessor(prof->getNome());
+		return;
 
 	auto it = _professores.begin();
 
 	for(; it != _professores.end(); it++){
 		if((*it) == prof){
-			_ex_profs.insert((*it));
 			_professores.erase(it);
 			return;
 		}
 	}
-	throw NaoEPossivelAdicionarProfessor(prof->getNome());
 }
 
 void Escola::removerExProfessor(const string n){
@@ -317,14 +322,17 @@ void Escola::removerExProfessor(const string n){
 	throw ProfessorNaoExistente(n);
 }
 
-string Escola::printExProfessores()const{
+void Escola::printExProfessores()const{
+
+	if(_ex_profs.empty())
+		cout << "Nao existem Ex-Professores!" << endl;
 
 	auto it = _ex_profs.begin();
 
 	for (;it!= _ex_profs.end(); it++)	{
 		cout << (*it)->print();
 	}
-	
+
 }
 
 //Turma
