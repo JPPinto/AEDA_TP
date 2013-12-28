@@ -34,7 +34,6 @@ protected:
 	vector<Turma *> _turmas;		///< Turmas em que o Professor lecciona
 	vector<Disciplina *> _d_area;	///< Disciplinas da sua area
 	long contacto;					///< Contacto telefonico
-	//Horario horario;				///< Horario das turmas em que o Professsor lecciona
 
 public:
 	struct Hash_Prof {
@@ -50,7 +49,7 @@ public:
 		}
 	};
 	Professor(string n, Disciplina * d,Turma* t, long c);	///< Construtor de Professor inicializando com o minimo de uma turma
-	Professor(string n, Disciplina * d, long c);	///< Construtor de Professor inicializando sem turma para colocacao em Ex-Professores
+	Professor(string n, Disciplina * d, long c);			///< Construtor de Professor inicializando sem turma para colocacao em Ex-Professores
 
 	bool addTurma(Turma * t);								///< Adiciona uma Turma as do Professor
 	bool removeTurma(const int id);							///< Remove uma Turma das do Professor

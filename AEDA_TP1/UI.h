@@ -23,21 +23,17 @@ public:
 
 	void init();
 	
-	////Manutencao
+	///Manutencao
 	void menuManutencao();
 	void manutencao(int i);
 	void retirarProfessor();
 
-	//Associacao
-	void menuAssociacoes();
-
-	////Listagens
+	///Listagens
 	void menuListagens();
 
-	////CRUD
+	///CRUD
 	void criar(int i);
-	void ler(int i);
-	void actualizar(int i);
+	void seleccionar(int i);
 	void eliminar(int i);
 	int chooseProfessorType();
 };

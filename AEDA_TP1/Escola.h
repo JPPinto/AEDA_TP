@@ -35,7 +35,7 @@ public:
 	bool addAluno(string nome,int numero, Turma* t);///< Adiciona um Aluno a Escola
 	string showAluno(Aluno * a);					///< Mostra o Aluno no ecra
 	bool updateAluno(Aluno * a);					///< Altera informacao do Aluno
-	void removeAluno(string a);					///< Remove um Aluno da Escola
+	void removeAluno(string a);						///< Remove um Aluno da Escola
 	void printAlunos();								///< Imprime os dados de todos os alunos
 
 	//Professor
@@ -57,7 +57,7 @@ public:
 	Professor * getExProfessorByNome(const string s);
 	void addExProfessor(Professor * prof);			///< Adiciona um professor a tabela de Ex Professores
 	void removerExProfessor(const string n);		///< Remove um ex professor da tabela
-	void printExProfessores()const;							///< Imprime os dados de todos os ex professores
+	void printExProfessores()const;					///< Imprime os dados de todos os ex professores
 	string printSaveData()const;					///< Imprime os dados de todos os ex professores em format para o ficheiro de output
 
 	//Turma

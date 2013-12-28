@@ -270,17 +270,14 @@ void Escola::printDirectoresTurma(){
 //Ex Professores
 Professor * Escola::getExProfessorByNome(const string s){
 
-	Professor * _temp = NULL;
+	auto _temp_exprofs = getExProfessores();
 
-	if(s.empty())
-		return _temp;
-
-	for(auto i = 0u;i < getProfessores().size();i++){
-		if(s == getProfessores()[i]->getNome())
-			_temp = getProfessores()[i];
+	for(auto it = _temp_exprofs.begin();it != _temp_exprofs.end();it++){
+		if(s == (*it)->getNome())
+			return (*it);
 	}
 
-	return _temp;
+	throw ProfessorNaoExistente(s);
 }
 
 void Escola::addExProfessor(Professor * prof){

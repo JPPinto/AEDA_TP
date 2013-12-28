@@ -51,7 +51,7 @@ void UI::menuManutencao() {
 		cout << "[2] Manutencao de professores e directores de turma;" << endl;
 		cout << "[3] Manutencao de turmas;" << endl;
 		cout << "[4] Manutencao de disciplinas;" << endl;
-		cout << "[5] Tornar um Professor em Ex_Professor;" << endl;
+		cout << "[5] Manutencao de ex-professores;" << endl;
 		cout << "[6] Voltar." << endl;
 
 		cin >> mmo;
@@ -70,18 +70,7 @@ void UI::menuManutencao() {
 			manutencao(4);
 			break;
 		case 5:
-			try{
-			retirarProfessor();
-			}
-			catch(NaoEPossivelAdicionarProfessor & e){
-				cout << e.getErro() << endl;
-			}
-			catch(ProfessorNaoExistente & e){
-				cout << e.getErro() << endl;
-			}
-			catch(...){
-				cout<<"ERRO DESCONHECIDO!"<<endl;
-			}
+			manutencao(5);
 			break;
 		case 6:
 			return;
@@ -111,17 +100,19 @@ void UI::manutencao(int i) {
 	case 4:
 		entidade = "Disciplina";
 		break;
+	case 5:
+		entidade = "Ex-Professor";
+		break;
 	}
 
 	do {
 		cout << "########################################" << endl;
 		cout << "#     Gestao de turmas numa escola     #" << endl;
 		cout << "########################################" << endl << endl;
-		cout << "1. Adicionar " << entidade << ";" << endl;
-		cout << "2. Seleccionar " << entidade << ";" << endl;
-		cout << "3. Actualizar " << entidade << ";" << endl;
-		cout << "4. Eliminar " << entidade << ";" << endl;
-		cout << "5. Voltar" << "." << endl;
+		cout << "[1] Adicionar " << entidade << ";" << endl;
+		cout << "[2] Seleccionar/Alterar " << entidade << ";" << endl;
+		cout << "[3] Eliminar " << entidade << ";" << endl;
+		cout << "[4] Voltar" << "." << endl;
 
 		cin >> crud;
 
@@ -156,8 +147,7 @@ void UI::manutencao(int i) {
 			break;
 		case 2:
 			try{
-
-				ler(i);
+				seleccionar(i);
 			}
 			catch(AlunoNaoExistente a){
 				cout<<a.getErro()<<endl;
@@ -176,9 +166,6 @@ void UI::manutencao(int i) {
 			}
 			break;
 		case 3:
-			//actualizar(i);
-			break;
-		case 4:
 			try{
 				eliminar(i);
 			}
@@ -198,18 +185,14 @@ void UI::manutencao(int i) {
 				cout<<"ERRO DESCONHECIDO!"<<endl;
 			}
 			break;
-		case 5:
+		case 4:
 			return;
 			break;
 		default:
 			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
 			break;
 		}
-	} while (crud != 5);
-}
-
-void UI::menuAssociacoes() {
-
+	} while (crud != 4);
 }
 
 void UI::menuListagens() {
@@ -345,6 +328,19 @@ void UI::criar(int i) {
 		cin >> horaInicio;
 
 		escola->addDisciplina(nome, duracao, horaInicio);
+	} else if(i == 5){
+		try{
+			retirarProfessor();
+		}
+		catch(NaoEPossivelAdicionarProfessor & e){
+			cout << e.getErro() << endl;
+		}
+		catch(ProfessorNaoExistente & e){
+			cout << e.getErro() << endl;
+		}
+		catch(...){
+			cout<<"ERRO DESCONHECIDO!"<<endl;
+		}
 	}
 }
 
@@ -362,9 +358,9 @@ int UI::chooseProfessorType()
 	return x;
 }
 
-void UI::ler(int i) {
+void UI::seleccionar(int i) {
 
-	int num = 0;
+	int num = 0, opcao = 0, contacto = 0;
 	string nome = "";
 
 	if (i == 1) {
@@ -405,58 +401,51 @@ void UI::ler(int i) {
 			replace(nome.begin(),nome.end(), '.', ' ');
 			cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
 		}
-	}
-}
 
-void UI::actualizar(int i) {
-
-	string nome = "";
-	int num = 0;
-	if (i == 1) {
-		//eliminar o aluno a ser alterado
-		//chamar criar()
-		//se sem sucesso repor o aluno anterior 
-		if (escola->getAlunos().empty()) {
-			cout << "Nao existem alunos para ler!" << endl;
+	} else if(i == 5){
+		if (escola->getExProfessores().empty()) {
+			cout << "Nao existem Ex-Professores para selecionar." << endl;
 		} else {
-			cout << "Qual o nome do aluno que pretende editar?" << endl;
+
+			cout <<"Qual o nome do Ex-Professor que pretende ver/alterar?"<<endl;
 			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
 
-			Aluno * _temp_aluno = escola->getAlunoByNome(nome);
+			Professor * _temp_exprof = escola->getExProfessorByNome(nome);
 
-			cout << escola->showAluno(_temp_aluno) << endl;
+			cout << _temp_exprof->print() << endl;
 
-			escola->removeAluno(_temp_aluno->getNome());
-			cout << "Reinsira as informações do aluno: " << _temp_aluno->getNome() << " ." << endl << endl;
+			do 
+			{
+				cout << "########################################" << endl;
+				cout << "#     Gestao de turmas numa escola     #" << endl;
+				cout << "########################################" << endl << endl;
+				cout << "[1] Alterar nome;" << endl;
+				cout << "[2] Alterar contacto;" << endl;
+				cout << "[3] Voltar." << endl;
 
-			criar(1);
-		}
+				cin >> opcao;
 
-	} else if (i == 2) {
-		if (escola->getProfessores().empty()) {
-			cout << "Nao existem professores para editar" << endl;
-		} else {
-			cout << "Qual o nome do professor que pretende ver?" << endl;
-			cin >> nome;
-			cout << escola->showProfessor(escola->getProfessorByNome(nome)) << endl;
-		}
-
-	} else if (i == 3) {
-		if (escola->getTurmas().empty()) {
-			cout << "Nao existem turmas para editar" << endl;
-		} else {
-			cout <<"Qual o numero da turma que pretende ver?"<<endl;
-			cin >> num;
-			cout << escola->showTurma(escola->getTurmaById(num)) << endl;
-		}
-
-	} else if(i == 4){
-		if (escola->getDiscipinas().empty()) {
-			cout << "Nao existem disciplinas para editar" << endl;
-		} else {
-			cout <<"Qual o nome da disciplina que pretende ver?"<<endl;
-			cin >> nome;
-			cout << escola->showDisciplina(escola->getDisciplinaByNome(nome)) << endl;
+				switch (opcao)
+				{
+				case 1:
+					cout << "Novo nome do Ex_professor " << _temp_exprof->getNome() << ":" << endl;
+					cin >> nome;
+					replace(nome.begin(),nome.end(), '.', ' ');
+					_temp_exprof->setNome(nome);
+					break;
+				case 2:
+					cout << "Novo contacto do Ex_professor " << _temp_exprof->getNome() << ":" << endl;
+					cin >> contacto;
+					_temp_exprof->setContacto(contacto);
+					break;
+				case 3:
+					return;
+					break;
+				default:
+					break;
+				}
+			} while (opcao != 3);
 		}
 	}
 }
@@ -503,6 +492,37 @@ void UI::eliminar(int i) {
 			cin >> nome;
 			replace(nome.begin(),nome.end(), '.', ' ');
 			escola->removeDisciplina(nome);
+		}
+	}else if(i == 5){
+		if (escola->getExProfessores().empty()) {
+			cout << "Nao existem Ex-Professores para selecionar." << endl;
+		} else {
+
+			cout <<"Qual o nome do Ex-Professor que pretende ver/alterar?"<<endl;
+			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
+
+			Professor * _temp_exprof = escola->getExProfessorByNome(nome);
+
+			cout <<_temp_exprof->print() << endl << endl;
+
+			do 
+			{
+				cout << "Tem a certeza que pretende ELIMINAR este Ex-Professor:" << endl;
+				cout << "[1] Sim;" << endl;
+				cout << "[2] Nao, cancelar pedido." << endl;
+
+				cin >> num;
+			} while (num != 1 && num != 2);
+
+			if(num == 1){
+				escola->removerExProfessor(_temp_exprof->getNome());
+				cout << "O Ex-Professor " << _temp_exprof->getNome() << " foi eliminado com sucesso!" << endl << endl;
+				return;
+			}
+			if(num == 2)
+				cout << "Pedido cancelado..." << endl << endl;
+				return;
 		}
 	}
 }
