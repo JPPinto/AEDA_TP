@@ -10,7 +10,7 @@ Escola * IO::LoadData(const string file){
 
 	ifstream myfile;
 	string line;
-	int alunos = 0, profs = 0, turma = 0, disciplinas = 0, directors = 0, type = 0;
+	int alunos = 0, profs = 0, exProfs = 0, turma = 0, disciplinas = 0, directors = 0, type = 0;
 
 	myfile.open (file);
 	//Parsing..
@@ -37,6 +37,10 @@ Escola * IO::LoadData(const string file){
 		else if(line[0] == 'D'){
 			disciplinas++;
 			type = 4;
+		}
+		else if(line[0] == 'E'){
+			exProfs++;
+			type = 6;
 		}
 
 
@@ -112,32 +116,62 @@ Escola * IO::LoadData(const string file){
 				break;
 			case 5:
 				{
-				stringstream ssd;
-				ssd << "";
+					stringstream ssd;
+					ssd << "";
 
-				vector<string> _temp_disciplinas;
-				//Separation of every discipline on a professor
-				for(auto i = 0u; i < _temp[6].size(); i++){
+					vector<string> _temp_disciplinas;
+					//Separation of every discipline on a professor
+					for(auto i = 0u; i < _temp[6].size(); i++){
 
-					if(_temp[6][i] == '-' || i == _temp[6].size() - 1){
+						if(_temp[6][i] == '-' || i == _temp[6].size() - 1){
 
-						if(i == _temp[6].size() - 1)
-							ssd << _temp[6][i];
+							if(i == _temp[6].size() - 1)
+								ssd << _temp[6][i];
 
-						_temp_disciplinas.push_back(ssd.str());
-						ssd.str(std::string());
-						continue;
+							_temp_disciplinas.push_back(ssd.str());
+							ssd.str(std::string());
+							continue;
+						}
+						ssd << _temp[6][i];
 					}
-					ssd << _temp[6][i];
-				}
 
-				escola->addDirector(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]), stoi(_temp[5]));
-				
-				Professor * _temp_prof = escola->getProfessorByNome(_temp[1]);
+					escola->addDirector(_temp[1], _temp[2], stoi(_temp[3]), stoi(_temp[4]), stoi(_temp[5]));
 
-				for(auto i = 1u; i < _temp_disciplinas.size();i++){
-					_temp_prof->addDisciplinaAres(escola->getDisciplinaByNome(_temp_disciplinas[i]));
+					Professor * _temp_prof = escola->getProfessorByNome(_temp[1]);
+
+					for(auto i = 1u; i < _temp_disciplinas.size();i++){
+						_temp_prof->addDisciplinaAres(escola->getDisciplinaByNome(_temp_disciplinas[i]));
+					}
 				}
+				break;
+			case 6:
+				{
+					stringstream ssd;
+					ssd << "";
+
+					vector<string> _temp_disciplinas;
+					//Separation of every discipline on a professor
+					for(auto i = 0u; i < _temp[5].size(); i++){
+
+						if(_temp[5][i] == '-' || i == _temp[5].size() - 1){
+
+							if(i == _temp[5].size() - 1)
+								ssd << _temp[5][i];
+
+							_temp_disciplinas.push_back(ssd.str());
+							ssd.str(std::string());
+							continue;
+						}
+						ssd << _temp[5][i];
+					}
+
+					Professor * _temp_prof = new Professor(_temp[2], escola->getDisciplinaByNome(_temp[3]), stoi(_temp[4]));
+
+					for(auto i = 1u; i < _temp_disciplinas.size();i++){
+						_temp_prof->addDisciplinaAres(escola->getDisciplinaByNome(_temp_disciplinas[i]));
+					}
+
+					escola->addExProfessor(_temp_prof);
 				}
 				break;
 			default:
@@ -146,11 +180,11 @@ Escola * IO::LoadData(const string file){
 		} 		catch(...){
 			cout << "ERRO DESCONHECIDO!" << endl;
 		}
-	
+
 	}
-	
+
 	cout << "File " << file << " loaded successfully!" << endl << endl;
-	
+
 	myfile.close();
 
 	//cout << alunos << endl << profs << endl  << "DT: " << directors << endl << turma << endl << disciplinas << endl;
@@ -167,7 +201,7 @@ void IO::SaveData(Escola * escola, const string file){
 		cout << "UNABLE TO OPEN FILE!" << endl;
 		return;
 	}
-	
+
 	auto _temp_exProf = escola->getExProfessores();
 	auto it = _temp_exProf.begin();
 
