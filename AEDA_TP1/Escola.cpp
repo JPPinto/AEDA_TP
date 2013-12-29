@@ -619,7 +619,7 @@ void Escola::removeLivraria(const string n){
 	bool b = false;
 	vector<Livraria*> tmp;
 
-	for(int i = 0; i < _livrarias.size(); i++){
+	for(auto i = 0u; i < _livrarias.size(); i++){
 		if(_livrarias.top()->getDenominacao() == n){
 			_livrarias.pop();
 			b=true;
