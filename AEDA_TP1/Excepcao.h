@@ -125,6 +125,23 @@ public:
 	virtual ~DisciplinaExistente(){}	///< Destrutor
 };
 
+/// Excepcao lancada quando a Livraria a ser acedida nao existe
+class LivrariaNaoExistente
+{
+public:
+	string livraria;					///< Nome de disciplina inexistente
+
+	LivrariaNaoExistente(string d){
+		livraria = d;
+	}
+	string getErro(){				///< Mensagem de erro lancada pela excepcao
+		stringstream s;
+		s << endl << "ERRO: " << "Livraria: " << livraria << " nao existe!" << endl;
+		return s.str();
+	}
+	virtual ~LivrariaNaoExistente(){}	///< Destrutor
+};
+
 /// Excepcao lancada quando na criação de uma nova dsiciplina esta excede os limites de duracao por aula
 class DuracaoExcedida{
 

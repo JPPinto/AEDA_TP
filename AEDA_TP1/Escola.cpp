@@ -620,6 +620,23 @@ bool Escola::updateLivraria(const string n){
 }
 	
 void Escola::removeLivraria(const string n){
+	bool b = false;
+	vector<Livraria*> tmp;
+
+	for(int i = 0; i < _livrarias.size(); i++){
+		if(_livrarias.top()->getDenominacao() == n){
+			_livrarias.pop();
+			b=true;
+			break;
+		}
+		tmp.push_back(_livrarias.top());
+		_livrarias.pop();
+		i--;
+	}
+	fillLivrarias(tmp);
+
+	if(!b)
+		throw LivrariaNaoExistente(n);
 }
 
 void Escola::printLivraria(){
