@@ -35,6 +35,7 @@ public:
 	void addAnoEscolaridade(int ano);
 
 	bool operator==(Livraria * liv);
+	bool operator<(Livraria * liv);
 	string print();
 };
 #endif
