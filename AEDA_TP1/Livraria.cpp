@@ -63,11 +63,11 @@ bool Livraria::operator==(Livraria * liv){
 string Livraria::print(){
 	stringstream ss;
 	ss<<"Denominacao: "<<denominacao<<" \n	Localizacao: "<<localizacao<<"\n	Area de especialidade: ";
-	for(int i=0;i<especialidade.size();i++){
+	for(auto i = 0u;i<especialidade.size();i++){
 		ss<<especialidade[i]->getNome()<<",";
 	}
 	ss<<"\n		Anos de escolaridade";
-	for(int i=0;i<anoEscolaridade.size();i++){
+	for(auto i = 0u;i<anoEscolaridade.size();i++){
 		ss<<anoEscolaridade[i]<<",";
 	}
 	ss<<"\n";

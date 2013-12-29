@@ -571,20 +571,17 @@ priority_queue<Livraria*> Escola::getLivrarias(){
 void Escola::setLivrarias(priority_queue<Livraria*> livrarias){
 	this->_livrarias=livrarias;
 }
-	
+
 Livraria * Escola::getLivrariaByDenominacao(const string n){
-	vector<Livraria*> tmp;
-	Livraria* l=new Livraria();;
-	for(unsigned int i=0; i<_livrarias.size();i++){
-		if(_livrarias.top()->getDenominacao()==n){
-			l=_livrarias.top();
+	auto _temp = _livrarias;
+
+	while(!_temp.empty()){
+		if(_temp.top()->getDenominacao()==n){
+			return _temp.top();
 		}
-		tmp.push_back(_livrarias.top());
-		_livrarias.pop();
-		i--;
+		_temp.pop();
 	}
-	fillLivrarias(tmp);
-	return l;
+	throw LivrariaNaoExistente(n);
 }
 
 void Escola::fillLivrarias(vector<Livraria*> liv){
@@ -593,46 +590,45 @@ void Escola::fillLivrarias(vector<Livraria*> liv){
 	}
 }
 
-bool Escola::addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a){
-	vector<Livraria*> tmp;
+void Escola::addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a){
+	auto _temp = _livrarias;
 	Livraria * liv=new Livraria(d,l,dis,e,a);
 
-	for(auto i = 0u; i < _livrarias.size(); i++){
-		if(_livrarias.top() == liv){
+	while(!_temp.empty()){
+
+		if(_temp.top() == liv){
 			throw NaoEPossivelAdicionarLivraria(d);
 		}
-		tmp.push_back(_livrarias.top());
-		_livrarias.pop();
-		i--;
+		_temp.pop();
 	}
-	fillLivrarias(tmp);
 
 	_livrarias.push(liv);
-	return true;
 }
-	
+
 bool Escola::updateLivraria(const string n){
 	return false;
 }
-	
-void Escola::removeLivraria(const string n){
-	bool b = false;
-	vector<Livraria*> tmp;
 
-	for(unsigned int i = 0; i < _livrarias.size(); i++){
+void Escola::removeLivraria(const string n){
+	priority_queue<Livraria*> _temp;
+	auto _liv_size = _livrarias.size();
+
+	while(!_livrarias.empty()){
 		if(_livrarias.top()->getDenominacao() == n){
 			_livrarias.pop();
-			b=true;
 			break;
+		}else{
+			_temp.push(_livrarias.top());
+			_livrarias.pop();
 		}
-		tmp.push_back(_livrarias.top());
-		_livrarias.pop();
-		i--;
 	}
-	fillLivrarias(tmp);
-
-	if(!b)
+	if(_temp.size() == _liv_size)
 		throw LivrariaNaoExistente(n);
+
+	while(!_temp.empty()){
+		_livrarias.push(_temp.top());
+		_temp.pop();
+	}	
 }
 
 void Escola::printLivraria(){
@@ -643,7 +639,7 @@ void Escola::printLivraria(){
 	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
 	_livrarias.push(liv);
 	//end
-	
+
 	vector<Livraria*> tmp;
 	for(unsigned int i = 0; i < _livrarias.size(); i++){
 		cout<<_livrarias.top()->print();
