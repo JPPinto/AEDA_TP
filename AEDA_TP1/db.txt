@@ -1,0 +1,24 @@
+Disciplina Matematica 90 800
+Disciplina Lingua.Portuguesa 70 1000
+Disciplina Biologia 90 1130
+Disciplina Geologia 60 1300
+Disciplina Ingles 90 900
+Turma 1 2
+Turma 2 2
+Turma 3 4
+Turma 4 1
+Turma 5 3
+Professor Antonio.Pinto Matematica 2 910000000 Matematica-Biologia
+Professor Luis.Miguel Lingua.Portuguesa 3 910000001 Lingua.Portuguesa
+Professor Joana.Moreira Ingles 2 910000011 Ingles-Lingua.Portuguesa
+Professor Catarina.Santos Geologia 5 910000021 Geologia
+DirectorTurma Antonio.Coelho Biologia 1 910000003 1 Biologia
+ExProfessor Professor Joao.Campos Biologia 910000004 Biologia-Geologia
+ExProfessor Professor Jose.Pinto Ingles 910000005 Ingles-Biologia
+ExProfessor Professor Barbeito.Manto Biologia 910000006 Biologia
+Aluno Joao.Gil 1234 1
+Aluno Joana.Brasil 523 3
+Aluno Quim.dos.Quims 7 2
+Aluno Lana.Del.Rey 87654 5
+Aluno Jonas.Castro 234 3
+Aluno Eduardo.Santos 33 4
