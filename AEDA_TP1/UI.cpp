@@ -568,6 +568,15 @@ void UI::eliminar(int i) {
 				cout << "Pedido cancelado..." << endl << endl;
 				return;
 		}
+	}else if(i == 6){
+		if (escola->getLivrarias().empty()) {
+			cout << "Nao existem livrarias para eliminar" << endl;
+		} else {
+			cout <<"Qual o nome da livraria que pretende eliminar?"<<endl;
+			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
+			escola->removeLivraria(nome);
+		}
 	}
 }
 
