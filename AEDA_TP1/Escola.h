@@ -3,6 +3,7 @@
 
 //#include <memory.hpp>
 #include <unordered_set>
+#include <queue>
 #include <iostream>
 #include "Aluno.h"
 #include "Turma.h"
@@ -10,6 +11,7 @@
 #include "Horario.h"
 #include "Disciplina.h"
 #include "Professor.h"
+#include "Livraria.h"
 
 using namespace std;
 
@@ -21,7 +23,8 @@ class Escola
 	vector<Turma*> _turmas;					///< Todas as turmas existentes na Escola
 	//vector<Horario *> _horarios; Não há horarios sem turmas, tem de ser um atributo de Turma
 	vector<Disciplina*> _disciplinas;		///< Todas as disciplinas existentes na Escola
-	tr1::unordered_set<Professor *, Professor::Hash_Prof> _ex_profs;  
+	tr1::unordered_set<Professor *, Professor::Hash_Prof> _ex_profs;
+	priority_queue<Livraria*> _livrarias;	///< Toda a informacao de livrarias existente na Escola
 
 public:
 
@@ -85,6 +88,17 @@ public:
 	bool updateDisciplina(Disciplina * d);					///< Altera a informacao da Disciplina
 	void removeDisciplina(const string n);					///< Remove uma disciplina da Escola
 	void printDisciplinas();								///< Imprime os dados de todas as Disciplinas
+
+	//livraria
+	priority_queue<Livraria*> getLivrarias();				///< Devolve todas as livrarias com informacao existentes na Escola
+	void setLivrarias(priority_queue<Livraria*> livrarias);	///< Define a queue _livrarias
+	Livraria * getLivrariaByDenominacao(const string n);	///< Devolve a Livraria com a denominacao igual a n
+	void fillLivrarias(vector<Livraria*> liv);				///< Dado o vector liv, preenche a queue livrarias com liv
+
+	bool addLivraria(string d, string l, vector<Disciplina*> e, vector<int> a);	///< Adiciona informacao de mais uma livraria a Escola
+	bool updateLivraria(const string n);					///< Altera a informacao da livraria
+	void removeLivraria(const string n);					///< Remove um informacao de uma livraria da Escola
+	void printLivraria();									///< Imprime os dados de todas as livrarias
 
 	~Escola();
 };

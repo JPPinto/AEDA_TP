@@ -564,5 +564,62 @@ void Escola::printDisciplinas(){
 		}
 }
 
+priority_queue<Livraria*> Escola::getLivrarias(){
+	return _livrarias;
+}
+
+void Escola::setLivrarias(priority_queue<Livraria*> livrarias){
+	this->_livrarias=livrarias;
+}
+	
+Livraria * Escola::getLivrariaByDenominacao(const string n){
+	vector<Livraria*> tmp;
+	Livraria* l=new Livraria();;
+	for(unsigned int i=0; i<_livrarias.size();i++){
+		if(_livrarias.top()->getDenominacao()==n){
+			l=_livrarias.top();
+		}
+		tmp.push_back(_livrarias.top());
+		_livrarias.pop();
+		i--;
+	}
+	fillLivrarias(tmp);
+	return l;
+}
+
+void Escola::fillLivrarias(vector<Livraria*> liv){
+	for(unsigned int i =0; i<liv.size();i++){
+		_livrarias.push(liv[i]);
+	}
+}
+
+bool Escola::addLivraria(string d, string l, vector<Disciplina*> e, vector<int> a){
+	vector<Livraria*> tmp;
+	Livraria * liv=new Livraria(d,l,e,a);
+
+	for(auto i = 0u; i < _livrarias.size(); i++){
+		if(_livrarias.top() == liv){
+			throw NaoEPossivelAdicionarLivraria(d);
+		}
+		tmp.push_back(_livrarias.top());
+		_livrarias.pop();
+		i--;
+	}
+	fillLivrarias(tmp);
+
+	_livrarias.push(liv);
+	return true;
+}
+	
+bool Escola::updateLivraria(const string n){
+	return false;
+}
+	
+void Escola::removeLivraria(const string n){
+}
+
+void Escola::printLivraria(){
+}
+
 Escola::Escola() {
 }
