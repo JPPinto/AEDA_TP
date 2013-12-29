@@ -209,7 +209,8 @@ void UI::menuListagens() {
 		cout << "[4] Listar Ex-Professores;" << endl;
 		cout << "[5] Listar Disciplinas;" << endl;
 		cout << "[6] Listar Turmas;" << endl;
-		cout << "[7] Voltar." << endl;
+		cout << "[7] Listar Livrarias;" << endl;
+		cout << "[8] Voltar." << endl;
 
 		cin >> opccao;
 
@@ -233,6 +234,9 @@ void UI::menuListagens() {
 			escola->printTurmas();
 			break;
 		case 7:
+			escola->printLivraria();
+			break;
+		case 8:
 			return;
 			break;
 		default:

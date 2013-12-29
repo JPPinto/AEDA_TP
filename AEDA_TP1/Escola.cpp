@@ -593,9 +593,9 @@ void Escola::fillLivrarias(vector<Livraria*> liv){
 	}
 }
 
-bool Escola::addLivraria(string d, string l, vector<Disciplina*> e, vector<int> a){
+bool Escola::addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a){
 	vector<Livraria*> tmp;
-	Livraria * liv=new Livraria(d,l,e,a);
+	Livraria * liv=new Livraria(d,l,dis,e,a);
 
 	for(auto i = 0u; i < _livrarias.size(); i++){
 		if(_livrarias.top() == liv){
@@ -619,7 +619,7 @@ void Escola::removeLivraria(const string n){
 	bool b = false;
 	vector<Livraria*> tmp;
 
-	for(auto i = 0u; i < _livrarias.size(); i++){
+	for(unsigned int i = 0; i < _livrarias.size(); i++){
 		if(_livrarias.top()->getDenominacao() == n){
 			_livrarias.pop();
 			b=true;
@@ -636,6 +636,22 @@ void Escola::removeLivraria(const string n){
 }
 
 void Escola::printLivraria(){
+	//begin -- so para testar
+	vector<int> anos;
+	anos.push_back(3);
+	anos.push_back(2);
+	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
+	_livrarias.push(liv);
+	//end
+	
+	vector<Livraria*> tmp;
+	for(unsigned int i = 0; i < _livrarias.size(); i++){
+		cout<<_livrarias.top()->print();
+		tmp.push_back(_livrarias.top());
+		_livrarias.pop();
+		i--;
+	}
+	fillLivrarias(tmp);
 }
 
 Escola::Escola() {
