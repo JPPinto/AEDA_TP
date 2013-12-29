@@ -543,18 +543,14 @@ bool Escola::updateDisciplina(Disciplina * d){
 * @return
 */
 void Escola::removeDisciplina(const string n){
-	bool b = false;
 
 	vector<Disciplina*>::iterator it = _disciplinas.begin();
 
 	for (; it < _disciplinas.end(); it++) {
 		if ((*it)->getNome() == n) {
-			b = true;
-			break;
+			_disciplinas.erase(it);
+			return;
 		}
-	}
-	if(b){
-		_disciplinas.erase(it);
 	}
 	throw DisciplinaNaoExistente(n);
 }

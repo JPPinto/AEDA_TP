@@ -8,6 +8,11 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
+	if(argc != 2){
+		cout << "Usage: <database file>" << endl;
+		return 0;
+	}
+
 	IO io = IO();
 	Escola * escola = io.LoadData(argv[1]);
 
