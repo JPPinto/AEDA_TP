@@ -233,6 +233,21 @@ public:
 	}
 };
 
+/// Excepcao lancada quando nao e possivel adicionar livrarias
+class NaoEPossivelAdicionarLivraria{
+private:
+	string id;
+public:
+	NaoEPossivelAdicionarLivraria(string i){
+		id =i;
+	}
+	string getError(){
+		stringstream s;
+		s << endl << "ERRO: " << "Ja existe a Livraria " << id << " !" << endl;
+		return s.str();
+	}
+};
+
 //Excepcao lancada quando o contacto inserido esta fora dos limites possiveis de numeros
 
 class ContactoOutOfBounds{
