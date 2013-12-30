@@ -94,7 +94,7 @@ public:
 	Livraria * getLivrariaByDenominacao(const string n);	///< Devolve a Livraria com a denominacao igual a n
 	void fillLivrarias(vector<Livraria*> liv);				///< Dado o vector liv, preenche a queue livrarias com liv
 
-	void addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a);	///< Adiciona informacao de mais uma livraria a Escola
+	void addLivraria(Livraria * liv);	///< Adiciona informacao de mais uma livraria a Escola
 	bool updateLivraria(const string n);					///< Altera a informacao da livraria
 	void removeLivraria(const string n);					///< Remove um informacao de uma livraria da Escola
 	void printLivraria();									///< Imprime os dados de todas as livrarias

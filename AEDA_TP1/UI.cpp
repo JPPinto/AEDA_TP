@@ -371,7 +371,7 @@ void UI::criar(int i) {
 		cout << "Quantos areas de especialidade pretende introduzir?"<<endl;
 		cin >> aNum;
 		cout << "Quais as areas de especialidade?" <<endl;
-		for(unsigned int i=0; i<aNum;i++){
+		for(int i=0; i<aNum;i++){
 			cin>>disciplina;
 			dis.push_back(escola->getDisciplinaByNome(disciplina));
 		}
@@ -379,12 +379,13 @@ void UI::criar(int i) {
 		cout << "Quantos anos de escolaridade pretende introduzir?"<<endl;
 		cin >> escNum;
 		cout << "Quais os anos de escolaridade?" <<endl;
-		for(unsigned int i=0; i<escNum;i++){
+		for(int i=0; i<escNum;i++){
 			cin>>ano;
 			anos.push_back(ano);
 		}
 
-		escola->addLivraria(denominacao, localizacao, distancia, dis,anos);
+		Livraria* liv=new Livraria(denominacao, localizacao, distancia, dis,anos);
+		escola->addLivraria(liv);
 	}
 }
 

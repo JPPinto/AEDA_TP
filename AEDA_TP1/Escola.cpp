@@ -590,14 +590,13 @@ void Escola::fillLivrarias(vector<Livraria*> liv){
 	}
 }
 
-void Escola::addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a){
+void Escola::addLivraria(Livraria * liv){
 	auto _temp = _livrarias;
-	Livraria * liv=new Livraria(d,l,dis,e,a);
 
 	while(!_temp.empty()){
 
 		if(_temp.top() == liv){
-			throw NaoEPossivelAdicionarLivraria(d);
+			throw NaoEPossivelAdicionarLivraria(liv->getDenominacao());
 		}
 		_temp.pop();
 	}
