@@ -41,7 +41,7 @@ void UI::init() {
 			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
 			break;
 		}
-	} while (opccao != 3);
+	} while (opccao != 4);
 }
 
 void UI::pesquisarLivrarias(){
