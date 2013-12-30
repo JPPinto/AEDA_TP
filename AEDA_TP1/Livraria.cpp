@@ -61,6 +61,10 @@ bool Livraria::operator==(Livraria * liv){
 	return this->denominacao==liv->getDenominacao();
 }
 	
+bool Livraria::operator<(Livraria * liv){
+	return this->distancia<liv->distancia;
+}
+	
 string Livraria::print(){
 	stringstream ss;
 

@@ -52,7 +52,8 @@ void UI::menuManutencao() {
 		cout << "[3] Manutencao de turmas;" << endl;
 		cout << "[4] Manutencao de disciplinas;" << endl;
 		cout << "[5] Manutencao de ex-professores;" << endl;
-		cout << "[6] Voltar." << endl;
+		cout << "[6] Manutencao de livrarias;" << endl;
+		cout << "[7] Voltar." << endl;
 
 		cin >> mmo;
 
@@ -73,6 +74,9 @@ void UI::menuManutencao() {
 			manutencao(5);
 			break;
 		case 6:
+			manutencao(6);
+			break;
+		case 7:
 			return;
 			break;
 		default:
@@ -102,6 +106,9 @@ void UI::manutencao(int i) {
 		break;
 	case 5:
 		entidade = "Ex-Professor";
+		break;
+	case 6:
+		entidade = "Livraria";
 		break;
 	}
 
@@ -251,6 +258,11 @@ void UI::criar(int i) {
 	int idTurma = 0, numero = 0, idTurmaResponsavel = 0, anoEscolar = 0, tipoProfessor = 0, duracao = 0, horaInicio = 0, contacto = 0;
 	string nome = "", nome_disciplina = "";
 
+	string denominacao, localizacao, disciplina;
+	int distancia, ano;
+	vector<Disciplina*> dis;
+	vector<int> anos;
+
 	if (i == 1) {
 		if(!escola->getTurmas().empty()){
 			cout << "==ALUNO==" << endl;
@@ -345,6 +357,34 @@ void UI::criar(int i) {
 		catch(...){
 			cout<<"ERRO DESCONHECIDO!"<<endl;
 		}
+	}else if(i == 6){
+		cout << "==LIVRARIA==" << endl;
+		cout << "Denominacao:" << endl;
+		cin >> denominacao;
+		cout << "Localizacao:" << endl;
+		cin >> localizacao;
+		cout << "Distancia:" << endl;
+		cin >> distancia;
+
+		int aNum=0, escNum=0;
+
+		cout << "Quantos areas de especialidade pretende introduzir?"<<endl;
+		cin >> aNum;
+		cout << "Quais as areas de especialidade?" <<endl;
+		for(unsigned int i=0; i<aNum;i++){
+			cin>>disciplina;
+			dis.push_back(escola->getDisciplinaByNome(disciplina));
+		}
+
+		cout << "Quantos anos de escolaridade pretende introduzir?"<<endl;
+		cin >> escNum;
+		cout << "Quais os anos de escolaridade?" <<endl;
+		for(unsigned int i=0; i<escNum;i++){
+			cin>>ano;
+			anos.push_back(ano);
+		}
+
+		escola->addLivraria(denominacao, localizacao, distancia, dis,anos);
 	}
 }
 
@@ -527,6 +567,15 @@ void UI::eliminar(int i) {
 			if(num == 2)
 				cout << "Pedido cancelado..." << endl << endl;
 				return;
+		}
+	}else if(i == 6){
+		if (escola->getLivrarias().empty()) {
+			cout << "Nao existem livrarias para eliminar" << endl;
+		} else {
+			cout <<"Qual o nome da livraria que pretende eliminar?"<<endl;
+			cin >> nome;
+			replace(nome.begin(),nome.end(), '.', ' ');
+			escola->removeLivraria(nome);
 		}
 	}
 }
