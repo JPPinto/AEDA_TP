@@ -31,4 +31,7 @@ public:
 	void seleccionar(int i);
 	void eliminar(int i);
 	int chooseProfessorType();
+	
+	///pesquisar livrarias
+	void pesquisarLivrarias();
 };

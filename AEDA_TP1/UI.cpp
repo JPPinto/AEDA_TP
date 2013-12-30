@@ -19,7 +19,8 @@ void UI::init() {
 		cout << "########################################" << endl << endl;
 		cout << "[1] Manutencao das entidades;" << endl;
 		cout << "[2] Listagens;" << endl;
-		cout << "[3] Sair." << endl;
+		cout << "[3] Pesquisar Livrarias;" << endl;
+		cout << "[4] Sair." << endl;
 
 		cin >> opccao;
 
@@ -31,6 +32,9 @@ void UI::init() {
 			menuListagens();
 			break;
 		case 3:
+			pesquisarLivrarias();
+			break;
+		case 4:
 			return;
 			break;
 		default:
@@ -38,6 +42,48 @@ void UI::init() {
 			break;
 		}
 	} while (opccao != 3);
+}
+
+void UI::pesquisarLivrarias(){
+	int opccao;
+	string area;
+	int ano;
+
+	do {
+		cout << "########################################" << endl;
+		cout << "#     Gestao de turmas numa escola     #" << endl;
+		cout << "########################################" << endl << endl;
+		cout << "[1] Pesquisar por disciplina;" << endl;
+		cout << "[2] Pesquisar por ano de escolaridade;" << endl;
+		cout << "[3] Pesquisar;" << endl;
+		cout << "[4] Voltar." << endl;
+
+		cin >> opccao;
+
+		switch (opccao) {
+		case 1:
+			cout << "Qual a area de especialidade?" << endl;
+			cin >> area;
+			cout << escola->pesquisaEspecialidade(area)->print() << endl;
+			break;
+		case 2:
+			cout << "Qual o ano de escolaridade?" << endl;
+			cin >> ano;
+			cout << escola->pesquisaAno(ano)->print() << endl;
+			break;
+		case 3:
+			if(!escola->getLivrarias().empty()){
+				cout << escola->getLivrarias().top()->print() << endl;
+			}
+			break;
+		case 4:
+			return;
+			break;
+		default:
+			cout << "A opccao escolhida nao existe! Escolha outra." << endl;
+			break;
+		}
+	} while (opccao != 4);
 }
 
 void UI::menuManutencao() {

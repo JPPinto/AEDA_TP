@@ -657,5 +657,29 @@ void Escola::printLivraria(){
 	}
 }
 
+Livraria* Escola::pesquisaEspecialidade(string especialidade){
+	auto _temp = _livrarias;
+	while(!_temp.empty()){
+		for(int i=0; i<_temp.top()->getEspecialidade().size();i++){
+			if(_temp.top()->getEspecialidade()[i]->getNome()==especialidade){
+				return _temp.top();
+			}
+		}
+		_temp.pop();
+	}
+}
+	
+Livraria* Escola::pesquisaAno(int ano){
+	auto _temp = _livrarias;
+	while(!_temp.empty()){
+		for(int i=0; i<_temp.top()->getAnoEscolaridade().size();i++){
+			if(_temp.top()->getAnoEscolaridade()[i]==ano){
+				return _temp.top();
+			}
+		}
+		_temp.pop();
+	}
+}
+
 Escola::Escola() {
 }

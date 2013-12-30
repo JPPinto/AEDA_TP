@@ -98,6 +98,8 @@ public:
 	bool updateLivraria(const string n);					///< Altera a informacao da livraria
 	void removeLivraria(const string n);					///< Remove um informacao de uma livraria da Escola
 	void printLivraria();									///< Imprime os dados de todas as livrarias
+	Livraria* pesquisaEspecialidade(string especialidade);  ///< Pesquisa as livrarias por especialidade
+	Livraria* pesquisaAno(int ano);							///< Pesquisa as livrarias por ano de escolaridade
 
 	~Escola();
 };
