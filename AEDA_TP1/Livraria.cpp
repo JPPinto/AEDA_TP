@@ -84,7 +84,7 @@ string Livraria::print(){
 string Livraria::printSaveFormat()const{
 	stringstream s;
 
-	s << "DirectorTurma ";
+	s << "Livraria ";
 	string _temp_nome = denominacao;
 	replace(_temp_nome.begin(),_temp_nome.end(), ' ', '.');
 
