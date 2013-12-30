@@ -40,6 +40,10 @@ void Livraria::setDenominacao(string denominacao){
 void Livraria::setLocalizacao(string localizacao){
 	this->localizacao=localizacao;
 }
+
+void Livraria::setDistancia(int distancia){
+	this->distancia=distancia;
+}
 	
 void Livraria::setEspecialidade(vector<Disciplina*> especialidade){
 	this->especialidade=especialidade;

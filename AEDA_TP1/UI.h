@@ -4,11 +4,6 @@
 #include <vector>
 #include "Excepcao.h"
 #include "Escola.h"
-#include "Aluno.h"
-#include "Professor.h"
-#include "Turma.h"
-#include "Disciplina.h"
-#include "Horario.h"
 
 using namespace std;
 

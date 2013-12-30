@@ -605,7 +605,18 @@ void Escola::addLivraria(Livraria * liv){
 }
 
 bool Escola::updateLivraria(const string n){
-	return false;
+	Livraria* liv=getLivrariaByDenominacao(n);
+	auto _temp = _livrarias;
+
+	while(!_temp.empty()){
+
+		if(_temp.top() == liv){
+			throw LivrariaNaoExistente(liv->getDenominacao());
+		}
+		_temp.pop();
+	}
+
+	_livrarias.push(liv);return false;
 }
 
 void Escola::removeLivraria(const string n){

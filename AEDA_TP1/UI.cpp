@@ -368,7 +368,7 @@ void UI::criar(int i) {
 
 		int aNum=0, escNum=0;
 
-		cout << "Quantos areas de especialidade pretende introduzir?"<<endl;
+		cout << "Quantas areas de especialidade pretende introduzir?"<<endl;
 		cin >> aNum;
 		cout << "Quais as areas de especialidade?" <<endl;
 		for(int i=0; i<aNum;i++){
@@ -405,8 +405,13 @@ int UI::chooseProfessorType()
 
 void UI::seleccionar(int i) {
 
-	int num = 0, opcao = 0, contacto = 0;
+	int num = 0, opcao = 0, contacto = 0, dist=0;
 	string nome = "";
+	
+	int aNum, escNum, ano;
+	string disciplina;
+	vector<Disciplina*> dis;
+	vector<int> anos;
 
 	if (i == 1) {
 		if (escola->getAlunos().empty()) {
@@ -492,6 +497,72 @@ void UI::seleccionar(int i) {
 				}
 			} while (opcao != 3);
 		}
+	}else if(i == 6){
+		cout <<"Qual o nome da Livraria que pretende ver/alterar?"<<endl;
+		cin >> nome;
+		replace(nome.begin(),nome.end(), '.', ' ');
+
+		Livraria* liv=new Livraria();
+		try{
+			liv=escola->getLivrariaByDenominacao(nome);
+		}
+		catch(LivrariaNaoExistente & e){
+			cout << e.getErro() << endl;
+		}
+
+		cout << liv->print() << endl;
+
+		do {
+			cout << "########################################" << endl;
+			cout << "#     Gestao de turmas numa escola     #" << endl;
+			cout << "########################################" << endl << endl;
+			cout << "[1] Alterar localizacao/ distancia;" << endl;
+			cout << "[2] Alterar areas de especialidade;" << endl;
+			cout << "[3] Alterar anos de escolaridade;" << endl;
+			cout << "[4] Voltar." << endl;
+
+			cin >> opcao;
+
+			switch (opcao){
+				case 1:
+					cout << "Nova localizacao da livraria " << liv->getDenominacao() << ":" << endl;
+					cin >> nome;
+					replace(nome.begin(),nome.end(), '.', ' ');
+					cout << "Nova distancia da livraria " << liv->getDenominacao() << " a escola:" << endl;
+					cin >> dist;
+					liv->setLocalizacao(nome);
+					liv->setDistancia(dist);
+					break;
+				case 2:
+					cout << "Novas areas de especialidade da livraria " << liv->getDenominacao() << ":" << endl;
+
+					cout << "Quantas areas de especialidade pretende introduzir?"<<endl;
+					cin >> aNum;
+					cout << "Quais as areas de especialidade?" <<endl;
+					for(int i=0; i<aNum;i++){
+						cin>>disciplina;
+						dis.push_back(escola->getDisciplinaByNome(disciplina));
+					}
+					liv->setEspecialidade(dis);
+					break;
+				case 3:
+					cout << "Novos anos de escolaridade da livraria " << liv->getDenominacao() << ":" << endl;
+					cout << "Quantos anos de escolaridade pretende introduzir?"<<endl;
+					cin >> escNum;
+					cout << "Quais os anos de escolaridade?" <<endl;
+					for(int i=0; i<escNum;i++){
+						cin>>ano;
+						anos.push_back(ano);
+					}
+					liv->setAnoEscolaridade(anos);
+					break;
+				case 4:
+					return;
+					break;
+				default:
+					break;
+			}
+		} while (opcao != 4);
 	}
 }
 
