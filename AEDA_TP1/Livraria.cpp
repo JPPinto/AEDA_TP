@@ -72,7 +72,7 @@ bool Livraria::operator<(Livraria * liv){
 string Livraria::print(){
 	stringstream ss;
 
-	ss<<"Nome: "<<denominacao<<"\n	Localizacao: "<<localizacao<< endl;
+	ss<<"Nome: "<<denominacao<<"\n	Localizacao: "<<localizacao << " " << distancia << "m" << endl;
 	ss <<"	Area de especialidade: " << endl;
 	for(auto i = 0u;i<especialidade.size();i++){
 		ss<< "		" <<especialidade[i]->getNome()<<";" << endl;
