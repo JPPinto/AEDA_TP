@@ -62,7 +62,7 @@ bool Livraria::operator==(Livraria * liv){
 }
 	
 bool Livraria::operator<(Livraria * liv){
-	return this->distancia<liv->distancia;
+	return this->distancia<=liv->distancia;
 }
 	
 string Livraria::print(){

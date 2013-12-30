@@ -5,6 +5,7 @@
 #include <vector>
 #include "Disciplina.h"
 #include <sstream>
+#include <functional>
 
 using namespace std;
 
