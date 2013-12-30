@@ -633,21 +633,18 @@ void Escola::removeLivraria(const string n){
 
 void Escola::printLivraria(){
 	//begin -- so para testar
-	vector<int> anos;
-	anos.push_back(3);
-	anos.push_back(2);
-	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
-	_livrarias.push(liv);
+// 	vector<int> anos;
+// 	anos.push_back(3);
+// 	anos.push_back(2);
+// 	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
+// 	_livrarias.push(liv);
 	//end
 
-	vector<Livraria*> tmp;
-	for(unsigned int i = 0; i < _livrarias.size(); i++){
-		cout<<_livrarias.top()->print();
-		tmp.push_back(_livrarias.top());
-		_livrarias.pop();
-		i--;
+	auto _temp = _livrarias;
+	while(!_temp.empty()){
+		cout<<_temp.top()->print();
+		_temp.pop();
 	}
-	fillLivrarias(tmp);
 }
 
 Escola::Escola() {

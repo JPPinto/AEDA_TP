@@ -230,6 +230,13 @@ void IO::SaveData(Escola * escola, const string file){
 		myfile << escola->getAlunos()[i]->printSaveFormat(); 
 	}
 
+	auto _temp_liv = escola->getLivrarias();
+
+	while(!_temp_liv.empty()){
+		myfile << _temp_liv.top()->printSaveFormat();
+		_temp_liv.pop();
+	}
+
 	cout << "File " << file << " saved sucessufully!" << endl << endl;
 
 	myfile.close();
