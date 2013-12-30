@@ -15,15 +15,21 @@ class Livraria{
 	vector<Disciplina*> especialidade;
 	vector<int> anoEscolaridade;
 public:
+	struct minLivraria : public std::binary_function<Livraria*, Livraria*, bool>{
+		bool operator()(const Livraria* min, const Livraria* max) const{
+			return min<max;
+		}
+	};
+
 	Livraria(void);
 	Livraria(string denominacao, string localizacao, int distancia, vector<Disciplina*> especialidade, vector<int> anoEscolaridade);
 	~Livraria(void);
 
-	string getDenominacao();
-	string getLocalizacao();
-	int getDistancia();
-	vector<Disciplina*> getEspecialidade();
-	vector<int> getAnoEscolaridade();
+	string getDenominacao() const;
+	string getLocalizacao() const;
+	int getDistancia() const;
+	vector<Disciplina*> getEspecialidade() const;
+	vector<int> getAnoEscolaridade() const;
 
 	void setDenominacao(string denominacao);
 	void setLocalizacao(string localizacao);

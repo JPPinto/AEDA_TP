@@ -17,19 +17,19 @@ Livraria::Livraria(string denominacao, string localizacao, int distancia, vector
 Livraria::~Livraria(void){
 }
 
-string Livraria::getDenominacao(){
+string Livraria::getDenominacao() const{
 	return denominacao;
 }
 	
-string Livraria::getLocalizacao(){
+string Livraria::getLocalizacao() const{
 	return localizacao;
 }
 	
-vector<Disciplina*> Livraria::getEspecialidade(){
+vector<Disciplina*> Livraria::getEspecialidade() const{
 	return especialidade;
 }
 	
-vector<int> Livraria::getAnoEscolaridade(){
+vector<int> Livraria::getAnoEscolaridade() const{
 	return anoEscolaridade;
 }
 

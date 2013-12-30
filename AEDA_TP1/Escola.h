@@ -23,7 +23,7 @@ class Escola
 	//vector<Horario *> _horarios; Não há horarios sem turmas, tem de ser um atributo de Turma
 	vector<Disciplina*> _disciplinas;		///< Todas as disciplinas existentes na Escola
 	tr1::unordered_set<Professor *, Professor::Hash_Prof> _ex_profs;
-	priority_queue<Livraria*> _livrarias;	///< Toda a informacao de livrarias existente na Escola
+	priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> _livrarias;	///< Toda a informacao de livrarias existente na Escola
 
 public:
 
@@ -89,8 +89,8 @@ public:
 	void printDisciplinas();								///< Imprime os dados de todas as Disciplinas
 
 	//livraria
-	priority_queue<Livraria*> getLivrarias();				///< Devolve todas as livrarias com informacao existentes na Escola
-	void setLivrarias(priority_queue<Livraria*> livrarias);	///< Define a queue _livrarias
+	priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> getLivrarias();				///< Devolve todas as livrarias com informacao existentes na Escola
+	void setLivrarias(priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> livrarias);	///< Define a queue _livrarias
 	Livraria * getLivrariaByDenominacao(const string n);	///< Devolve a Livraria com a denominacao igual a n
 	void fillLivrarias(vector<Livraria*> liv);				///< Dado o vector liv, preenche a queue livrarias com liv
 

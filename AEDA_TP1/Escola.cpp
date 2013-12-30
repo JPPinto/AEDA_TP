@@ -564,11 +564,11 @@ void Escola::printDisciplinas(){
 		}
 }
 
-priority_queue<Livraria*> Escola::getLivrarias(){
+priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> Escola::getLivrarias(){
 	return _livrarias;
 }
 
-void Escola::setLivrarias(priority_queue<Livraria*> livrarias){
+void Escola::setLivrarias(priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> livrarias){
 	this->_livrarias=livrarias;
 }
 
