@@ -564,11 +564,11 @@ void Escola::printDisciplinas(){
 		}
 }
 
-priority_queue<Livraria*> Escola::getLivrarias(){
+priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> Escola::getLivrarias(){
 	return _livrarias;
 }
 
-void Escola::setLivrarias(priority_queue<Livraria*> livrarias){
+void Escola::setLivrarias(priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> livrarias){
 	this->_livrarias=livrarias;
 }
 
@@ -590,14 +590,13 @@ void Escola::fillLivrarias(vector<Livraria*> liv){
 	}
 }
 
-void Escola::addLivraria(string d, string l, int dis, vector<Disciplina*> e, vector<int> a){
+void Escola::addLivraria(Livraria * liv){
 	auto _temp = _livrarias;
-	Livraria * liv=new Livraria(d,l,dis,e,a);
 
 	while(!_temp.empty()){
 
 		if(_temp.top() == liv){
-			throw NaoEPossivelAdicionarLivraria(d);
+			throw NaoEPossivelAdicionarLivraria(liv->getDenominacao());
 		}
 		_temp.pop();
 	}
