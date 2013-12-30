@@ -10,7 +10,7 @@ Escola * IO::LoadData(const string file){
 
 	ifstream myfile;
 	string line;
-	int alunos = 0, profs = 0, exProfs = 0, turma = 0, disciplinas = 0, directors = 0, type = 0;
+	int alunos = 0, profs = 0, exProfs = 0, turma = 0, disciplinas = 0, directors = 0, livs = 0, type = 0;
 
 	myfile.open (file);
 	//Parsing..
@@ -42,6 +42,10 @@ Escola * IO::LoadData(const string file){
 			exProfs++;
 			type = 6;
 		}
+		else if(line[0] == 'L'){
+			exProfs++;
+			type = 7;
+		}
 
 
 		stringstream ss;
@@ -63,9 +67,9 @@ Escola * IO::LoadData(const string file){
 		for(auto i = 0u; i < _temp.size(); i++){
 
 			replace( _temp[i].begin(), _temp[i].end(), '.', ' ' );
-			//cout << _temp[i] << " ";
+			cout << _temp[i] << " ";
 
-		}//cout << endl;
+		}cout << endl;
 
 
 		try{
@@ -174,6 +178,48 @@ Escola * IO::LoadData(const string file){
 					escola->addExProfessor(_temp_prof);
 				}
 				break;
+			case 7:
+				{
+					stringstream ssd;
+					ssd << "";
+
+					vector<Disciplina *> _temp_disciplinas;
+					//Separation of every discipline_areas on a library
+					for(auto i = 0u; i < _temp[4].size(); i++){
+
+						if(_temp[4][i] == '-' || i == _temp[4].size() - 1){
+
+							if(i == _temp[4].size() - 1)
+								ssd << _temp[4][i];
+
+							_temp_disciplinas.push_back(escola->getDisciplinaByNome(ssd.str()));
+							ssd.str(std::string());
+							continue;
+						}
+						ssd << _temp[4][i];
+					}
+
+					vector<int> _temp_anoEscolaridade;
+					//Separation of every anoEscolaridade on a library
+					for(auto i = 0u; i < _temp[5].size(); i++){
+
+						if(_temp[5][i] == '-' || i == _temp[5].size() - 1){
+
+							if(i == _temp[5].size() - 1)
+								ssd << _temp[5][i];
+
+							_temp_anoEscolaridade.push_back(stoi(ssd.str()));
+							ssd.str(std::string());
+							continue;
+						}
+						ssd << _temp[5][i];
+					}
+
+					Livraria * _temp_liv = new Livraria(_temp[1], _temp[2], stoi(_temp[3]), _temp_disciplinas, _temp_anoEscolaridade);
+
+					escola->addLivraria(_temp_liv);
+				}
+				break;
 			default:
 				break;
 			}
@@ -195,7 +241,7 @@ Escola * IO::LoadData(const string file){
 void IO::SaveData(Escola * escola, const string file){
 
 	ofstream myfile;
-	myfile.open (file, ios::out || ios::trunc);
+	myfile.open (file, ios::out | ios::trunc);
 
 	if(!myfile){
 		cout << "UNABLE TO OPEN FILE!" << endl;

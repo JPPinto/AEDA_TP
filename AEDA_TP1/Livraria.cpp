@@ -75,8 +75,10 @@ string Livraria::print(){
 	}
 	ss<<"	Anos de escolaridade:";
 	for(auto i = 0u;i<anoEscolaridade.size();i++){
-		ss<< "		" << anoEscolaridade[i] <<";" << endl;;
+		ss<< " " << anoEscolaridade[i];
 	}
+
+	ss << endl;
 
 	return ss.str();
 }
@@ -91,7 +93,7 @@ string Livraria::printSaveFormat()const{
 	string _temp_local = localizacao;
 	replace(_temp_local.begin(),_temp_local.end(), ' ', '.');
 
-	s << _temp_nome << " " << _temp_local << " ";
+	s << _temp_nome << " " << _temp_local << " " << distancia << " ";
 
 	for(auto i=0u;i< this->especialidade.size();i++){
 
