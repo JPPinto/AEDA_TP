@@ -36,6 +36,7 @@ public:
 
 	bool operator==(Livraria * liv);
 	string print();
+	string printSaveFormat()const;
 };
 #endif
 

@@ -270,10 +270,10 @@ string DirectorTurma::printSaveFormat()const{
 			s << "-";
 	}
 
-	s << " " << contacto;
+	s << " " << contacto << " ";
 
 	for(unsigned int i=0;i< getTurmasResponsaveis().size();i++){
-		s << " " << getTurmasResponsaveis()[i]->getID();
+		s << getTurmasResponsaveis()[i]->getID();
 		if(i != getTurmasResponsaveis().size() - 1)
 			s << "-";
 	}
@@ -285,12 +285,10 @@ string DirectorTurma::printSaveFormat()const{
 		string _temp_area = _d_area[i]->getNome();
 		replace(_temp_area.begin(),_temp_area.end(), ' ', '.');
 
-		s << _d_area[i]->getNome();
+		s << _temp_area;
 		if(i != _d_area.size() - 1)
 			s << "-";
 	}
-
-
 
 	s << endl;
 

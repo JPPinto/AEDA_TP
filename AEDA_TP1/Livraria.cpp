@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Livraria.h"
 
 
@@ -62,15 +63,54 @@ bool Livraria::operator==(Livraria * liv){
 	
 string Livraria::print(){
 	stringstream ss;
-	ss<<"Denominacao: "<<denominacao<<" \n	Localizacao: "<<localizacao<<"\n	Area de especialidade: ";
+
+	ss<<"Nome: "<<denominacao<<"\n	Localizacao: "<<localizacao<< endl;
+	ss <<"	Area de especialidade: " << endl;
 	for(auto i = 0u;i<especialidade.size();i++){
-		ss<<especialidade[i]->getNome()<<",";
+		ss<< "		" <<especialidade[i]->getNome()<<";" << endl;
 	}
-	ss<<"\n		Anos de escolaridade";
+	ss<<"	Anos de escolaridade:";
 	for(auto i = 0u;i<anoEscolaridade.size();i++){
-		ss<<anoEscolaridade[i]<<",";
+		ss<< "		" << anoEscolaridade[i] <<";" << endl;;
 	}
-	ss<<"\n";
+
 	return ss.str();
+}
+
+string Livraria::printSaveFormat()const{
+	stringstream s;
+
+	s << "DirectorTurma ";
+	string _temp_nome = denominacao;
+	replace(_temp_nome.begin(),_temp_nome.end(), ' ', '.');
+
+	string _temp_local = localizacao;
+	replace(_temp_local.begin(),_temp_local.end(), ' ', '.');
+
+	s << _temp_nome << " " << _temp_local << " ";
+
+	for(auto i=0u;i< this->especialidade.size();i++){
+
+		string _temp_especial = especialidade[i]->getNome();
+		replace(_temp_especial.begin(),_temp_especial.end(), ' ', '.');
+
+		s << _temp_especial;
+		if(i != especialidade.size() - 1)
+			s << "-";
+	}
+	
+	s << " ";
+
+	for(unsigned int i=0;i< anoEscolaridade.size();i++){
+
+		s << anoEscolaridade[i];
+
+		if(i != anoEscolaridade.size() - 1)
+			s << "-";
+	}
+
+	s << endl;
+
+	return s.str();
 }
 
