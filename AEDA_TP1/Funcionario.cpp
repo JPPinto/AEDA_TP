@@ -14,7 +14,7 @@
 
 
 
-Funcionario::Funcionario(string n, long contacto):Pessoa(n){
+Funcionario::Funcionario(string n, long contacto) :Pessoa(n){
 	this->_contacto=contacto;
 }
 
@@ -98,3 +98,6 @@ string Funcionario::printSaveFormat()const{
 }	
 
 
+bool Funcionario::operator<(const Funcionario & f2) const{
+	return getNome() < f2._nome;
+}

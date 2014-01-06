@@ -99,7 +99,8 @@ void UI::menuManutencao() {
 		cout << "[4] Manutencao de disciplinas;" << endl;
 		cout << "[5] Manutencao de ex-professores;" << endl;
 		cout << "[6] Manutencao de livrarias;" << endl;
-		cout << "[7] Voltar." << endl;
+		cout << "[7] Manutencao de Funcionarios;" << endl;
+		cout << "[8] Voltar." << endl;
 
 		cin >> mmo;
 
@@ -123,6 +124,9 @@ void UI::menuManutencao() {
 			manutencao(6);
 			break;
 		case 7:
+			manutencao(7);
+			break;
+		case 8:
 			return;
 			break;
 		default:
@@ -155,6 +159,9 @@ void UI::manutencao(int i) {
 		break;
 	case 6:
 		entidade = "Livraria";
+		break;
+	case 7:
+		entidade = "Funcionario";
 		break;
 	}
 
@@ -263,7 +270,8 @@ void UI::menuListagens() {
 		cout << "[5] Listar Disciplinas;" << endl;
 		cout << "[6] Listar Turmas;" << endl;
 		cout << "[7] Listar Livrarias;" << endl;
-		cout << "[8] Voltar." << endl;
+		cout << "[8] Listar Funcionarios;" << endl;
+		cout << "[9] Voltar." << endl;
 
 		cin >> opccao;
 
@@ -290,6 +298,9 @@ void UI::menuListagens() {
 			escola->printLivraria();
 			break;
 		case 8:
+			escola->printFuncionarios();
+			break;
+		case 9:
 			return;
 			break;
 		default:

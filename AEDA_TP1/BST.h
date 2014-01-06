@@ -45,6 +45,7 @@ class BST
 {
  public:
   explicit BST( const Comparable & notFound );
+  BST();
   BST( const BST & rhs );
   ~BST( );
   

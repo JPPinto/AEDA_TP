@@ -643,11 +643,11 @@ void Escola::removeLivraria(const string n){
 
 void Escola::printLivraria(){
 	//begin -- so para testar
-// 	vector<int> anos;
-// 	anos.push_back(3);
-// 	anos.push_back(2);
-// 	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
-// 	_livrarias.push(liv);
+	// 	vector<int> anos;
+	// 	anos.push_back(3);
+	// 	anos.push_back(2);
+	// 	Livraria* liv=new Livraria("Ainda a definir","E so ver no gps",20,_disciplinas,anos);
+	// 	_livrarias.push(liv);
 	//end
 
 	auto _temp = _livrarias;
@@ -668,7 +668,7 @@ Livraria* Escola::pesquisaEspecialidade(string especialidade){
 		_temp.pop();
 	}
 }
-	
+
 Livraria* Escola::pesquisaAno(int ano){
 	auto _temp = _livrarias;
 	while(!_temp.empty()){
@@ -681,5 +681,67 @@ Livraria* Escola::pesquisaAno(int ano){
 	}
 }
 
+
+BST<Funcionario> Escola::getFuncionarios() const{
+	return arvoreFuncionarios;
+}
+
+
+bool Escola::addFuncionario(string n, long contacto){
+	Funcionario f1(n,contacto);
+	arvoreFuncionarios.insert(f1);
+}
+
+bool Escola::updateFuncionario(Funcionario * f){
+}
+
+
+void Escola::removeFuncionario(const string n){
+	bool found;
+	BSTItrIn<Funcionario> it = arvoreFuncionarios;
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getNome() == n) {
+			found = true;
+			break;
+		}
+
+		it.advance();
+	}
+	if (found){
+		arvoreFuncionarios.remove(it.retrieve());
+	}
+
+}
+
+
+bool Escola::addTurmaFunc(Turma *t, string nome){
+	bool found;
+	BSTItrIn<Funcionario> it = arvoreFuncionarios;
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getNome() == nome) {
+			found = true;
+			break;
+		}
+
+		it.advance();
+	}
+	if (found){
+		it.retrieve().addTurma(t);
+	}
+}
+
+void Escola::printFuncionarios(){
+	bool found;
+	BSTItrIn<Funcionario> it = arvoreFuncionarios;
+	while (!it.isAtEnd())
+	{ 
+		cout << it.retrieve().print();
+		it.advance();
+		found =true;
+	}
+	if(!found){
+		cout << endl << "Nao existem Funcionarios adicionados!" << endl;
+	}
+}
 Escola::Escola() {
 }

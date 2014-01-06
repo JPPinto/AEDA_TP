@@ -11,6 +11,9 @@
 #include "Disciplina.h"
 #include "Professor.h"
 #include "Livraria.h"
+#include "Funcionario.h"
+#include "BST.h"
+#include <memory>
 
 using namespace std;
 
@@ -24,6 +27,9 @@ class Escola
 	vector<Disciplina*> _disciplinas;		///< Todas as disciplinas existentes na Escola
 	tr1::unordered_set<Professor *, Professor::Hash_Prof> _ex_profs;
 	priority_queue<Livraria*, vector<Livraria*>, Livraria::minLivraria> _livrarias;	///< Toda a informacao de livrarias existente na Escola
+	BST<Funcionario> arvoreFuncionarios  ;	// BST Funcionarios da Escola
+
+
 
 public:
 
@@ -100,6 +106,15 @@ public:
 	void printLivraria();									///< Imprime os dados de todas as livrarias
 	Livraria* pesquisaEspecialidade(string especialidade);  ///< Pesquisa as livrarias por especialidade
 	Livraria* pesquisaAno(int ano);							///< Pesquisa as livrarias por ano de escolaridade
+
+	//Funcionario
+	BST<Funcionario> getFuncionarios() const;               ///< Devolve BST com todos os funcionarios da Escola
+	bool addFuncionario(string n, long contacto);           ///< Adiciona um Funcionario a Escola
+	bool updateFuncionario(Funcionario * f);				///< Altera a informacao do Funcionario
+	void removeFuncionario(const string n);					///< Remove um Funcionario da Escola
+	bool addTurmaFunc(Turma *t, string nome);                            ///< Adiciona turma a ser supervisionada pelo Funcionario da Escola
+	void printFuncionarios();								///< Imprime os dados de todos os Funcionarios
+
 
 	~Escola();
 };
